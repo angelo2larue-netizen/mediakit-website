@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RVLT SUPPLY — Streetwear for the Next Era</title>
+  <meta name="description" content="RVLT SUPPLY — Limited drops. No restocks. Premium Y2K streetwear for the bold." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="loader-inner">
+      <span class="loader-brand">RVLT</span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">RVLT<span class="accent">.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#story">Story</a></li>
+        <li><a href="#drops">Drops</a></li>
+        <li><a href="#lookbook">Lookbook</a></li>
+        <li><a href="#community">Community</a></li>
+        <li><a href="#collab">Collab</a></li>
+        <li><a href="#mediakit">Media Kit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-noise"></div>
+    <div class="hero-content">
+      <p class="hero-tag reveal">SEASON 04 — LIMITED SUPPLY</p>
+      <h1 class="hero-title">
+        <span class="title-line reveal">REVOLT</span>
+        <span class="title-line reveal">AGAINST</span>
+        <span class="title-line outline reveal">ORDINARY<span class="accent">.</span></span>
+      </h1>
+      <p class="hero-sub reveal">Premium streetwear. Limited drops. No restocks. Ever.</p>
+      <div class="hero-cta reveal">
+        <a href="#drops" class="btn btn-primary">VIEW LATEST DROP</a>
+        <a href="#story" class="btn btn-ghost">OUR STORY</a>
+      </div>
+      <div class="hero-scroll reveal">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat">
+        <span class="stat-num" data-count="47">0</span><span class="stat-suffix">K+</span>
+        <span class="stat-label">Community</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="12">0</span>
+        <span class="stat-label">Drops Sold Out</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="100">0</span><span class="stat-suffix">%</span>
+        <span class="stat-label">Sell-Through Rate</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee">
+      <span>NO RESTOCK &mdash; LIMITED DROPS &mdash; STREET LUXURY &mdash; Y2K ENERGY &mdash; HYPE OR NOTHING &mdash; REVOLT SUPPLY &mdash; SOLD OUT IS FOREVER &mdash; NO RESTOCK &mdash; LIMITED DROPS &mdash; STREET LUXURY &mdash; Y2K ENERGY &mdash; HYPE OR NOTHING &mdash;</span>
+    </div>
+  </div>
+
+  <!-- BRAND STORY -->
+  <section id="story" class="section">
+    <div class="container">
+      <div class="section-label reveal">01 / MANIFESTO</div>
+      <div class="story-grid">
+        <div class="story-text">
+          <h2 class="section-title reveal">WE DON'T FOLLOW<br/>THE CULTURE.<br/><span class="outline-text">WE SET IT<span class="accent">.</span></span></h2>
+          <p class="story-body reveal">
+            RVLT SUPPLY was born in the back rooms and late nights of a generation that refused to dress like everyone else.
+            We don't do mass production. We don't do restocks. Every piece is a statement &mdash; designed for the ones who move different.
+          </p>
+          <p class="story-body reveal">
+            Our roots are in Y2K nostalgia fused with modern street culture. We pull from the raw energy of underground scenes,
+            the boldness of early-2000s fashion, and the exclusivity of true limited-edition craft. If you know, you know.
+          </p>
+          <p class="story-body reveal">
+            This isn't just clothing. It's a revolt against ordinary. Against fast fashion. Against fitting in.
+            Every drop tells a story. Every piece earns its place. Welcome to the movement.
+          </p>
+        </div>
+        <div class="story-visual reveal">
+          <div class="story-image-placeholder">
+            <span class="placeholder-text">RVLT</span>
+            <span class="placeholder-sub">EST. 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DROPS -->
+  <section id="drops" class="section section-dark">
+    <div class="container">
+      <div class="section-label reveal">02 / DROPS</div>
+      <h2 class="section-title reveal">UPCOMING<br/><span class="outline-text">RELEASES<span class="accent">.</span></span></h2>
+
+      <!-- COUNTDOWN -->
+      <div class="drop-countdown reveal">
+        <p class="countdown-label">NEXT DROP IN</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-days">00</span>
+            <span class="countdown-txt">DAYS</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-hours">00</span>
+            <span class="countdown-txt">HOURS</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-mins">00</span>
+            <span class="countdown-txt">MINS</span>
+          </div>
+          <div class="countdown-sep">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cd-secs">00</span>
+            <span class="countdown-txt">SECS</span>
+          </div>
+        </div>
+        <p class="countdown-note">Sign up below to get early access.</p>
+      </div>
+
+      <!-- DROP CARDS -->
+      <div class="drops-grid">
+        <div class="drop-card reveal">
+          <div class="drop-img">
+            <div class="drop-placeholder">
+              <span>01</span>
+            </div>
+            <span class="drop-badge sold">SOLD OUT</span>
+          </div>
+          <div class="drop-info">
+            <h3>PHANTOM TEE</h3>
+            <p>Drop 001 &mdash; Phantom Collection</p>
+            <span class="drop-price">&pound;85</span>
+          </div>
+        </div>
+        <div class="drop-card reveal">
+          <div class="drop-img">
+            <div class="drop-placeholder">
+              <span>02</span>
+            </div>
+            <span class="drop-badge sold">SOLD OUT</span>
+          </div>
+          <div class="drop-info">
+            <h3>SHADOW CARGO</h3>
+            <p>Drop 002 &mdash; Nightshift Series</p>
+            <span class="drop-price">&pound;145</span>
+          </div>
+        </div>
+        <div class="drop-card reveal">
+          <div class="drop-img">
+            <div class="drop-placeholder">
+              <span>03</span>
+            </div>
+            <span class="drop-badge upcoming">COMING SOON</span>
+          </div>
+          <div class="drop-info">
+            <h3>REVOLT HOODIE</h3>
+            <p>Drop 003 &mdash; Core Collection</p>
+            <span class="drop-price">&pound;120</span>
+          </div>
+        </div>
+        <div class="drop-card reveal">
+          <div class="drop-img">
+            <div class="drop-placeholder">
+              <span>04</span>
+            </div>
+            <span class="drop-badge upcoming">COMING SOON</span>
+          </div>
+          <div class="drop-info">
+            <h3>Y2K BOMBER</h3>
+            <p>Drop 004 &mdash; Archive Edition</p>
+            <span class="drop-price">&pound;210</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK -->
+  <section id="lookbook" class="section">
+    <div class="container">
+      <div class="section-label reveal">03 / LOOKBOOK</div>
+      <h2 class="section-title reveal">THE<br/><span class="outline-text">VISUAL WORLD<span class="accent">.</span></span></h2>
+      <p class="section-intro reveal">Season 04 editorial. Shot on location. No filters. No compromise.</p>
+
+      <div class="lookbook-grid">
+        <div class="lookbook-item lookbook-tall reveal">
+          <div class="lookbook-placeholder"><span>LOOK 01</span></div>
+        </div>
+        <div class="lookbook-item reveal">
+          <div class="lookbook-placeholder"><span>LOOK 02</span></div>
+        </div>
+        <div class="lookbook-item reveal">
+          <div class="lookbook-placeholder"><span>LOOK 03</span></div>
+        </div>
+        <div class="lookbook-item lookbook-wide reveal">
+          <div class="lookbook-placeholder"><span>LOOK 04</span></div>
+        </div>
+        <div class="lookbook-item reveal">
+          <div class="lookbook-placeholder"><span>LOOK 05</span></div>
+        </div>
+        <div class="lookbook-item lookbook-tall reveal">
+          <div class="lookbook-placeholder"><span>LOOK 06</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY / NEWSLETTER -->
+  <section id="community" class="section section-dark">
+    <div class="container">
+      <div class="section-label reveal">04 / COMMUNITY</div>
+      <div class="community-content">
+        <h2 class="section-title reveal">JOIN THE<br/><span class="outline-text">INNER CIRCLE<span class="accent">.</span></span></h2>
+        <p class="community-text reveal">
+          Get early access to every drop. Exclusive lookbooks. Behind-the-scenes content.
+          No spam &mdash; just heat.
+        </p>
+        <form class="newsletter-form reveal" id="newsletterForm">
+          <div class="form-row">
+            <input type="email" placeholder="YOUR EMAIL" required class="form-input" />
+            <button type="submit" class="btn btn-primary">GET ACCESS</button>
+          </div>
+          <p class="form-note">Join 47,000+ members. Unsubscribe anytime.</p>
+        </form>
+        <div class="newsletter-success" id="newsletterSuccess">
+          <span class="success-icon">&#10003;</span>
+          <p>YOU'RE IN. WATCH YOUR INBOX.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLABORATION / CONTACT -->
+  <section id="collab" class="section">
+    <div class="container">
+      <div class="section-label reveal">05 / COLLABORATE</div>
+      <h2 class="section-title reveal">LET'S<br/><span class="outline-text">BUILD TOGETHER<span class="accent">.</span></span></h2>
+      <div class="collab-grid">
+        <div class="collab-card reveal">
+          <div class="collab-icon">&#9733;</div>
+          <h3>INFLUENCERS</h3>
+          <p>Wear it first. Get exclusive access to unreleased drops and campaign features.</p>
+        </div>
+        <div class="collab-card reveal">
+          <div class="collab-icon">&#9830;</div>
+          <h3>BRANDS</h3>
+          <p>Collab capsules, pop-ups, and co-branded drops. If the vision aligns, we build.</p>
+        </div>
+        <div class="collab-card reveal">
+          <div class="collab-icon">&#9827;</div>
+          <h3>PRESS</h3>
+          <p>Editorial features, interviews, and media coverage. Download our press kit below.</p>
+        </div>
+        <div class="collab-card reveal">
+          <div class="collab-icon">&#9824;</div>
+          <h3>STOCKISTS</h3>
+          <p>Interested in carrying RVLT SUPPLY? Let's talk wholesale and exclusive retail partnerships.</p>
+        </div>
+      </div>
+      <div class="collab-contact reveal">
+        <p>For all inquiries:</p>
+        <a href="mailto:hello@rvltsupply.com" class="contact-email">HELLO@RVLTSUPPLY.COM</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA KIT -->
+  <section id="mediakit" class="section section-dark">
+    <div class="container">
+      <div class="section-label reveal">06 / MEDIA KIT</div>
+      <h2 class="section-title reveal">PRESS &<br/><span class="outline-text">MEDIA KIT<span class="accent">.</span></span></h2>
+      <p class="section-intro reveal">Everything you need to feature RVLT SUPPLY. Logos, brand guidelines, press photos, and key information.</p>
+
+      <div class="mediakit-grid">
+        <div class="mediakit-card reveal">
+          <div class="mk-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3>BRAND GUIDELINES</h3>
+          <p>Logo usage, colour palette, typography, tone of voice.</p>
+          <a href="#" class="btn btn-outline btn-sm">DOWNLOAD PDF</a>
+        </div>
+        <div class="mediakit-card reveal">
+          <div class="mk-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <h3>PRESS PHOTOS</h3>
+          <p>High-res campaign imagery, product shots, lookbook stills.</p>
+          <a href="#" class="btn btn-outline btn-sm">DOWNLOAD ZIP</a>
+        </div>
+        <div class="mediakit-card reveal">
+          <div class="mk-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>LOGO PACK</h3>
+          <p>All logo variants in SVG, PNG, and EPS formats.</p>
+          <a href="#" class="btn btn-outline btn-sm">DOWNLOAD ZIP</a>
+        </div>
+        <div class="mediakit-card reveal">
+          <div class="mk-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <h3>PRESS RELEASE</h3>
+          <p>Latest brand announcements, drop info, and founder quotes.</p>
+          <a href="#" class="btn btn-outline btn-sm">DOWNLOAD PDF</a>
+        </div>
+      </div>
+
+      <div class="mk-stats reveal">
+        <div class="mk-stat">
+          <span class="mk-stat-val">47K+</span>
+          <span class="mk-stat-label">Social Following</span>
+        </div>
+        <div class="mk-stat">
+          <span class="mk-stat-val">12</span>
+          <span class="mk-stat-label">Drops Launched</span>
+        </div>
+        <div class="mk-stat">
+          <span class="mk-stat-val">100%</span>
+          <span class="mk-stat-label">Sell-Through</span>
+        </div>
+        <div class="mk-stat">
+          <span class="mk-stat-val">8</span>
+          <span class="mk-stat-label">Countries Shipped</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">RVLT<span class="accent">.</span></span>
+          <p>Revolt Against Ordinary.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>NAVIGATE</h4>
+            <a href="#story">Story</a>
+            <a href="#drops">Drops</a>
+            <a href="#lookbook">Lookbook</a>
+            <a href="#mediakit">Media Kit</a>
+          </div>
+          <div class="footer-col">
+            <h4>CONNECT</h4>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">Twitter / X</a>
+            <a href="#">Discord</a>
+          </div>
+          <div class="footer-col">
+            <h4>LEGAL</h4>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Returns</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 RVLT SUPPLY. All rights reserved. No restock. No exceptions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
