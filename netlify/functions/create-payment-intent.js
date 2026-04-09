@@ -1,22 +1,22 @@
 // YUKIA — Stripe PaymentIntent creator
 // Receives the cart from the browser, recomputes the total server-side
-// (NEVER trust the price sent from the client), and creates a PaymentIntent.
-
-// Server-side product catalog — the source of truth for prices.
-// Keep this in sync with the data-id / data-price attributes in index.html.
-const PRODUCTS = {
-  'phantom-tee':    { name: 'PHANTOM TEE',    price: 8500  }, // amounts in cents
-  'shadow-cargo':   { name: 'SHADOW CARGO',   price: 14500 },
-  'revolt-hoodie':  { name: 'REVOLT HOODIE',  price: 17500 },
-  'y2k-bomber':     { name: 'Y2K BOMBER',     price: 29500 },
-  'kinetic-pants':  { name: 'KINETIC PANTS',  price: 22000 },
-};
+// against live Stripe product prices (NEVER trust client prices), and
+// creates a PaymentIntent.
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
 };
+
+async function stripeGet(secretKey, path) {
+  const resp = await fetch(`https://api.stripe.com/v1${path}`, {
+    headers: { 'Authorization': `Bearer ${secretKey}` },
+  });
+  const data = await resp.json();
+  if (!resp.ok) throw new Error(data.error?.message || 'Stripe error');
+  return data;
+}
 
 exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
@@ -47,21 +47,31 @@ exports.handler = async (event) => {
     return { statusCode: 400, headers: CORS, body: JSON.stringify({ error: 'Cart is empty.' }) };
   }
 
-  // Recompute total from the server catalog — never trust client prices.
+  // Recompute total from Stripe — never trust client prices.
   let amount = 0;
+  let currency = null;
   const lineNames = [];
-  for (const item of items) {
-    const product = PRODUCTS[item.id];
-    if (!product) {
-      return {
-        statusCode: 400,
-        headers: CORS,
-        body: JSON.stringify({ error: `Unknown product: ${item.id}` }),
-      };
+  try {
+    for (const item of items) {
+      if (!item.id || typeof item.id !== 'string') {
+        throw new Error('Missing product id.');
+      }
+      const product = await stripeGet(secretKey, `/products/${encodeURIComponent(item.id)}?expand[]=default_price`);
+      if (!product.active) throw new Error(`Product not available: ${product.name}`);
+      if ((product.metadata || {}).sold_out === 'true') {
+        throw new Error(`${product.name} is sold out.`);
+      }
+      const price = product.default_price;
+      if (!price || price.unit_amount == null) {
+        throw new Error(`No price set for ${product.name}.`);
+      }
+      const qty = Math.max(1, Math.min(99, parseInt(item.qty, 10) || 1));
+      amount += price.unit_amount * qty;
+      currency = currency || price.currency;
+      lineNames.push(`${product.name} x${qty}`);
     }
-    const qty = Math.max(1, Math.min(99, parseInt(item.qty, 10) || 1));
-    amount += product.price * qty;
-    lineNames.push(`${product.name} x${qty}`);
+  } catch (err) {
+    return { statusCode: 400, headers: CORS, body: JSON.stringify({ error: err.message }) };
   }
 
   if (amount < 50) {
@@ -71,7 +81,7 @@ exports.handler = async (event) => {
   // Build form-encoded body for Stripe API.
   const params = new URLSearchParams();
   params.append('amount', String(amount));
-  params.append('currency', 'eur');
+  params.append('currency', currency || 'eur');
   params.append('automatic_payment_methods[enabled]', 'true');
   params.append('description', `YUKIA order: ${lineNames.join(', ')}`);
 
@@ -107,7 +117,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       headers: { ...CORS, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ clientSecret: data.client_secret, amount }),
+      body: JSON.stringify({ clientSecret: data.client_secret, amount, currency }),
     };
   } catch (err) {
     return {

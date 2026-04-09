@@ -963,6 +963,28 @@ ul { list-style: none; }
 .drop-rail::-webkit-scrollbar-track { background: var(--line); }
 .drop-rail::-webkit-scrollbar-thumb { background: var(--lime); }
 
+.drop-loading {
+  flex: 1;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--grey);
+  border: 1px dashed var(--line);
+}
+.dot-blink {
+  display: inline-block;
+  animation: dotBlink 1.4s infinite;
+}
+.dot-blink:nth-child(2) { animation-delay: 0.2s; }
+.dot-blink:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dotBlink {
+  0%, 60%, 100% { opacity: 0.2; }
+  30% { opacity: 1; }
+}
+
 .drop-card {
   flex: 0 0 clamp(260px, 28vw, 380px);
   scroll-snap-align: start;

@@ -256,15 +256,18 @@
     showToast._t = setTimeout(() => toast.classList.remove('show'), 2400);
   }
 
+  // Live product catalog (loaded from Stripe via Netlify Function)
+  let CATALOG = [];
+
   function getProductData(id) {
-    const card = document.querySelector(`[data-id="${id}"]`);
-    if (!card) return null;
+    const p = CATALOG.find(x => x.id === id);
+    if (!p) return null;
     return {
-      id,
-      name: card.dataset.name,
-      price: parseFloat(card.dataset.price),
-      img: card.dataset.img,
-      letter: card.querySelector('.drop-letter')?.textContent || '?'
+      id: p.id,
+      name: p.name,
+      price: p.price / 100, // store in major units for display
+      img: p.image || '',
+      letter: (p.name || '?').charAt(0).toUpperCase(),
     };
   }
 
@@ -362,15 +365,102 @@
     cartTotal.textContent = `€${subtotal.toFixed(0)}`;
   }
 
-  // Add-to-cart buttons on product cards
-  document.querySelectorAll('[data-add]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (btn.disabled) return;
-      addToCart(btn.dataset.add);
-      openCart();
+  /* ================================================
+     LIVE DROP CATALOG (loaded from Stripe)
+     ================================================ */
+  const dropRail = document.getElementById('dropRail');
+  const COLOR_CLASSES = ['drop-card-lime', 'drop-card-pink', 'drop-card-orange', 'drop-card-cyan', 'drop-card-purple'];
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  function renderDrops() {
+    if (!dropRail) return;
+    if (CATALOG.length === 0) {
+      dropRail.innerHTML = `<div class="drop-loading mono">NO DROPS AVAILABLE — CHECK BACK SOON</div>`;
+      return;
+    }
+    dropRail.innerHTML = CATALOG.map((p, idx) => {
+      const colorClass = `drop-card-${p.color}`;
+      const num = `N° ${p.number}`;
+      const priceStr = `€${(p.price / 100).toFixed(0)}`;
+      const letter = (p.name || '?').charAt(0).toUpperCase();
+      const imgStyle = p.image ? `style="background-image:url('${escapeHtml(p.image)}');"` : '';
+      const statusBadge = p.soldOut
+        ? `<span class="drop-card-status sold">SOLD OUT</span>`
+        : `<span class="drop-card-status live">AVAILABLE</span>`;
+      const button = p.soldOut
+        ? `<button class="add-cart-btn" data-add="${escapeHtml(p.id)}" disabled>SOLD OUT</button>`
+        : `<button class="add-cart-btn" data-add="${escapeHtml(p.id)}">+ ADD</button>`;
+      return `
+        <article class="drop-card ${colorClass}" data-id="${escapeHtml(p.id)}">
+          <div class="drop-card-img" ${imgStyle}>
+            <span class="drop-card-num mono">${escapeHtml(num)}</span>
+            <div class="drop-card-img-inner"><span class="drop-letter">${escapeHtml(letter)}</span></div>
+            ${statusBadge}
+          </div>
+          <div class="drop-card-info">
+            <h3>${escapeHtml(p.name)}</h3>
+            <p class="mono">${escapeHtml(p.subtitle || 'DROP 04')}</p>
+            <div class="drop-card-row">
+              <span class="drop-card-price">${priceStr}</span>
+              ${button}
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+
+    // Bind add-to-cart buttons
+    dropRail.querySelectorAll('[data-add]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (btn.disabled) return;
+        addToCart(btn.dataset.add);
+        openCart();
+      });
     });
-  });
+
+    // Re-attach hover targets to custom cursor
+    dropRail.querySelectorAll('.drop-card, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+
+    // Preload images so the letter placeholder hides when ready
+    dropRail.querySelectorAll('.drop-card').forEach(card => {
+      const url = CATALOG.find(c => c.id === card.dataset.id)?.image;
+      if (!url) return;
+      const img = new Image();
+      img.onload = () => card.setAttribute('data-img-loaded', 'true');
+      img.src = url;
+    });
+  }
+
+  async function loadCatalog() {
+    try {
+      const resp = await fetch('/.netlify/functions/list-products');
+      const data = await resp.json();
+      if (!resp.ok) throw new Error(data.error || 'Failed to load catalog');
+      CATALOG = data.products || [];
+      // Drop any cart items that no longer match a real product
+      const validIds = new Set(CATALOG.map(p => p.id));
+      const before = cart.length;
+      cart = cart.filter(i => validIds.has(i.id));
+      if (cart.length !== before) saveCart();
+      renderDrops();
+      renderCart();
+    } catch (err) {
+      console.error('[YUKIA] Catalog load failed:', err);
+      if (dropRail) {
+        dropRail.innerHTML = `<div class="drop-loading mono">COULD NOT LOAD DROPS — ${escapeHtml(err.message)}</div>`;
+      }
+    }
+  }
+  loadCatalog();
 
   function openCart() {
     cartPanel.classList.add('open');
@@ -546,15 +636,6 @@
       if (checkoutModal.classList.contains('open')) checkoutModal.classList.remove('open');
       else if (cartPanel.classList.contains('open')) closeCart();
     }
-  });
-
-  // Detect product image load (so we can hide the letter placeholder when real image loads)
-  document.querySelectorAll('.drop-card').forEach(card => {
-    const url = card.dataset.img;
-    if (!url) return;
-    const img = new Image();
-    img.onload = () => card.setAttribute('data-img-loaded', 'true');
-    img.src = url;
   });
 
   renderCart();
