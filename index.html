@@ -691,31 +691,60 @@
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
-      <p class="mono small-label">/ CHECKOUT</p>
-      <h2 class="checkout-title">PAYMENT<br/><span class="outline">SETUP REQUIRED<span class="dot-accent">.</span></span></h2>
-      <p class="checkout-text">
-        To accept real payments, YUKIA® needs a Stripe account (free, no monthly fee).
-        Stripe is what brands like Off-White, Allbirds, and Notion use.
-      </p>
-      <div class="checkout-steps">
-        <div class="checkout-step">
-          <span class="mono lime">/01</span>
-          <p>Create a free Stripe account at <strong>stripe.com</strong></p>
+      <p class="mono small-label">/ SECURE CHECKOUT</p>
+      <h2 class="checkout-title">COMPLETE<br/><span class="outline">YOUR ORDER<span class="dot-accent">.</span></span></h2>
+
+      <div id="checkoutSummary" class="checkout-summary"></div>
+
+      <form id="checkoutForm" class="checkout-form">
+        <div class="cf-row">
+          <label class="cf-field">
+            <span class="mono">EMAIL</span>
+            <input type="email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+          </label>
         </div>
-        <div class="checkout-step">
-          <span class="mono lime">/02</span>
-          <p>Add your bank details (5 minutes)</p>
+        <div class="cf-row">
+          <label class="cf-field">
+            <span class="mono">FULL NAME</span>
+            <input type="text" name="name" required placeholder="Angelo Dupont" autocomplete="name"/>
+          </label>
         </div>
-        <div class="checkout-step">
-          <span class="mono lime">/03</span>
-          <p>Tell me when it's done — I plug it in automatically</p>
+        <div class="cf-row">
+          <label class="cf-field">
+            <span class="mono">ADDRESS</span>
+            <input type="text" name="address" required placeholder="12 Rue de Paris" autocomplete="street-address"/>
+          </label>
         </div>
+        <div class="cf-row cf-row-2">
+          <label class="cf-field">
+            <span class="mono">CITY</span>
+            <input type="text" name="city" required placeholder="Paris" autocomplete="address-level2"/>
+          </label>
+          <label class="cf-field">
+            <span class="mono">ZIP</span>
+            <input type="text" name="zip" required placeholder="75001" autocomplete="postal-code"/>
+          </label>
+        </div>
+        <div class="cf-row">
+          <label class="cf-field">
+            <span class="mono">CARD DETAILS</span>
+            <div id="stripeCardEl" class="stripe-card-el"></div>
+          </label>
+        </div>
+        <p id="cardError" class="cf-error mono"></p>
+        <button type="submit" id="payBtn" class="btn btn-fill cf-pay">
+          <span id="payBtnText">PAY <span id="payBtnAmount">€0</span></span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+        </button>
+        <p class="checkout-note mono">TEST MODE — USE CARD 4242 4242 4242 4242 / ANY DATE / ANY CVC</p>
+      </form>
+
+      <div id="checkoutSuccess" class="checkout-success hidden">
+        <p class="mono small-label lime">/ PAYMENT CONFIRMED</p>
+        <h3>THANK YOU<span class="dot-accent">.</span></h3>
+        <p>Your order has been placed. A confirmation will be sent to your email shortly.</p>
+        <button type="button" id="successClose" class="btn btn-fill"><span>CONTINUE</span></button>
       </div>
-      <a href="https://dashboard.stripe.com/register" target="_blank" rel="noopener" class="btn btn-fill">
-        <span>OPEN STRIPE.COM</span>
-        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
-      </a>
-      <p class="checkout-note mono">DEMO MODE — NO REAL CHARGE WILL BE MADE</p>
     </div>
   </div>
 
@@ -725,6 +754,7 @@
     <span id="toastMsg">ADDED TO BAG</span>
   </div>
 
+  <script src="https://js.stripe.com/v3/"></script>
   <script src="script.js"></script>
 </body>
 </html>

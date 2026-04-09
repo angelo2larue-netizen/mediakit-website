@@ -2056,6 +2056,104 @@ ul { list-style: none; }
   margin-top: 1rem;
 }
 
+/* ----- Checkout form (Stripe) ----- */
+.checkout-inner { max-width: 580px; max-height: 90vh; overflow-y: auto; }
+.checkout-summary {
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.5rem;
+  text-align: left;
+}
+.cs-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.cs-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 0.85rem; color: var(--cream);
+}
+.cs-row .mono { color: var(--grey); font-size: 0.7rem; margin-left: 0.4rem; }
+.cs-price { font-family: var(--font-mono); font-size: 0.85rem; }
+.cs-total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-top: 0.85rem; padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-display);
+  font-size: 1.4rem; font-weight: 700;
+  color: var(--lime);
+}
+.cs-total .mono { font-family: var(--font-mono); font-size: 0.7rem; color: var(--grey); letter-spacing: 0.15em; }
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  text-align: left;
+}
+.checkout-form.hidden { display: none; }
+.cf-row { display: flex; gap: 0.75rem; }
+.cf-row-2 > .cf-field { flex: 1; }
+.cf-field { display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+.cf-field > .mono {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--grey);
+}
+.cf-field input {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  color: var(--cream);
+  padding: 0.85rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  transition: border-color 0.3s, background 0.3s;
+}
+.cf-field input:focus {
+  outline: none;
+  border-color: var(--lime);
+  background: var(--bg);
+}
+.stripe-card-el {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 1rem 1rem;
+  transition: border-color 0.3s;
+}
+.stripe-card-el.StripeElement--focus { border-color: var(--lime); background: var(--bg); }
+.stripe-card-el.StripeElement--invalid { border-color: #ff5470; }
+.cf-error {
+  color: #ff5470;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  min-height: 1em;
+  margin: 0;
+}
+.cf-pay {
+  width: 100%;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+.cf-pay.loading { opacity: 0.6; pointer-events: none; }
+.cf-pay #payBtnAmount { font-family: var(--font-mono); margin-left: 0.4rem; }
+
+.checkout-success {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+.checkout-success.hidden { display: none; }
+.checkout-success h3 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0.75rem 0 1rem;
+}
+.checkout-success p { color: var(--cream-dim); margin-bottom: 1.5rem; }
+.checkout-success .btn { display: inline-flex; }
+
+@media (max-width: 600px) {
+  .cf-row-2 { flex-direction: column; }
+}
+
 /* ============================================================
    TOAST
    ============================================================ */

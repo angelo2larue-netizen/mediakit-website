@@ -391,15 +391,128 @@
     document.querySelector('#drops')?.scrollIntoView({ behavior: 'smooth' });
   });
 
-  // Checkout modal
+  /* ================================================
+     STRIPE CHECKOUT (TEST MODE)
+     ================================================ */
+  const STRIPE_PK = 'pk_test_51TKKKVJvIpHNFex25QD9j65dachkXfJDvPYBbPYX037JRT9Pj0CggeG5PRdwY8q7n2KKuaZPgaRNK2XhpCbCGFz900LFSMJYwq';
+  let stripe = null;
+  let stripeCard = null;
+  let stripeElements = null;
+
+  const checkoutForm = document.getElementById('checkoutForm');
+  const checkoutSummary = document.getElementById('checkoutSummary');
+  const checkoutSuccess = document.getElementById('checkoutSuccess');
+  const successClose = document.getElementById('successClose');
+  const cardError = document.getElementById('cardError');
+  const payBtn = document.getElementById('payBtn');
+  const payBtnAmount = document.getElementById('payBtnAmount');
+
+  function initStripe() {
+    if (stripe || typeof Stripe === 'undefined') return;
+    stripe = Stripe(STRIPE_PK);
+    stripeElements = stripe.elements();
+    stripeCard = stripeElements.create('card', {
+      style: {
+        base: {
+          color: '#ffffff',
+          fontFamily: '"JetBrains Mono", monospace',
+          fontSize: '14px',
+          fontSmoothing: 'antialiased',
+          '::placeholder': { color: 'rgba(255,255,255,0.4)' }
+        },
+        invalid: { color: '#ff5470', iconColor: '#ff5470' }
+      }
+    });
+    stripeCard.mount('#stripeCardEl');
+    stripeCard.on('change', (e) => {
+      cardError.textContent = e.error ? e.error.message : '';
+    });
+  }
+
+  function renderCheckoutSummary() {
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    checkoutSummary.innerHTML = `
+      <div class="cs-list">
+        ${cart.map(i => `
+          <div class="cs-row">
+            <span class="cs-name">${i.name} <span class="mono">×${i.qty}</span></span>
+            <span class="cs-price">€${(i.price * i.qty).toFixed(0)}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="cs-total">
+        <span class="mono">TOTAL</span>
+        <span>€${subtotal.toFixed(0)}</span>
+      </div>
+    `;
+    payBtnAmount.textContent = `€${subtotal.toFixed(0)}`;
+    return subtotal;
+  }
+
+  // Checkout modal open/close
   cartCheckout.addEventListener('click', () => {
+    if (cart.length === 0) return;
+    checkoutForm.classList.remove('hidden');
+    checkoutSuccess.classList.add('hidden');
+    renderCheckoutSummary();
     checkoutModal.classList.add('open');
+    initStripe();
   });
   checkoutClose.addEventListener('click', () => {
     checkoutModal.classList.remove('open');
   });
   checkoutModal.addEventListener('click', (e) => {
     if (e.target === checkoutModal) checkoutModal.classList.remove('open');
+  });
+
+  // Submit handler — uses Stripe.createPaymentMethod (works on a static site for TEST MODE).
+  // For LIVE mode you'll need a small backend (Vercel/Netlify Function) to create a real
+  // PaymentIntent and confirm it. I'll wire that up when you go live.
+  checkoutForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!stripe || !stripeCard) return;
+    const formData = new FormData(checkoutForm);
+    payBtn.disabled = true;
+    payBtn.classList.add('loading');
+    cardError.textContent = '';
+
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card: stripeCard,
+      billing_details: {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        address: {
+          line1: formData.get('address'),
+          city: formData.get('city'),
+          postal_code: formData.get('zip')
+        }
+      }
+    });
+
+    if (error) {
+      cardError.textContent = error.message;
+      payBtn.disabled = false;
+      payBtn.classList.remove('loading');
+      return;
+    }
+
+    // TEST MODE: payment method created successfully → simulate confirmation
+    console.log('[YUKIA] Stripe PaymentMethod created:', paymentMethod.id);
+    setTimeout(() => {
+      checkoutForm.classList.add('hidden');
+      checkoutSuccess.classList.remove('hidden');
+      cart = [];
+      saveCart();
+      renderCart();
+      payBtn.disabled = false;
+      payBtn.classList.remove('loading');
+    }, 800);
+  });
+
+  successClose?.addEventListener('click', () => {
+    checkoutModal.classList.remove('open');
+    closeCart();
   });
 
   // Escape key closes panels
