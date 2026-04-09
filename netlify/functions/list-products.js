@@ -5,11 +5,15 @@
 // Add ?debug=1 to the URL to get extra diagnostic info.
 //
 // Optional Stripe metadata (set on each product):
-//   subtitle  → text under the title (default: "DROP 04")
-//   color     → lime | pink | orange | cyan | purple
-//   sold_out  → "true" to mark as SOLD OUT
-//   number    → card number (default: 001, 002, ...)
-//   order     → numeric, sorts the list (lower = first)
+//   subtitle      → text under the title (default: "DROP 04")
+//   color         → lime | pink | orange | cyan | purple
+//   sold_out      → "true" to mark as SOLD OUT
+//   number        → card number (default: 001, 002, ...)
+//   order         → numeric, sorts the list (lower = first)
+//   extra_images  → comma-separated extra image filenames or URLs
+//                   Filenames are resolved against /assets/images/products/
+//                   Example: "jogger-back.jpg, jogger-detail.jpg"
+//                   Or full URLs: "https://i.imgur.com/abc.jpg"
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -86,7 +90,17 @@ exports.handler = async (event) => {
       }
 
       const meta = p.metadata || {};
-      const images = Array.isArray(p.images) ? p.images.filter(Boolean) : [];
+      // Combine Stripe-hosted images with extras hosted in the GitHub repo.
+      // Extras are listed in the `extra_images` metadata as a comma-separated string.
+      // Each entry is either a full URL (http/https) or a filename, which is
+      // resolved to /assets/images/products/<filename>.
+      const stripeImages = Array.isArray(p.images) ? p.images.filter(Boolean) : [];
+      const extras = (meta.extra_images || '')
+        .split(',')
+        .map(s => s.trim())
+        .filter(Boolean)
+        .map(entry => /^https?:\/\//i.test(entry) ? entry : `/assets/images/products/${entry}`);
+      const images = [...stripeImages, ...extras];
       products.push({
         id: p.id,
         name: p.name,
