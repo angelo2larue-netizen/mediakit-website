@@ -424,9 +424,17 @@
     dropRail.querySelectorAll('[data-add]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation();
         if (btn.disabled) return;
         addToCart(btn.dataset.add);
         openCart();
+      });
+    });
+
+    // Click on the card itself opens the quick-view modal
+    dropRail.querySelectorAll('.drop-card').forEach(card => {
+      card.addEventListener('click', () => {
+        openProductModal(card.dataset.id);
       });
     });
 
@@ -467,6 +475,68 @@
     }
   }
   loadCatalog();
+
+  /* ================================================
+     PRODUCT QUICK-VIEW MODAL
+     ================================================ */
+  const productModal = document.getElementById('productModal');
+  const productModalClose = document.getElementById('productModalClose');
+  const pmImage = document.getElementById('pmImage');
+  const pmName = document.getElementById('pmName');
+  const pmNumber = document.getElementById('pmNumber');
+  const pmSubtitle = document.getElementById('pmSubtitle');
+  const pmPrice = document.getElementById('pmPrice');
+  const pmDescription = document.getElementById('pmDescription');
+  const pmAdd = document.getElementById('pmAdd');
+
+  function openProductModal(id) {
+    const p = CATALOG.find(x => x.id === id);
+    if (!p) return;
+    pmName.textContent = p.name;
+    pmNumber.textContent = `N° ${p.number}`;
+    pmSubtitle.textContent = p.subtitle || 'DROP 04';
+    pmPrice.textContent = fmtPrice(p.price / 100);
+    pmDescription.textContent = p.description || '';
+    pmDescription.style.display = p.description ? '' : 'none';
+    if (p.image) {
+      pmImage.style.backgroundImage = `url('${p.image}')`;
+    } else {
+      pmImage.style.backgroundImage = '';
+    }
+    if (p.soldOut) {
+      pmAdd.disabled = true;
+      pmAdd.querySelector('span').textContent = 'SOLD OUT';
+    } else {
+      pmAdd.disabled = false;
+      pmAdd.querySelector('span').textContent = '+ ADD TO BAG';
+      pmAdd.onclick = () => {
+        addToCart(p.id);
+        closeProductModal();
+        openCart();
+      };
+    }
+    productModal.classList.add('open');
+    productModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeProductModal() {
+    productModal.classList.remove('open');
+    productModal.setAttribute('aria-hidden', 'true');
+    if (!cartPanel.classList.contains('open')) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  productModalClose.addEventListener('click', closeProductModal);
+  productModal.addEventListener('click', (e) => {
+    if (e.target === productModal) closeProductModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && productModal.classList.contains('open')) {
+      closeProductModal();
+    }
+  });
 
   function openCart() {
     cartPanel.classList.add('open');

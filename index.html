@@ -670,6 +670,29 @@
     </div>
   </div>
 
+  <!-- PRODUCT QUICK-VIEW MODAL -->
+  <div class="product-modal" id="productModal" aria-hidden="true">
+    <div class="product-modal-inner" role="dialog" aria-labelledby="pmName">
+      <button class="product-modal-close" id="productModalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <div class="pm-image" id="pmImage"></div>
+      <div class="pm-info">
+        <p class="mono small-label" id="pmNumber">N° 001</p>
+        <h2 class="pm-name" id="pmName">PRODUCT NAME</h2>
+        <p class="pm-subtitle mono" id="pmSubtitle">DROP 04</p>
+        <div class="pm-price" id="pmPrice">€0</div>
+        <p class="pm-description" id="pmDescription"></p>
+        <button class="btn btn-fill pm-add" id="pmAdd">
+          <span>+ ADD TO BAG</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- TOAST -->
   <div class="toast" id="toast">
     <span class="dot lime">●</span>
