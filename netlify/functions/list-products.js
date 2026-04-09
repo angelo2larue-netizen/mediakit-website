@@ -2,11 +2,13 @@
 // Fetches active products from Stripe and returns a clean JSON list
 // the frontend can render as drop cards.
 //
-// Optional Stripe metadata you can set on each product:
+// Add ?debug=1 to the URL to get extra diagnostic info.
+//
+// Optional Stripe metadata (set on each product):
 //   subtitle  → text under the title (default: "DROP 04")
-//   color     → lime | pink | orange | cyan | purple  (card variant)
+//   color     → lime | pink | orange | cyan | purple
 //   sold_out  → "true" to mark as SOLD OUT
-//   number    → card number to display (default: index)
+//   number    → card number (default: 001, 002, ...)
 //   order     → numeric, sorts the list (lower = first)
 
 const CORS = {
@@ -17,10 +19,21 @@ const CORS = {
 
 const COLORS = ['lime', 'pink', 'orange', 'cyan', 'purple'];
 
+async function stripeGet(secretKey, path) {
+  const resp = await fetch(`https://api.stripe.com/v1${path}`, {
+    headers: { 'Authorization': `Bearer ${secretKey}` },
+  });
+  const data = await resp.json();
+  if (!resp.ok) throw new Error(data.error?.message || `Stripe ${resp.status}`);
+  return data;
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers: CORS, body: '' };
   }
+
+  const debug = event.queryStringParameters && event.queryStringParameters.debug === '1';
 
   const secretKey = process.env.STRIPE_SECRET_KEY;
   if (!secretKey) {
@@ -32,49 +45,85 @@ exports.handler = async (event) => {
   }
 
   try {
-    // Fetch active products with their default_price expanded
-    const url = 'https://api.stripe.com/v1/products?active=true&limit=100&expand[]=data.default_price';
-    const resp = await fetch(url, {
-      headers: { 'Authorization': `Bearer ${secretKey}` },
-    });
-    const data = await resp.json();
-    if (!resp.ok) {
-      return {
-        statusCode: resp.status,
-        headers: CORS,
-        body: JSON.stringify({ error: data.error?.message || 'Stripe error' }),
-      };
+    // 1. Fetch all active products
+    const productsResp = await stripeGet(secretKey, '/products?active=true&limit=100');
+    const rawProducts = productsResp.data || [];
+
+    // 2. Fetch all active prices in one go
+    const pricesResp = await stripeGet(secretKey, '/prices?active=true&limit=100');
+    const rawPrices = pricesResp.data || [];
+
+    // Group prices by product id
+    const pricesByProduct = {};
+    for (const pr of rawPrices) {
+      const pid = typeof pr.product === 'string' ? pr.product : pr.product?.id;
+      if (!pid) continue;
+      if (!pricesByProduct[pid]) pricesByProduct[pid] = [];
+      pricesByProduct[pid].push(pr);
     }
 
-    const products = (data.data || [])
-      .filter(p => p.default_price && p.default_price.unit_amount != null)
-      .map((p, idx) => {
-        const price = p.default_price;
-        const meta = p.metadata || {};
-        return {
-          id: p.id,
-          name: p.name,
-          subtitle: meta.subtitle || 'DROP 04',
-          description: p.description || '',
-          image: (p.images && p.images[0]) || null,
-          price: price.unit_amount,        // cents
-          currency: price.currency,         // 'eur' typically
-          color: COLORS.includes(meta.color) ? meta.color : COLORS[idx % COLORS.length],
-          number: meta.number || String(idx + 1).padStart(3, '0'),
-          soldOut: String(meta.sold_out).toLowerCase() === 'true',
-          order: meta.order != null ? Number(meta.order) : idx,
-        };
-      })
-      .sort((a, b) => a.order - b.order);
+    // 3. Build catalog
+    const products = [];
+    const skipped = [];
+    rawProducts.forEach((p, idx) => {
+      // Find a usable price: prefer default_price, else first one-time price, else first price
+      let price = null;
+      if (p.default_price && typeof p.default_price === 'object') {
+        price = p.default_price;
+      } else if (p.default_price && typeof p.default_price === 'string') {
+        price = (pricesByProduct[p.id] || []).find(pr => pr.id === p.default_price) || null;
+      }
+      if (!price) {
+        const candidates = pricesByProduct[p.id] || [];
+        price = candidates.find(pr => pr.type === 'one_time' && pr.unit_amount != null)
+              || candidates.find(pr => pr.unit_amount != null)
+              || null;
+      }
+
+      if (!price || price.unit_amount == null) {
+        skipped.push({ id: p.id, name: p.name, reason: 'no usable price' });
+        return;
+      }
+
+      const meta = p.metadata || {};
+      products.push({
+        id: p.id,
+        name: p.name,
+        subtitle: meta.subtitle || 'DROP 04',
+        description: p.description || '',
+        image: (p.images && p.images[0]) || null,
+        price: price.unit_amount,
+        currency: price.currency,
+        color: COLORS.includes(meta.color) ? meta.color : COLORS[idx % COLORS.length],
+        number: meta.number || String(idx + 1).padStart(3, '0'),
+        soldOut: String(meta.sold_out).toLowerCase() === 'true',
+        order: meta.order != null ? Number(meta.order) : idx,
+        priceId: price.id,
+      });
+    });
+
+    products.sort((a, b) => a.order - b.order);
+
+    const body = { products };
+    if (debug) {
+      body.debug = {
+        keyMode: secretKey.startsWith('sk_live_') ? 'live' : (secretKey.startsWith('sk_test_') ? 'test' : 'unknown'),
+        rawProductCount: rawProducts.length,
+        rawPriceCount: rawPrices.length,
+        usableProductCount: products.length,
+        skipped,
+        firstRawProduct: rawProducts[0] || null,
+      };
+    }
 
     return {
       statusCode: 200,
       headers: {
         ...CORS,
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=60',
+        'Cache-Control': 'no-store',
       },
-      body: JSON.stringify({ products }),
+      body: JSON.stringify(body),
     };
   } catch (err) {
     return {
