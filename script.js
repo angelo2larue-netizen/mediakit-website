@@ -394,7 +394,7 @@
   /* ================================================
      STRIPE CHECKOUT (TEST MODE)
      ================================================ */
-  const STRIPE_PK = 'pk_test_51TKKKVJvIpHNFex25QD9j65dachkXfJDvPYBbPYX037JRT9Pj0CggeG5PRdwY8q7n2KKuaZPgaRNK2XhpCbCGFz900LFSMJYwq';
+  const STRIPE_PK = 'pk_live_51TKKKVJvIpHNFex2tusz21fiXisOOQO0F32ExAYrT1Tt1c5YoqqoG98LuA7mlPKGIgk6gFhxQU66bHW2Cap1JEkE00Ri0Ko4Mx';
   let stripe = null;
   let stripeCard = null;
   let stripeElements = null;
