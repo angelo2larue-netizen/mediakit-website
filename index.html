@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>YÜKKI® — Wear The Future / Drop 04 Loading</title>
-  <meta name="description" content="YÜKKI® — Premium streetwear for the next generation. Limited drops. No restock. Ever." />
+  <title>YUKIA® — Wear The Future / Drop 04 Loading</title>
+  <meta name="description" content="YUKIA® — Premium streetwear for the next generation. Limited drops. No restock. Ever." />
   <meta name="theme-color" content="#0a0908" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,10 +13,10 @@
 </head>
 <body>
 
-  <!-- GRAIN OVERLAY -->
+  <!-- GRAIN -->
   <div class="grain"></div>
 
-  <!-- CUSTOM CURSOR -->
+  <!-- CURSOR -->
   <div class="cursor" id="cursor">
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
@@ -25,34 +25,24 @@
   <!-- LOADER -->
   <div id="loader">
     <div class="loader-grid">
-      <div class="loader-meta">
-        <span class="mono">YÜKKI® / SS26</span>
-      </div>
+      <div class="loader-meta"><span class="mono">YUKIA® / SS26</span></div>
+      <div class="loader-meta loader-meta-right"><span class="mono" id="loader-pct">000</span></div>
       <div class="loader-center">
-        <div class="loader-mark">
-          <span class="mark-y">Y</span>
-        </div>
+        <div class="loader-mark"><span class="mark-y">Y</span></div>
       </div>
-      <div class="loader-meta loader-meta-right">
-        <span class="mono" id="loader-pct">000</span>
-      </div>
-      <div class="loader-bar">
-        <div class="loader-bar-fill" id="loader-fill"></div>
-      </div>
-      <div class="loader-foot">
-        <span class="mono">DROP 04 — LOADING THE FUTURE</span>
-      </div>
+      <div class="loader-bar"><div class="loader-bar-fill" id="loader-fill"></div></div>
+      <div class="loader-foot"><span class="mono">DROP 04 — LOADING THE FUTURE</span></div>
     </div>
   </div>
 
-  <!-- NAVIGATION -->
+  <!-- NAV -->
   <header id="nav">
     <div class="nav-row">
       <a href="#top" class="nav-mark" data-magnetic>
         <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
           <path d="M10 10 L50 55 L90 10 M50 55 L50 90" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="square"/>
         </svg>
-        <span class="nav-wordmark">YÜKKI<sup>®</sup></span>
+        <span class="nav-wordmark">YUKIA<sup>®</sup></span>
       </a>
       <nav class="nav-links">
         <a href="#manifesto" data-text="Manifesto">Manifesto</a>
@@ -80,11 +70,19 @@
       <li><a href="#collab">05 — Collab</a></li>
       <li><a href="#kit">06 — Press Kit</a></li>
     </ul>
-    <div class="mobile-foot mono">YÜKKI® / SS26 / NO RESTOCK</div>
+    <div class="mobile-foot mono">YUKIA® / SS26 / NO RESTOCK</div>
   </div>
 
   <!-- HERO -->
   <section id="top" class="hero">
+    <!-- Visual layer with image + gradients -->
+    <div class="hero-visual">
+      <div class="hero-img"></div>
+      <div class="hero-blur-blob hero-blob-1"></div>
+      <div class="hero-blur-blob hero-blob-2"></div>
+      <div class="hero-blur-blob hero-blob-3"></div>
+    </div>
+
     <div class="hero-grid">
       <div class="hero-meta hero-meta-tl mono">
         <span>EST. MMXXIV</span><br/>
@@ -109,8 +107,8 @@
           <span class="line"></span>
         </div>
         <h1 class="hero-title">
-          <span class="word" data-word="YÜKKI">
-            <span class="char">Y</span><span class="char">Ü</span><span class="char">K</span><span class="char">K</span><span class="char">I</span>
+          <span class="word">
+            <span class="char">Y</span><span class="char">U</span><span class="char">K</span><span class="char">I</span><span class="char">A</span>
           </span>
         </h1>
         <p class="hero-sub">
@@ -130,25 +128,23 @@
       </div>
     </div>
 
-    <!-- Massive background type -->
-    <div class="hero-bg-type" aria-hidden="true">YÜKKI</div>
+    <!-- Massive bg type -->
+    <div class="hero-bg-type" aria-hidden="true">YUKIA</div>
   </section>
 
   <!-- TICKER -->
   <div class="ticker">
-    <div class="ticker-row ticker-row-1">
-      <div class="ticker-track">
-        <span>NO RESTOCK</span><span class="dot">●</span>
-        <span>LIMITED 200 PCS</span><span class="dot">●</span>
-        <span>SHIPPED WORLDWIDE</span><span class="dot">●</span>
-        <span>SOLD OUT IS FOREVER</span><span class="dot">●</span>
-        <span>YÜKKI® SS26</span><span class="dot">●</span>
-        <span>NO RESTOCK</span><span class="dot">●</span>
-        <span>LIMITED 200 PCS</span><span class="dot">●</span>
-        <span>SHIPPED WORLDWIDE</span><span class="dot">●</span>
-        <span>SOLD OUT IS FOREVER</span><span class="dot">●</span>
-        <span>YÜKKI® SS26</span><span class="dot">●</span>
-      </div>
+    <div class="ticker-track">
+      <span>NO RESTOCK</span><span class="dot lime">●</span>
+      <span>LIMITED 200 PCS</span><span class="dot pink">●</span>
+      <span>SHIPPED WORLDWIDE</span><span class="dot lime">●</span>
+      <span>SOLD OUT IS FOREVER</span><span class="dot pink">●</span>
+      <span>YUKIA® SS26</span><span class="dot lime">●</span>
+      <span>NO RESTOCK</span><span class="dot pink">●</span>
+      <span>LIMITED 200 PCS</span><span class="dot lime">●</span>
+      <span>SHIPPED WORLDWIDE</span><span class="dot pink">●</span>
+      <span>SOLD OUT IS FOREVER</span><span class="dot lime">●</span>
+      <span>YUKIA® SS26</span><span class="dot pink">●</span>
     </div>
   </div>
 
@@ -160,9 +156,14 @@
     </div>
     <div class="manifesto-grid">
       <div class="manifesto-aside">
-        <p class="mono small-label">FOUNDER STATEMENT</p>
+        <div class="aside-visual">
+          <div class="aside-img"></div>
+          <div class="aside-tag mono">
+            <span class="dot pink">●</span> SHOT IN TOKYO
+          </div>
+        </div>
         <p class="manifesto-quote">
-          &ldquo;Yükki isn't a brand. It's a refusal.&rdquo;
+          &ldquo;Yukia isn't a brand.<br/>It's a refusal.&rdquo;
         </p>
       </div>
       <div class="manifesto-main">
@@ -170,13 +171,13 @@
           <span class="reveal-text">We make clothes for people who don't dress for approval.</span>
         </p>
         <p class="manifesto-body">
-          <span class="reveal-text">Every Yükki piece is born from late nights, blank pages, and the kind of obsession that doesn't sleep. We don't follow trends &mdash; we fossilize them. Every drop is limited. Every silhouette is intentional. When it's gone, it's gone forever.</span>
+          <span class="reveal-text">Every Yukia piece is born from late nights, blank pages, and the kind of obsession that doesn't sleep. We don't follow trends &mdash; we fossilize them. Every drop is limited. Every silhouette is intentional. When it's gone, it's gone forever.</span>
         </p>
         <p class="manifesto-body">
           <span class="reveal-text">We pull from the raw energy of Y2K subculture, the precision of Japanese tailoring, and the unfiltered attitude of street royalty. The result is a uniform for the ones who refuse to blend in.</span>
         </p>
         <p class="manifesto-body manifesto-sign">
-          <span class="reveal-text">— YÜKKI® / SS26 / NO RESTOCK</span>
+          <span class="reveal-text">— YUKIA® / SS26 / NO RESTOCK</span>
         </p>
       </div>
     </div>
@@ -185,17 +186,17 @@
   <!-- PILLARS -->
   <section class="section section-pillars">
     <div class="pillars">
-      <div class="pillar">
+      <div class="pillar pillar-lime">
         <span class="pillar-num mono">/01</span>
         <h3>LIMITED<br/>BY DESIGN</h3>
         <p>200 pieces per drop. No restocks. No exceptions. When the timer hits zero, it's history.</p>
       </div>
-      <div class="pillar">
+      <div class="pillar pillar-pink">
         <span class="pillar-num mono">/02</span>
         <h3>BUILT TO<br/>OUTLIVE TRENDS</h3>
         <p>Heavyweight cotton. Reinforced seams. Made in workshops we know by name.</p>
       </div>
-      <div class="pillar">
+      <div class="pillar pillar-cyan">
         <span class="pillar-num mono">/03</span>
         <h3>STREET, NOT<br/>SUBURBAN</h3>
         <p>Forged in Tokyo basements and Parisian backstreets. Tested by the people who actually live it.</p>
@@ -223,7 +224,6 @@
       </div>
     </div>
 
-    <!-- COUNTDOWN -->
     <div class="countdown-wrap">
       <div class="cd-block">
         <span class="cd-num" id="cd-d">00</span>
@@ -246,14 +246,11 @@
       </div>
     </div>
 
-    <!-- DROP CARDS -->
     <div class="drop-rail">
-      <article class="drop-card">
-        <div class="drop-card-img" data-img="01">
+      <article class="drop-card drop-card-lime">
+        <div class="drop-card-img">
           <span class="drop-card-num mono">N° 001</span>
-          <div class="drop-card-img-inner">
-            <span class="drop-letter">P</span>
-          </div>
+          <div class="drop-card-img-inner"><span class="drop-letter">P</span></div>
           <span class="drop-card-status sold">SOLD OUT</span>
         </div>
         <div class="drop-card-info">
@@ -263,12 +260,10 @@
         </div>
       </article>
 
-      <article class="drop-card">
-        <div class="drop-card-img" data-img="02">
+      <article class="drop-card drop-card-pink">
+        <div class="drop-card-img">
           <span class="drop-card-num mono">N° 002</span>
-          <div class="drop-card-img-inner">
-            <span class="drop-letter">S</span>
-          </div>
+          <div class="drop-card-img-inner"><span class="drop-letter">S</span></div>
           <span class="drop-card-status sold">SOLD OUT</span>
         </div>
         <div class="drop-card-info">
@@ -278,12 +273,10 @@
         </div>
       </article>
 
-      <article class="drop-card">
-        <div class="drop-card-img" data-img="03">
+      <article class="drop-card drop-card-orange">
+        <div class="drop-card-img">
           <span class="drop-card-num mono">N° 003</span>
-          <div class="drop-card-img-inner">
-            <span class="drop-letter">R</span>
-          </div>
+          <div class="drop-card-img-inner"><span class="drop-letter">R</span></div>
           <span class="drop-card-status live">DROPPING SOON</span>
         </div>
         <div class="drop-card-info">
@@ -293,12 +286,10 @@
         </div>
       </article>
 
-      <article class="drop-card">
-        <div class="drop-card-img" data-img="04">
+      <article class="drop-card drop-card-cyan">
+        <div class="drop-card-img">
           <span class="drop-card-num mono">N° 004</span>
-          <div class="drop-card-img-inner">
-            <span class="drop-letter">B</span>
-          </div>
+          <div class="drop-card-img-inner"><span class="drop-letter">B</span></div>
           <span class="drop-card-status live">DROPPING SOON</span>
         </div>
         <div class="drop-card-info">
@@ -308,12 +299,10 @@
         </div>
       </article>
 
-      <article class="drop-card">
-        <div class="drop-card-img" data-img="05">
+      <article class="drop-card drop-card-purple">
+        <div class="drop-card-img">
           <span class="drop-card-num mono">N° 005</span>
-          <div class="drop-card-img-inner">
-            <span class="drop-letter">K</span>
-          </div>
+          <div class="drop-card-img-inner"><span class="drop-letter">K</span></div>
           <span class="drop-card-status live">DROPPING SOON</span>
         </div>
         <div class="drop-card-info">
@@ -339,33 +328,33 @@
 
     <div class="lookbook">
       <figure class="lb lb-1">
-        <div class="lb-img"><span>LOOK 01</span></div>
-        <figcaption class="mono">N° 01 / PHANTOM</figcaption>
+        <div class="lb-img lb-img-hero"></div>
+        <figcaption class="mono"><span class="dot lime">●</span> N° 01 / PHANTOM</figcaption>
       </figure>
       <figure class="lb lb-2">
-        <div class="lb-img"><span>LOOK 02</span></div>
-        <figcaption class="mono">N° 02 / SHADOW</figcaption>
+        <div class="lb-img lb-img-pink"></div>
+        <figcaption class="mono"><span class="dot pink">●</span> N° 02 / SHADOW</figcaption>
       </figure>
       <figure class="lb lb-3">
-        <div class="lb-img"><span>LOOK 03</span></div>
-        <figcaption class="mono">N° 03 / REVOLT</figcaption>
+        <div class="lb-img lb-img-orange"></div>
+        <figcaption class="mono"><span class="dot lime">●</span> N° 03 / REVOLT</figcaption>
       </figure>
       <figure class="lb lb-4">
-        <div class="lb-img"><span>LOOK 04</span></div>
-        <figcaption class="mono">N° 04 / Y2K</figcaption>
+        <div class="lb-img lb-img-cyan"></div>
+        <figcaption class="mono"><span class="dot pink">●</span> N° 04 / Y2K</figcaption>
       </figure>
       <figure class="lb lb-5">
-        <div class="lb-img"><span>LOOK 05</span></div>
-        <figcaption class="mono">N° 05 / KINETIC</figcaption>
+        <div class="lb-img lb-img-purple"></div>
+        <figcaption class="mono"><span class="dot lime">●</span> N° 05 / KINETIC</figcaption>
       </figure>
       <figure class="lb lb-6">
-        <div class="lb-img"><span>LOOK 06</span></div>
-        <figcaption class="mono">N° 06 / ARCHIVE</figcaption>
+        <div class="lb-img lb-img-archive"></div>
+        <figcaption class="mono"><span class="dot pink">●</span> N° 06 / ARCHIVE</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- HORIZONTAL QUOTE STRIP -->
+  <!-- QUOTE STRIP -->
   <section class="quote-strip">
     <div class="quote-track">
       <span>&ldquo;A NEW ATTITUDE WRAPPED IN COTTON&rdquo;</span>
@@ -396,6 +385,11 @@
           Early access to every drop. Members-only product. Behind-the-scenes from the studio.
           No noise. No spam. Just heat.
         </p>
+        <div class="community-tags">
+          <span class="tag tag-lime">EARLY ACCESS</span>
+          <span class="tag tag-pink">MEMBERS DROPS</span>
+          <span class="tag tag-cyan">BTS CONTENT</span>
+        </div>
       </div>
 
       <form class="signup" id="newsletterForm">
@@ -420,7 +414,7 @@
     </div>
   </section>
 
-  <!-- COLLAB / BENTO -->
+  <!-- COLLAB BENTO -->
   <section id="collab" class="section section-collab">
     <div class="section-head">
       <span class="section-num mono">05 — COLLAB</span>
@@ -433,25 +427,25 @@
     </h2>
 
     <div class="bento">
-      <div class="bento-card bento-1">
+      <div class="bento-card bento-1 bento-lime">
         <span class="bento-num mono">/01</span>
         <h3>INFLUENCERS &<br/>CREATORS</h3>
         <p>Wear it before the world does. Exclusive seeding for hand-picked creators.</p>
         <span class="bento-arrow">→</span>
       </div>
-      <div class="bento-card bento-2">
+      <div class="bento-card bento-2 bento-pink">
         <span class="bento-num mono">/02</span>
         <h3>BRAND<br/>COLLABS</h3>
         <p>Capsules, pop-ups, co-drops. If the vision aligns, we build.</p>
         <span class="bento-arrow">→</span>
       </div>
-      <div class="bento-card bento-3">
+      <div class="bento-card bento-3 bento-cyan">
         <span class="bento-num mono">/03</span>
         <h3>EDITORIAL<br/>& PRESS</h3>
         <p>Features, interviews, coverage. Press kit available below.</p>
         <span class="bento-arrow">→</span>
       </div>
-      <div class="bento-card bento-4">
+      <div class="bento-card bento-4 bento-orange">
         <span class="bento-num mono">/04</span>
         <h3>WHOLESALE &<br/>STOCKISTS</h3>
         <p>Carefully selected partners worldwide. No mass distribution.</p>
@@ -462,7 +456,7 @@
     <div class="contact-bar">
       <div>
         <p class="mono small-label">/ DIRECT</p>
-        <a href="mailto:hello@yukki.studio" class="contact-mega" data-text="HELLO@YUKKI.STUDIO">HELLO@YUKKI.STUDIO</a>
+        <a href="mailto:hello@yukia.studio" class="contact-mega" data-text="HELLO@YUKIA.STUDIO">HELLO@YUKIA.STUDIO</a>
       </div>
       <div class="contact-meta mono">
         <span>RESPONSE TIME</span>
@@ -482,7 +476,7 @@
       <span>MEDIA</span><br/>
       <span class="outline">KIT<span class="dot-accent">.</span></span>
     </h2>
-    <p class="kit-intro">Everything you need to feature YÜKKI®. Logos, photography, brand guidelines and press releases. Last updated SS26.</p>
+    <p class="kit-intro">Everything you need to feature YUKIA®. Logos, photography, brand guidelines and press releases. Last updated SS26.</p>
 
     <div class="kit-grid">
       <a href="#" class="kit-card" data-magnetic>
@@ -542,10 +536,9 @@
       </a>
     </div>
 
-    <!-- KIT STATS -->
     <div class="kit-stats">
       <div class="kit-stat">
-        <span class="kit-stat-num" data-count="47">0</span><span class="kit-stat-suf">K+</span>
+        <span class="kit-stat-num" data-count="47">0</span><span class="kit-stat-suf lime">K+</span>
         <span class="mono">COMMUNITY</span>
       </div>
       <div class="kit-stat">
@@ -553,7 +546,7 @@
         <span class="mono">DROPS LAUNCHED</span>
       </div>
       <div class="kit-stat">
-        <span class="kit-stat-num" data-count="100">0</span><span class="kit-stat-suf">%</span>
+        <span class="kit-stat-num" data-count="100">0</span><span class="kit-stat-suf pink">%</span>
         <span class="mono">SELL-THROUGH</span>
       </div>
       <div class="kit-stat">
@@ -566,14 +559,14 @@
   <!-- BIG MARQUEE -->
   <section class="footer-marquee">
     <div class="fm-track">
-      <span>YÜKKI<sup>®</sup></span>
-      <span class="fm-dot">●</span>
-      <span>YÜKKI<sup>®</sup></span>
-      <span class="fm-dot">●</span>
-      <span>YÜKKI<sup>®</sup></span>
-      <span class="fm-dot">●</span>
-      <span>YÜKKI<sup>®</sup></span>
-      <span class="fm-dot">●</span>
+      <span>YUKIA<sup>®</sup></span>
+      <span class="fm-dot lime">●</span>
+      <span class="outline">YUKIA<sup>®</sup></span>
+      <span class="fm-dot pink">●</span>
+      <span>YUKIA<sup>®</sup></span>
+      <span class="fm-dot lime">●</span>
+      <span class="outline">YUKIA<sup>®</sup></span>
+      <span class="fm-dot pink">●</span>
     </div>
   </section>
 
@@ -581,7 +574,7 @@
   <footer id="footer">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-mark">YÜKKI<sup>®</sup></span>
+        <span class="footer-mark">YUKIA<sup>®</sup></span>
         <p>Wear the future.<br/>No restock. No exceptions.</p>
       </div>
       <div class="footer-col">
@@ -607,7 +600,7 @@
       </div>
     </div>
     <div class="footer-bottom mono">
-      <span>© MMXXVI YÜKKI® STUDIO</span>
+      <span>© MMXXVI YUKIA® STUDIO</span>
       <span>ALL RIGHTS RESERVED</span>
       <span>BUILT IN TOKYO &amp; PARIS</span>
     </div>
