@@ -2145,7 +2145,7 @@ ul { list-style: none; }
 .pm-image {
   flex: 1;
   background-color: transparent;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   min-height: 0;
