@@ -678,7 +678,16 @@
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
-      <div class="pm-image" id="pmImage"></div>
+      <div class="pm-gallery">
+        <div class="pm-image" id="pmImage"></div>
+        <button class="pm-nav pm-prev" id="pmPrev" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="pm-nav pm-next" id="pmNext" aria-label="Next image">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="pm-thumbs" id="pmThumbs"></div>
+      </div>
       <div class="pm-info">
         <p class="mono small-label" id="pmNumber">N° 001</p>
         <h2 class="pm-name" id="pmName">PRODUCT NAME</h2>

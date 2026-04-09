@@ -488,6 +488,24 @@
   const pmPrice = document.getElementById('pmPrice');
   const pmDescription = document.getElementById('pmDescription');
   const pmAdd = document.getElementById('pmAdd');
+  const pmPrev = document.getElementById('pmPrev');
+  const pmNext = document.getElementById('pmNext');
+  const pmThumbs = document.getElementById('pmThumbs');
+
+  let pmGalleryImages = [];
+  let pmGalleryIndex = 0;
+
+  function pmShowImage(idx) {
+    if (pmGalleryImages.length === 0) {
+      pmImage.style.backgroundImage = '';
+      return;
+    }
+    pmGalleryIndex = (idx + pmGalleryImages.length) % pmGalleryImages.length;
+    pmImage.style.backgroundImage = `url('${pmGalleryImages[pmGalleryIndex]}')`;
+    pmThumbs.querySelectorAll('.pm-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === pmGalleryIndex);
+    });
+  }
 
   function openProductModal(id) {
     const p = CATALOG.find(x => x.id === id);
@@ -498,11 +516,22 @@
     pmPrice.textContent = fmtPrice(p.price / 100);
     pmDescription.textContent = p.description || '';
     pmDescription.style.display = p.description ? '' : 'none';
-    if (p.image) {
-      pmImage.style.backgroundImage = `url('${p.image}')`;
-    } else {
-      pmImage.style.backgroundImage = '';
-    }
+
+    // Gallery
+    pmGalleryImages = Array.isArray(p.images) && p.images.length > 0
+      ? p.images
+      : (p.image ? [p.image] : []);
+    pmThumbs.innerHTML = pmGalleryImages.length > 1
+      ? pmGalleryImages.map((url, i) => `<button class="pm-thumb" data-idx="${i}" style="background-image:url('${url}')" aria-label="Image ${i + 1}"></button>`).join('')
+      : '';
+    pmThumbs.querySelectorAll('.pm-thumb').forEach(t => {
+      t.addEventListener('click', () => pmShowImage(parseInt(t.dataset.idx, 10)));
+    });
+    const showNav = pmGalleryImages.length > 1;
+    pmPrev.classList.toggle('hidden', !showNav);
+    pmNext.classList.toggle('hidden', !showNav);
+    pmShowImage(0);
+
     if (p.soldOut) {
       pmAdd.disabled = true;
       pmAdd.querySelector('span').textContent = 'SOLD OUT';
@@ -520,6 +549,9 @@
     document.body.style.overflow = 'hidden';
   }
 
+  pmPrev.addEventListener('click', () => pmShowImage(pmGalleryIndex - 1));
+  pmNext.addEventListener('click', () => pmShowImage(pmGalleryIndex + 1));
+
   function closeProductModal() {
     productModal.classList.remove('open');
     productModal.setAttribute('aria-hidden', 'true');
@@ -533,9 +565,10 @@
     if (e.target === productModal) closeProductModal();
   });
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && productModal.classList.contains('open')) {
-      closeProductModal();
-    }
+    if (!productModal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeProductModal();
+    else if (e.key === 'ArrowLeft' && pmGalleryImages.length > 1) pmShowImage(pmGalleryIndex - 1);
+    else if (e.key === 'ArrowRight' && pmGalleryImages.length > 1) pmShowImage(pmGalleryIndex + 1);
   });
 
   function openCart() {

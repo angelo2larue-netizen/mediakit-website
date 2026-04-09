@@ -86,12 +86,14 @@ exports.handler = async (event) => {
       }
 
       const meta = p.metadata || {};
+      const images = Array.isArray(p.images) ? p.images.filter(Boolean) : [];
       products.push({
         id: p.id,
         name: p.name,
         subtitle: meta.subtitle || 'DROP 04',
         description: p.description || '',
-        image: (p.images && p.images[0]) || null,
+        image: images[0] || null,
+        images,
         price: price.unit_amount,
         currency: price.currency,
         color: COLORS.includes(meta.color) ? meta.color : COLORS[idx % COLORS.length],
