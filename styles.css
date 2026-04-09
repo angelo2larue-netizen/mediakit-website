@@ -1648,7 +1648,12 @@ ul { list-style: none; }
 /* ============================================================
    IMAGE FALLBACKS — drops and lookbook show colors when image missing
    ============================================================ */
-.drop-card-img {
+.drop-card .drop-card-img,
+.drop-card-lime .drop-card-img,
+.drop-card-pink .drop-card-img,
+.drop-card-orange .drop-card-img,
+.drop-card-cyan .drop-card-img,
+.drop-card-purple .drop-card-img {
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
