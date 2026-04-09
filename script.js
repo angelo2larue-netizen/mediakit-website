@@ -465,49 +465,74 @@
     if (e.target === checkoutModal) checkoutModal.classList.remove('open');
   });
 
-  // Submit handler — uses Stripe.createPaymentMethod (works on a static site for TEST MODE).
-  // For LIVE mode you'll need a small backend (Vercel/Netlify Function) to create a real
-  // PaymentIntent and confirm it. I'll wire that up when you go live.
+  // Submit handler — calls our Netlify Function to create a PaymentIntent on the
+  // server (using the secret key from env vars), then confirms the card with Stripe.js.
   checkoutForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!stripe || !stripeCard) return;
     const formData = new FormData(checkoutForm);
+    const customer = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      address: formData.get('address'),
+      city: formData.get('city'),
+      zip: formData.get('zip'),
+    };
     payBtn.disabled = true;
     payBtn.classList.add('loading');
     cardError.textContent = '';
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
-      card: stripeCard,
-      billing_details: {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        address: {
-          line1: formData.get('address'),
-          city: formData.get('city'),
-          postal_code: formData.get('zip')
-        }
+    try {
+      // 1. Ask the server to create a PaymentIntent for our cart.
+      const resp = await fetch('/.netlify/functions/create-payment-intent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: cart.map(i => ({ id: i.id, qty: i.qty })),
+          customer,
+        }),
+      });
+      const data = await resp.json();
+      if (!resp.ok || !data.clientSecret) {
+        throw new Error(data.error || 'Could not start payment.');
       }
-    });
 
-    if (error) {
-      cardError.textContent = error.message;
+      // 2. Confirm the card payment with the client_secret.
+      const result = await stripe.confirmCardPayment(data.clientSecret, {
+        payment_method: {
+          card: stripeCard,
+          billing_details: {
+            name: customer.name,
+            email: customer.email,
+            address: {
+              line1: customer.address,
+              city: customer.city,
+              postal_code: customer.zip,
+              country: 'FR',
+            },
+          },
+        },
+      });
+
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+
+      if (result.paymentIntent && result.paymentIntent.status === 'succeeded') {
+        checkoutForm.classList.add('hidden');
+        checkoutSuccess.classList.remove('hidden');
+        cart = [];
+        saveCart();
+        renderCart();
+      } else {
+        throw new Error('Payment did not complete. Status: ' + (result.paymentIntent?.status || 'unknown'));
+      }
+    } catch (err) {
+      cardError.textContent = err.message;
+    } finally {
       payBtn.disabled = false;
       payBtn.classList.remove('loading');
-      return;
     }
-
-    // TEST MODE: payment method created successfully → simulate confirmation
-    console.log('[YUKIA] Stripe PaymentMethod created:', paymentMethod.id);
-    setTimeout(() => {
-      checkoutForm.classList.add('hidden');
-      checkoutSuccess.classList.remove('hidden');
-      cart = [];
-      saveCart();
-      renderCart();
-      payBtn.disabled = false;
-      payBtn.classList.remove('loading');
-    }, 800);
   });
 
   successClose?.addEventListener('click', () => {
