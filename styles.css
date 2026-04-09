@@ -1649,8 +1649,8 @@ ul { list-style: none; }
    IMAGE FALLBACKS — drops and lookbook show colors when image missing
    ============================================================ */
 .drop-card-img {
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 .lb-img,

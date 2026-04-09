@@ -259,6 +259,12 @@
   // Live product catalog (loaded from Stripe via Netlify Function)
   let CATALOG = [];
 
+  // Format a price (in major units, eg. 39.99) — integer if no cents, else 2 decimals
+  function fmtPrice(amount) {
+    const n = Number(amount) || 0;
+    return Number.isInteger(n) ? `€${n}` : `€${n.toFixed(2)}`;
+  }
+
   function getProductData(id) {
     const p = CATALOG.find(x => x.id === id);
     if (!p) return null;
@@ -336,7 +342,7 @@
         <div class="cart-item-info">
           <h4>${i.name}</h4>
           <span class="mono">DROP 04</span>
-          <span class="cart-item-price">€${i.price}</span>
+          <span class="cart-item-price">${fmtPrice(i.price)}</span>
           <div class="cart-item-qty">
             <button class="qty-btn" data-act="dec" data-id="${i.id}" aria-label="Decrease">−</button>
             <span class="qty-val">${i.qty}</span>
@@ -345,7 +351,7 @@
         </div>
         <div class="cart-item-side">
           <button class="cart-item-remove" data-act="rm" data-id="${i.id}" aria-label="Remove">×</button>
-          <span class="cart-item-price">€${(i.price * i.qty).toFixed(0)}</span>
+          <span class="cart-item-price">${fmtPrice(i.price * i.qty)}</span>
         </div>
       </div>
     `).join('');
@@ -361,8 +367,8 @@
       });
     });
 
-    cartSubtotal.textContent = `€${subtotal.toFixed(0)}`;
-    cartTotal.textContent = `€${subtotal.toFixed(0)}`;
+    cartSubtotal.textContent = fmtPrice(subtotal);
+    cartTotal.textContent = fmtPrice(subtotal);
   }
 
   /* ================================================
@@ -386,7 +392,7 @@
     dropRail.innerHTML = CATALOG.map((p, idx) => {
       const colorClass = `drop-card-${p.color}`;
       const num = `N° ${p.number}`;
-      const priceStr = `€${(p.price / 100).toFixed(0)}`;
+      const priceStr = fmtPrice(p.price / 100);
       const letter = (p.name || '?').charAt(0).toUpperCase();
       const imgStyle = p.image ? `style="background-image:url('${escapeHtml(p.image)}');"` : '';
       const statusBadge = p.soldOut
@@ -526,16 +532,16 @@
         ${cart.map(i => `
           <div class="cs-row">
             <span class="cs-name">${i.name} <span class="mono">×${i.qty}</span></span>
-            <span class="cs-price">€${(i.price * i.qty).toFixed(0)}</span>
+            <span class="cs-price">${fmtPrice(i.price * i.qty)}</span>
           </div>
         `).join('')}
       </div>
       <div class="cs-total">
         <span class="mono">TOTAL</span>
-        <span>€${subtotal.toFixed(0)}</span>
+        <span>${fmtPrice(subtotal)}</span>
       </div>
     `;
-    payBtnAmount.textContent = `€${subtotal.toFixed(0)}`;
+    payBtnAmount.textContent = fmtPrice(subtotal);
     return subtotal;
   }
 
