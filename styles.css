@@ -482,11 +482,11 @@ ul { list-style: none; }
   line-height: 0.82;
   letter-spacing: -0.05em;
   margin: 0;
-  background: linear-gradient(180deg, var(--cream) 0%, var(--cream) 50%, var(--lime) 100%);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream) 60%, var(--lime) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 80px rgba(200, 255, 0, 0.15);
+  position: relative;
 }
 .hero-title .word {
   display: inline-flex;
