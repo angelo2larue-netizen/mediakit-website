@@ -456,7 +456,7 @@
 
   async function loadCatalog() {
     try {
-      const resp = await fetch('/.netlify/functions/list-products');
+      const resp = await fetch('/api/list-products');
       const data = await resp.json();
       if (!resp.ok) throw new Error(data.error || 'Failed to load catalog');
       CATALOG = data.products || [];
@@ -687,7 +687,7 @@
 
     try {
       // 1. Ask the server to create a PaymentIntent for our cart.
-      const resp = await fetch('/.netlify/functions/create-payment-intent', {
+      const resp = await fetch('/api/create-payment-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
