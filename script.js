@@ -482,6 +482,7 @@
   const productModal = document.getElementById('productModal');
   const productModalClose = document.getElementById('productModalClose');
   const pmImage = document.getElementById('pmImage');
+  const pmImageBackdrop = document.getElementById('pmImageBackdrop');
   const pmName = document.getElementById('pmName');
   const pmNumber = document.getElementById('pmNumber');
   const pmSubtitle = document.getElementById('pmSubtitle');
@@ -498,10 +499,13 @@
   function pmShowImage(idx) {
     if (pmGalleryImages.length === 0) {
       pmImage.style.backgroundImage = '';
+      pmImageBackdrop.style.backgroundImage = '';
       return;
     }
     pmGalleryIndex = (idx + pmGalleryImages.length) % pmGalleryImages.length;
-    pmImage.style.backgroundImage = `url('${pmGalleryImages[pmGalleryIndex]}')`;
+    const url = pmGalleryImages[pmGalleryIndex];
+    pmImage.style.backgroundImage = `url('${url}')`;
+    pmImageBackdrop.style.backgroundImage = `url('${url}')`;
     pmThumbs.querySelectorAll('.pm-thumb').forEach((t, i) => {
       t.classList.toggle('active', i === pmGalleryIndex);
     });

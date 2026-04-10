@@ -2141,15 +2141,30 @@ ul { list-style: none; }
   border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+.pm-image-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(32px) brightness(0.55) saturate(1.2);
+  transform: scale(1.15); /* hide the soft edges from the blur */
+  transition: background-image 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
 }
 .pm-image {
+  position: relative;
   flex: 1;
   background-color: transparent;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
   min-height: 0;
   transition: background-image 0.3s ease;
+  z-index: 1;
 }
 .pm-nav {
   position: absolute;
@@ -2170,13 +2185,17 @@ ul { list-style: none; }
 .pm-next { right: 1rem; }
 .pm-nav.hidden { display: none; }
 .pm-thumbs {
+  position: relative;
+  z-index: 2;
   display: flex;
   gap: 0.5rem;
   padding: 0.75rem;
   justify-content: center;
   flex-wrap: wrap;
   border-top: 1px solid var(--line);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .pm-thumbs:empty { display: none; }
 .pm-thumb {

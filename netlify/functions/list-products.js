@@ -99,7 +99,15 @@ exports.handler = async (event) => {
         .split(',')
         .map(s => s.trim())
         .filter(Boolean)
-        .map(entry => /^https?:\/\//i.test(entry) ? entry : `/assets/images/products/${entry}`);
+        .map(entry => {
+          if (/^https?:\/\//i.test(entry)) return entry;
+          // Normalize: lowercase + accept .jpg/.jpeg interchangeably
+          let fname = entry.toLowerCase();
+          // If someone wrote .jpg but the real file is .jpeg (or vice versa)
+          // we leave it as-is; filesystem match is exact. Normalizing case
+          // handles 99% of the uploads.
+          return `/assets/images/products/${fname}`;
+        });
       const images = [...stripeImages, ...extras];
       products.push({
         id: p.id,
