@@ -145,7 +145,10 @@ exports.handler = async (event) => {
       headers: {
         ...CORS,
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-store',
+        // Cache on Netlify CDN for 1h, browsers for 5 min.
+        // Cuts function invocations dramatically vs no-store.
+        'Cache-Control': 'public, max-age=300',
+        'Netlify-CDN-Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
       },
       body: JSON.stringify(body),
     };
