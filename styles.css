@@ -732,10 +732,10 @@ ul { list-style: none; }
   border: 1px solid var(--line-strong);
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 80%, rgba(255, 0, 128, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse at 30% 30%, rgba(120, 0, 255, 0.22) 0%, transparent 60%),
-    radial-gradient(ellipse at 75% 20%, rgba(0, 200, 255, 0.15) 0%, transparent 55%),
-    linear-gradient(180deg, #08020e 0%, #0a0510 45%, #050208 100%);
+    linear-gradient(180deg, rgba(8, 2, 14, 0.55) 0%, rgba(10, 5, 16, 0.35) 40%, rgba(5, 2, 8, 0.85) 100%),
+    url('assets/images/manifesto.jpg');
+  background-size: cover;
+  background-position: center;
   isolation: isolate;
 }
 .neon-scene::after {
@@ -825,12 +825,12 @@ ul { list-style: none; }
 }
 .neon-sign {
   position: absolute;
-  top: 38%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   letter-spacing: 0.04em;
   color: #fff5ff;
   display: flex;
@@ -873,7 +873,7 @@ ul { list-style: none; }
 }
 .neon-sub {
   position: absolute;
-  top: 53%;
+  top: 65%;
   left: 50%;
   transform: translateX(-50%);
   font-size: 0.55rem;
