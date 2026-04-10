@@ -720,6 +720,176 @@ ul { list-style: none; }
   z-index: 1;
 }
 .aside-tag .dot { font-size: 1.2em; }
+
+/* === NEON TOKYO SCENE (manifesto aside) === */
+.aside-neon {
+  position: relative;
+}
+.neon-scene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  border: 1px solid var(--line-strong);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 80%, rgba(255, 0, 128, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 30% 30%, rgba(120, 0, 255, 0.22) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 20%, rgba(0, 200, 255, 0.15) 0%, transparent 55%),
+    linear-gradient(180deg, #08020e 0%, #0a0510 45%, #050208 100%);
+  isolation: isolate;
+}
+.neon-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.025) 0px,
+      rgba(255, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+.neon-grid {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -5%;
+  height: 55%;
+  background-image:
+    linear-gradient(rgba(255, 0, 200, 0.55) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 0, 200, 0.55) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(68deg);
+  transform-origin: center bottom;
+  filter: drop-shadow(0 0 8px rgba(255, 0, 200, 0.6));
+  mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 100%);
+}
+.neon-stars {
+  position: absolute;
+  inset: 0 0 50% 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff, transparent),
+    radial-gradient(1px 1px at 28% 8%, #fff, transparent),
+    radial-gradient(1px 1px at 42% 22%, #cdfff5, transparent),
+    radial-gradient(1px 1px at 60% 12%, #fff, transparent),
+    radial-gradient(1px 1px at 78% 28%, #fff, transparent),
+    radial-gradient(1px 1px at 88% 6%, #ffe2f7, transparent),
+    radial-gradient(1px 1px at 18% 38%, #fff, transparent),
+    radial-gradient(1px 1px at 70% 42%, #fff, transparent);
+  opacity: 0.7;
+}
+.neon-skyline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 32%;
+  height: 28%;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 100%),
+    linear-gradient(90deg,
+      #0a0218 0 6%, #100624 6% 9%, #0a0218 9% 14%,
+      #14062a 14% 19%, #0a0218 19% 23%, #1a0830 23% 28%,
+      #0a0218 28% 34%, #160728 34% 40%, #0a0218 40% 45%,
+      #0e0420 45% 52%, #0a0218 52% 58%, #18062c 58% 64%,
+      #0a0218 64% 70%, #14062a 70% 76%, #0a0218 76% 82%,
+      #100624 82% 88%, #0a0218 88% 100%);
+  clip-path: polygon(
+    0% 100%, 0% 65%, 4% 65%, 4% 45%, 7% 45%, 7% 60%, 10% 60%, 10% 30%,
+    14% 30%, 14% 55%, 18% 55%, 18% 25%, 22% 25%, 22% 50%, 26% 50%, 26% 38%,
+    30% 38%, 30% 18%, 34% 18%, 34% 42%, 38% 42%, 38% 28%, 42% 28%, 42% 55%,
+    46% 55%, 46% 12%, 50% 12%, 50% 35%, 54% 35%, 54% 22%, 58% 22%, 58% 48%,
+    62% 48%, 62% 30%, 66% 30%, 66% 18%, 70% 18%, 70% 52%, 74% 52%, 74% 32%,
+    78% 32%, 78% 58%, 82% 58%, 82% 38%, 86% 38%, 86% 62%, 90% 62%, 90% 48%,
+    94% 48%, 94% 68%, 100% 68%, 100% 100%
+  );
+  filter: drop-shadow(0 -2px 6px rgba(255, 0, 128, 0.35));
+}
+.neon-jp {
+  position: absolute;
+  top: 7%;
+  right: 6%;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: rgba(0, 200, 255, 0.85);
+  text-shadow:
+    0 0 4px rgba(0, 200, 255, 0.9),
+    0 0 12px rgba(0, 200, 255, 0.7),
+    0 0 24px rgba(0, 150, 255, 0.5);
+  writing-mode: vertical-rl;
+  letter-spacing: 0.1em;
+}
+.neon-sign {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  letter-spacing: 0.04em;
+  color: #fff5ff;
+  display: flex;
+  gap: 0.02em;
+  z-index: 2;
+}
+.neon-char {
+  display: inline-block;
+  text-shadow:
+    0 0 2px #fff,
+    0 0 6px #ff2bd6,
+    0 0 16px #ff2bd6,
+    0 0 32px rgba(255, 43, 214, 0.85),
+    0 0 60px rgba(255, 43, 214, 0.55);
+}
+.neon-char.neon-flicker {
+  animation: neonAFlicker 4.2s infinite;
+}
+@keyframes neonAFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 6px #ff2bd6,
+      0 0 16px #ff2bd6,
+      0 0 32px rgba(255, 43, 214, 0.85),
+      0 0 60px rgba(255, 43, 214, 0.55);
+  }
+  20%, 24%, 55% {
+    opacity: 0.18;
+    text-shadow: none;
+    color: #3a1530;
+  }
+  22% {
+    opacity: 0.55;
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #ff2bd6;
+  }
+}
+.neon-sub {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  color: rgba(0, 220, 255, 0.95);
+  text-shadow:
+    0 0 4px rgba(0, 200, 255, 0.9),
+    0 0 12px rgba(0, 200, 255, 0.6);
+  white-space: nowrap;
+  z-index: 2;
+}
+.aside-neon .aside-tag {
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.9);
+  z-index: 3;
+}
+
 .manifesto-quote {
   font-family: var(--font-display);
   font-weight: 700;
