@@ -500,25 +500,34 @@ ul { list-style: none; }
 .loaded .hero-title .char-a {
   animation:
     charIn 1s var(--ease-power) forwards,
-    neonAFlicker 5s 1.6s infinite;
+    neonAFlicker 3.6s 1.6s infinite;
 }
 @keyframes neonAFlicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+  0%, 8%, 10%, 11%, 13%, 17%, 19%, 36%, 38%, 39%, 41%, 60%, 62%, 100% {
     opacity: 1;
     text-shadow:
-      0 0 1px rgba(255, 255, 255, 0.9),
-      0 0 4px rgba(200, 255, 0, 0.6),
-      0 0 14px rgba(200, 255, 0, 0.35);
+      0 0 1px rgba(255, 255, 255, 0.95),
+      0 0 4px rgba(200, 255, 0, 0.7),
+      0 0 14px rgba(200, 255, 0, 0.4);
   }
-  20%, 24%, 55% {
-    opacity: 0.35;
+  9%, 12%, 18%, 37%, 40%, 61% {
+    opacity: 0.12;
     text-shadow: none;
+    color: rgba(245, 240, 220, 0.18);
   }
-  21% {
-    opacity: 0.7;
+  9.5%, 18.5%, 37.5% {
+    opacity: 0.55;
     text-shadow:
-      0 0 1px rgba(255, 255, 255, 0.5),
-      0 0 3px rgba(200, 255, 0, 0.3);
+      0 0 1px rgba(255, 255, 255, 0.4),
+      0 0 3px rgba(200, 255, 0, 0.2);
+  }
+  70%, 72% {
+    opacity: 0.2;
+    text-shadow: none;
+    color: rgba(245, 240, 220, 0.2);
+  }
+  71% {
+    opacity: 0.85;
   }
 }
 .hero-title .word {
