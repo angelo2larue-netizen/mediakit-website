@@ -1310,7 +1310,7 @@ ul { list-style: none; }
   grid-template-columns: repeat(12, 1fr);
   gap: 1rem;
 }
-.lb { position: relative; }
+.lb { position: relative; align-self: start; }
 .lb-img {
   position: relative;
   width: 100%;
