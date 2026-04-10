@@ -546,20 +546,7 @@ ul { list-style: none; }
 }
 
 .hero-bg-type {
-  position: absolute;
-  bottom: -8vw;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 36vw;
-  line-height: 0.7;
-  letter-spacing: -0.05em;
-  color: var(--cream);
-  opacity: 0.03;
-  pointer-events: none;
-  white-space: nowrap;
-  z-index: 1;
+  display: none;
 }
 
 @media (max-width: 768px) {
