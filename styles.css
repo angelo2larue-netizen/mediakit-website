@@ -1379,11 +1379,16 @@ ul { list-style: none; }
 .lb-4 .lb-img { aspect-ratio: 1; }
 .lb-5 { grid-column: 9 / 13; }
 .lb-5 .lb-img { aspect-ratio: 1; }
+.lb-2 .lb-img {
+  background-size: cover;
+  background-position: center 15%;
+  background-repeat: no-repeat;
+}
 .lb-6 { grid-column: 1 / 13; }
 .lb-6 .lb-img {
   aspect-ratio: 21 / 9;
   background-size: cover;
-  background-position: center 20%;
+  background-position: center 12%;
   background-repeat: no-repeat;
 }
 
