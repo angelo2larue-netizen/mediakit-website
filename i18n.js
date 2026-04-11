@@ -150,6 +150,11 @@
       'dyn.noDrops': 'NO DROPS AVAILABLE — CHECK BACK SOON',
       'dyn.loadFail': 'COULD NOT LOAD DROPS',
       'dyn.total': 'TOTAL',
+      'legal.backHome': '← BACK TO YUKIA',
+      'legal.contents': '/ CONTENTS',
+      'legal.contactLabel': '/ QUESTIONS?',
+      'legal.contactBody': 'Our team reads every message.',
+      'legal.contactCta': 'CONTACT US ↗',
     },
 
     fr: {
@@ -296,6 +301,11 @@
       'dyn.noDrops': 'AUCUN DROP DISPONIBLE — REVIENS BIENTÔT',
       'dyn.loadFail': 'IMPOSSIBLE DE CHARGER LES DROPS',
       'dyn.total': 'TOTAL',
+      'legal.backHome': '← RETOUR À YUKIA',
+      'legal.contents': '/ SOMMAIRE',
+      'legal.contactLabel': '/ DES QUESTIONS ?',
+      'legal.contactBody': 'Notre équipe lit chaque message.',
+      'legal.contactCta': 'NOUS CONTACTER ↗',
     },
 
     es: {
@@ -442,6 +452,11 @@
       'dyn.noDrops': 'NO HAY DROPS DISPONIBLES — VUELVE PRONTO',
       'dyn.loadFail': 'NO SE PUDIERON CARGAR LOS DROPS',
       'dyn.total': 'TOTAL',
+      'legal.backHome': '← VOLVER A YUKIA',
+      'legal.contents': '/ CONTENIDO',
+      'legal.contactLabel': '/ ¿PREGUNTAS?',
+      'legal.contactBody': 'Nuestro equipo lee cada mensaje.',
+      'legal.contactCta': 'CONTÁCTANOS ↗',
     },
 
     pt: {
@@ -588,6 +603,11 @@
       'dyn.noDrops': 'SEM DROPS DISPONÍVEIS — VOLTA EM BREVE',
       'dyn.loadFail': 'NÃO FOI POSSÍVEL CARREGAR OS DROPS',
       'dyn.total': 'TOTAL',
+      'legal.backHome': '← VOLTAR A YUKIA',
+      'legal.contents': '/ CONTEÚDO',
+      'legal.contactLabel': '/ DÚVIDAS?',
+      'legal.contactBody': 'A nossa equipa lê todas as mensagens.',
+      'legal.contactCta': 'CONTACTA-NOS ↗',
     },
 
     nl: {
@@ -734,6 +754,11 @@
       'dyn.noDrops': 'GEEN DROPS BESCHIKBAAR — KOM SNEL TERUG',
       'dyn.loadFail': 'KAN DROPS NIET LADEN',
       'dyn.total': 'TOTAAL',
+      'legal.backHome': '← TERUG NAAR YUKIA',
+      'legal.contents': '/ INHOUD',
+      'legal.contactLabel': '/ VRAGEN?',
+      'legal.contactBody': 'Ons team leest elk bericht.',
+      'legal.contactCta': 'NEEM CONTACT OP ↗',
     },
   };
 

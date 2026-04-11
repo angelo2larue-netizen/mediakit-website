@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — YUKIA®</title>
+  <meta name="description" content="How YUKIA® collects, uses, and protects your personal data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="legal-page loaded">
+  <div class="grain"></div>
+  <div class="cursor" id="cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-row">
+      <a href="index.html" class="nav-mark" data-magnetic>
+        <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
+          <path d="M10 10 L50 55 L90 10 M50 55 L50 90" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="square"/>
+        </svg>
+        <span class="nav-wordmark">YUKIA<sup>®</sup></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="mono" data-i18n="legal.backHome">← BACK TO YUKIA</a>
+      </nav>
+      <div class="nav-cta">
+        <div class="lang-switch" id="langSwitch">
+          <button class="lang-btn mono" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="langCurrent">EN</span>
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="listbox">
+            <li><button type="button" data-lang="en" class="mono">EN <span class="lang-name">English</span></button></li>
+            <li><button type="button" data-lang="fr" class="mono">FR <span class="lang-name">Français</span></button></li>
+            <li><button type="button" data-lang="es" class="mono">ES <span class="lang-name">Español</span></button></li>
+            <li><button type="button" data-lang="pt" class="mono">PT <span class="lang-name">Português</span></button></li>
+            <li><button type="button" data-lang="nl" class="mono">NL <span class="lang-name">Nederlands</span></button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="legal-hero">
+      <div class="legal-hero-meta">
+        <span class="mono">/ LEGAL</span>
+        <span class="legal-slash"></span>
+        <span class="mono">01</span>
+      </div>
+
+      <div data-legal-lang="en">
+        <h1>Privacy<br/>Policy<span class="dot-accent">.</span></h1>
+        <p>Your data belongs to you. We only hold the minimum we need to ship drops, process payments, and keep the circle small and safe.</p>
+        <span class="legal-updated">LAST UPDATED — APRIL 2026</span>
+      </div>
+      <div data-legal-lang="fr">
+        <h1>Politique de<br/>Confidentialité<span class="dot-accent">.</span></h1>
+        <p>Tes données t'appartiennent. On ne garde que le strict minimum pour livrer les drops, traiter les paiements, et protéger le cercle.</p>
+        <span class="legal-updated">DERNIÈRE MISE À JOUR — AVRIL 2026</span>
+      </div>
+      <div data-legal-lang="es">
+        <h1>Política de<br/>Privacidad<span class="dot-accent">.</span></h1>
+        <p>Tus datos te pertenecen. Solo guardamos lo mínimo para enviar drops, procesar pagos y proteger el círculo.</p>
+        <span class="legal-updated">ÚLTIMA ACTUALIZACIÓN — ABRIL 2026</span>
+      </div>
+      <div data-legal-lang="pt">
+        <h1>Política de<br/>Privacidade<span class="dot-accent">.</span></h1>
+        <p>Os teus dados pertencem-te. Só guardamos o mínimo para enviar drops, processar pagamentos e proteger o círculo.</p>
+        <span class="legal-updated">ÚLTIMA ATUALIZAÇÃO — ABRIL 2026</span>
+      </div>
+      <div data-legal-lang="nl">
+        <h1>Privacy<br/>Beleid<span class="dot-accent">.</span></h1>
+        <p>Je data is van jou. We bewaren alleen het minimum om drops te leveren, betalingen te verwerken en de cirkel veilig te houden.</p>
+        <span class="legal-updated">LAATST BIJGEWERKT — APRIL 2026</span>
+      </div>
+    </section>
+
+    <!-- SHELL -->
+    <div class="legal-shell">
+      <aside class="legal-toc">
+        <p class="mono" data-i18n="legal.contents">/ CONTENTS</p>
+        <ol>
+          <li><a href="#s1" class="legal-toc-link"><span data-legal-lang="en">Who we are</span><span data-legal-lang="fr">Qui sommes-nous</span><span data-legal-lang="es">Quiénes somos</span><span data-legal-lang="pt">Quem somos</span><span data-legal-lang="nl">Wie we zijn</span></a></li>
+          <li><a href="#s2" class="legal-toc-link"><span data-legal-lang="en">Data we collect</span><span data-legal-lang="fr">Données collectées</span><span data-legal-lang="es">Datos que recogemos</span><span data-legal-lang="pt">Dados recolhidos</span><span data-legal-lang="nl">Verzamelde data</span></a></li>
+          <li><a href="#s3" class="legal-toc-link"><span data-legal-lang="en">How we use it</span><span data-legal-lang="fr">Comment on l'utilise</span><span data-legal-lang="es">Cómo los usamos</span><span data-legal-lang="pt">Como os usamos</span><span data-legal-lang="nl">Hoe we het gebruiken</span></a></li>
+          <li><a href="#s4" class="legal-toc-link"><span data-legal-lang="en">Sharing & third parties</span><span data-legal-lang="fr">Partage & tiers</span><span data-legal-lang="es">Compartir & terceros</span><span data-legal-lang="pt">Partilha & terceiros</span><span data-legal-lang="nl">Delen & derden</span></a></li>
+          <li><a href="#s5" class="legal-toc-link"><span data-legal-lang="en">Your rights</span><span data-legal-lang="fr">Tes droits</span><span data-legal-lang="es">Tus derechos</span><span data-legal-lang="pt">Os teus direitos</span><span data-legal-lang="nl">Jouw rechten</span></a></li>
+          <li><a href="#s6" class="legal-toc-link"><span data-legal-lang="en">Retention</span><span data-legal-lang="fr">Conservation</span><span data-legal-lang="es">Conservación</span><span data-legal-lang="pt">Retenção</span><span data-legal-lang="nl">Bewaartermijn</span></a></li>
+          <li><a href="#s7" class="legal-toc-link"><span data-legal-lang="en">Security</span><span data-legal-lang="fr">Sécurité</span><span data-legal-lang="es">Seguridad</span><span data-legal-lang="pt">Segurança</span><span data-legal-lang="nl">Beveiliging</span></a></li>
+        </ol>
+      </aside>
+
+      <div class="legal-body">
+        <!-- ================= ENGLISH ================= -->
+        <div data-legal-lang="en">
+          <section class="legal-section" id="s1">
+            <span class="legal-num">§ 01</span>
+            <h2>Who we are</h2>
+            <p>YUKIA® is a streetwear studio based between Tokyo and Paris, operated by <strong>YUKIA Studio SAS</strong>. When we say "we", "us", or "YUKIA" in this document, that's who we mean. When we say "you", we mean anyone who visits <a href="https://yukia.vercel.app">yukia.vercel.app</a>, places an order, or joins the Inner Circle.</p>
+            <p>This policy explains what we do with your personal data, why we do it, and the rights you have over it. It's written to be read — no dark patterns, no legal smoke.</p>
+          </section>
+          <section class="legal-section" id="s2">
+            <span class="legal-num">§ 02</span>
+            <h2>Data we collect</h2>
+            <p>We only ask for what we actually need. Depending on how you interact with us, that may include:</p>
+            <ul class="legal-list">
+              <li><strong>Identity & contact</strong> — name, email, shipping address, phone (only if required for delivery).</li>
+              <li><strong>Order data</strong> — items purchased, size, price, order history.</li>
+              <li><strong>Payment data</strong> — handled directly by Stripe. We never see or store your full card number.</li>
+              <li><strong>Technical data</strong> — browser type, device, referring URL, anonymized analytics.</li>
+              <li><strong>Marketing preferences</strong> — your Inner Circle status, drop alert opt-ins.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3">
+            <span class="legal-num">§ 03</span>
+            <h2>How we use it</h2>
+            <p>Your data is used strictly to: fulfill your orders, provide customer support, send drop alerts you've opted into, and improve the YUKIA experience. We don't sell it. We don't rent it. We don't hand it to data brokers.</p>
+            <p>Legal basis: performance of contract (orders), legitimate interest (site security, fraud prevention), and consent (marketing).</p>
+          </section>
+          <section class="legal-section" id="s4">
+            <span class="legal-num">§ 04</span>
+            <h2>Sharing & third parties</h2>
+            <p>We only share data with trusted partners required to run the drops:</p>
+            <ul class="legal-list">
+              <li><strong>Stripe</strong> — payment processing (PCI-DSS certified).</li>
+              <li><strong>Shipping carriers</strong> — to deliver your order.</li>
+              <li><strong>Vercel</strong> — hosting infrastructure.</li>
+              <li><strong>Email platform</strong> — for drop alerts (opt-in only).</li>
+            </ul>
+            <p>All partners are contractually bound to process your data only for the specific task we assign them.</p>
+          </section>
+          <section class="legal-section" id="s5">
+            <span class="legal-num">§ 05</span>
+            <h2>Your rights</h2>
+            <p>Under GDPR and equivalent regulations, you can at any time: access the data we hold on you, correct it, delete it, export it in a portable format, restrict how we use it, or withdraw consent. To exercise any of these rights, email <a href="mailto:privacy@yukia.studio">privacy@yukia.studio</a> and we'll respond within 30 days.</p>
+          </section>
+          <section class="legal-section" id="s6">
+            <span class="legal-num">§ 06</span>
+            <h2>Retention</h2>
+            <p>Order data is kept for 10 years as required by French commercial law. Marketing data is kept until you unsubscribe. Technical logs are kept for 13 months maximum. After that, everything is deleted or fully anonymized.</p>
+          </section>
+          <section class="legal-section" id="s7">
+            <span class="legal-num">§ 07</span>
+            <h2>Security</h2>
+            <p>All traffic is encrypted with TLS 1.3. Payments run through Stripe's PCI-DSS infrastructure. Access to customer data is restricted to a handful of authorized staff. In the unlikely event of a breach, we'll notify affected users within 72 hours as required by law.</p>
+          </section>
+          <div class="legal-contact">
+            <div>
+              <p class="mono" data-i18n="legal.contactLabel">/ QUESTIONS?</p>
+              <p data-i18n="legal.contactBody">Our team reads every message.</p>
+            </div>
+            <a href="mailto:privacy@yukia.studio" class="btn" data-i18n="legal.contactCta">CONTACT US ↗</a>
+          </div>
+        </div>
+
+        <!-- ================= FRANÇAIS ================= -->
+        <div data-legal-lang="fr">
+          <section class="legal-section" id="s1-fr">
+            <span class="legal-num">§ 01</span>
+            <h2>Qui sommes-nous</h2>
+            <p>YUKIA® est un studio streetwear basé entre Tokyo et Paris, exploité par <strong>YUKIA Studio SAS</strong>. Quand on dit « nous » ou « YUKIA » dans ce document, c'est de ça qu'on parle. Quand on dit « toi », c'est toute personne qui visite <a href="https://yukia.vercel.app">yukia.vercel.app</a>, passe commande, ou rejoint l'Inner Circle.</p>
+            <p>Cette politique explique ce qu'on fait avec tes données personnelles, pourquoi on le fait, et les droits que tu as dessus. Elle est écrite pour être lue — pas de dark patterns, pas de fumée légale.</p>
+          </section>
+          <section class="legal-section" id="s2-fr">
+            <span class="legal-num">§ 02</span>
+            <h2>Données collectées</h2>
+            <p>On ne demande que ce dont on a réellement besoin. Selon comment tu interagis avec nous, ça peut inclure :</p>
+            <ul class="legal-list">
+              <li><strong>Identité & contact</strong> — nom, email, adresse de livraison, téléphone (uniquement si requis pour la livraison).</li>
+              <li><strong>Données de commande</strong> — articles achetés, taille, prix, historique.</li>
+              <li><strong>Données de paiement</strong> — traitées directement par Stripe. On ne voit jamais ton numéro de carte complet.</li>
+              <li><strong>Données techniques</strong> — type de navigateur, appareil, URL référente, analytics anonymisés.</li>
+              <li><strong>Préférences marketing</strong> — statut Inner Circle, opt-ins aux alertes drops.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-fr">
+            <span class="legal-num">§ 03</span>
+            <h2>Comment on l'utilise</h2>
+            <p>Tes données servent strictement à : traiter tes commandes, t'offrir du support, t'envoyer les alertes drops auxquelles tu as souscrit, et améliorer l'expérience YUKIA. On ne les vend pas. On ne les loue pas. On ne les refile à aucun data broker.</p>
+            <p>Base légale : exécution du contrat (commandes), intérêt légitime (sécurité, prévention fraude), et consentement (marketing).</p>
+          </section>
+          <section class="legal-section" id="s4-fr">
+            <span class="legal-num">§ 04</span>
+            <h2>Partage & tiers</h2>
+            <p>On ne partage tes données qu'avec les partenaires de confiance nécessaires à la logistique des drops :</p>
+            <ul class="legal-list">
+              <li><strong>Stripe</strong> — traitement des paiements (certifié PCI-DSS).</li>
+              <li><strong>Transporteurs</strong> — pour livrer ta commande.</li>
+              <li><strong>Vercel</strong> — infrastructure d'hébergement.</li>
+              <li><strong>Plateforme email</strong> — pour les alertes drops (opt-in uniquement).</li>
+            </ul>
+            <p>Tous nos partenaires sont contractuellement tenus de ne traiter tes données que pour la tâche qu'on leur confie.</p>
+          </section>
+          <section class="legal-section" id="s5-fr">
+            <span class="legal-num">§ 05</span>
+            <h2>Tes droits</h2>
+            <p>Sous le RGPD, tu peux à tout moment : accéder à tes données, les rectifier, les supprimer, les exporter dans un format portable, restreindre leur utilisation, ou retirer ton consentement. Pour exercer ces droits, écris à <a href="mailto:privacy@yukia.studio">privacy@yukia.studio</a> et on te répondra sous 30 jours.</p>
+          </section>
+          <section class="legal-section" id="s6-fr">
+            <span class="legal-num">§ 06</span>
+            <h2>Conservation</h2>
+            <p>Les données de commande sont conservées 10 ans comme l'exige le Code de commerce français. Les données marketing jusqu'à ta désinscription. Les logs techniques 13 mois maximum. Au-delà, tout est supprimé ou totalement anonymisé.</p>
+          </section>
+          <section class="legal-section" id="s7-fr">
+            <span class="legal-num">§ 07</span>
+            <h2>Sécurité</h2>
+            <p>Tout le trafic est chiffré TLS 1.3. Les paiements passent par l'infrastructure PCI-DSS de Stripe. L'accès aux données clients est réservé à une poignée de personnes autorisées. En cas d'incident, on notifie les utilisateurs concernés dans les 72h comme l'exige la loi.</p>
+          </section>
+          <div class="legal-contact">
+            <div>
+              <p class="mono">/ DES QUESTIONS ?</p>
+              <p>Notre équipe lit chaque message.</p>
+            </div>
+            <a href="mailto:privacy@yukia.studio" class="btn">NOUS CONTACTER ↗</a>
+          </div>
+        </div>
+
+        <!-- ================= ESPAÑOL ================= -->
+        <div data-legal-lang="es">
+          <section class="legal-section" id="s1-es">
+            <span class="legal-num">§ 01</span>
+            <h2>Quiénes somos</h2>
+            <p>YUKIA® es un estudio de streetwear ubicado entre Tokio y París, operado por <strong>YUKIA Studio SAS</strong>. Cuando decimos "nosotros" o "YUKIA" en este documento, nos referimos a eso. Cuando decimos "tú", nos referimos a cualquier persona que visite <a href="https://yukia.vercel.app">yukia.vercel.app</a>, haga un pedido o se una al Inner Circle.</p>
+            <p>Esta política explica qué hacemos con tus datos personales, por qué lo hacemos y los derechos que tienes sobre ellos. Está escrita para leerse — sin dark patterns, sin humo legal.</p>
+          </section>
+          <section class="legal-section" id="s2-es">
+            <span class="legal-num">§ 02</span>
+            <h2>Datos que recogemos</h2>
+            <p>Solo pedimos lo que realmente necesitamos. Según cómo interactúes con nosotros, eso puede incluir:</p>
+            <ul class="legal-list">
+              <li><strong>Identidad y contacto</strong> — nombre, email, dirección de envío, teléfono (solo si es necesario para la entrega).</li>
+              <li><strong>Datos del pedido</strong> — artículos comprados, talla, precio, historial.</li>
+              <li><strong>Datos de pago</strong> — gestionados directamente por Stripe. Nunca vemos tu número de tarjeta completo.</li>
+              <li><strong>Datos técnicos</strong> — tipo de navegador, dispositivo, URL de referencia, analíticas anonimizadas.</li>
+              <li><strong>Preferencias de marketing</strong> — estatus Inner Circle, alertas de drops.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-es">
+            <span class="legal-num">§ 03</span>
+            <h2>Cómo los usamos</h2>
+            <p>Tus datos se usan estrictamente para: gestionar tus pedidos, ofrecer soporte, enviar las alertas de drops a las que te has suscrito, y mejorar la experiencia YUKIA. No los vendemos. No los alquilamos. No los entregamos a data brokers.</p>
+            <p>Base legal: ejecución del contrato (pedidos), interés legítimo (seguridad, prevención de fraude), y consentimiento (marketing).</p>
+          </section>
+          <section class="legal-section" id="s4-es">
+            <span class="legal-num">§ 04</span>
+            <h2>Compartir y terceros</h2>
+            <p>Solo compartimos datos con socios de confianza necesarios para los drops:</p>
+            <ul class="legal-list">
+              <li><strong>Stripe</strong> — procesamiento de pagos (certificado PCI-DSS).</li>
+              <li><strong>Transportistas</strong> — para entregar tu pedido.</li>
+              <li><strong>Vercel</strong> — infraestructura de hosting.</li>
+              <li><strong>Plataforma de email</strong> — para las alertas de drops (solo opt-in).</li>
+            </ul>
+            <p>Todos los socios están contractualmente obligados a procesar tus datos únicamente para la tarea que les asignamos.</p>
+          </section>
+          <section class="legal-section" id="s5-es">
+            <span class="legal-num">§ 05</span>
+            <h2>Tus derechos</h2>
+            <p>Bajo el RGPD, puedes en cualquier momento: acceder a tus datos, rectificarlos, eliminarlos, exportarlos en formato portable, restringir su uso o retirar tu consentimiento. Para ejercer estos derechos, escríbenos a <a href="mailto:privacy@yukia.studio">privacy@yukia.studio</a> y te responderemos en un plazo de 30 días.</p>
+          </section>
+          <section class="legal-section" id="s6-es">
+            <span class="legal-num">§ 06</span>
+            <h2>Conservación</h2>
+            <p>Los datos de pedido se conservan 10 años según exige la legislación comercial francesa. Los datos de marketing hasta que te des de baja. Los logs técnicos un máximo de 13 meses. Después, todo se elimina o se anonimiza totalmente.</p>
+          </section>
+          <section class="legal-section" id="s7-es">
+            <span class="legal-num">§ 07</span>
+            <h2>Seguridad</h2>
+            <p>Todo el tráfico está cifrado con TLS 1.3. Los pagos pasan por la infraestructura PCI-DSS de Stripe. El acceso a los datos de clientes está restringido a un pequeño grupo de personal autorizado. En caso de incidente, notificamos a los usuarios afectados en 72 horas como exige la ley.</p>
+          </section>
+          <div class="legal-contact">
+            <div>
+              <p class="mono">/ ¿PREGUNTAS?</p>
+              <p>Nuestro equipo lee cada mensaje.</p>
+            </div>
+            <a href="mailto:privacy@yukia.studio" class="btn">CONTÁCTANOS ↗</a>
+          </div>
+        </div>
+
+        <!-- ================= PORTUGUÊS ================= -->
+        <div data-legal-lang="pt">
+          <section class="legal-section" id="s1-pt">
+            <span class="legal-num">§ 01</span>
+            <h2>Quem somos</h2>
+            <p>YUKIA® é um estúdio de streetwear entre Tóquio e Paris, operado pela <strong>YUKIA Studio SAS</strong>. Quando dizemos "nós" ou "YUKIA" neste documento, é isto que queremos dizer. Quando dizemos "tu", referimo-nos a qualquer pessoa que visite <a href="https://yukia.vercel.app">yukia.vercel.app</a>, faça uma encomenda ou se junte ao Inner Circle.</p>
+            <p>Esta política explica o que fazemos com os teus dados pessoais, porquê, e os direitos que tens sobre eles. Está escrita para ser lida — sem dark patterns, sem fumo legal.</p>
+          </section>
+          <section class="legal-section" id="s2-pt">
+            <span class="legal-num">§ 02</span>
+            <h2>Dados recolhidos</h2>
+            <p>Só pedimos o que realmente precisamos. Dependendo de como interages connosco, isso pode incluir:</p>
+            <ul class="legal-list">
+              <li><strong>Identidade e contacto</strong> — nome, email, morada de envio, telefone (apenas se necessário para a entrega).</li>
+              <li><strong>Dados da encomenda</strong> — artigos comprados, tamanho, preço, histórico.</li>
+              <li><strong>Dados de pagamento</strong> — geridos diretamente pela Stripe. Nunca vemos o teu número de cartão completo.</li>
+              <li><strong>Dados técnicos</strong> — tipo de navegador, dispositivo, URL de referência, analytics anonimizados.</li>
+              <li><strong>Preferências de marketing</strong> — estado Inner Circle, alertas de drops.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-pt">
+            <span class="legal-num">§ 03</span>
+            <h2>Como os usamos</h2>
+            <p>Os teus dados servem estritamente para: processar as tuas encomendas, oferecer apoio, enviar os alertas de drops a que te inscreveste, e melhorar a experiência YUKIA. Não vendemos. Não alugamos. Não entregamos a nenhum data broker.</p>
+            <p>Base legal: execução do contrato (encomendas), interesse legítimo (segurança, prevenção de fraude), e consentimento (marketing).</p>
+          </section>
+          <section class="legal-section" id="s4-pt">
+            <span class="legal-num">§ 04</span>
+            <h2>Partilha e terceiros</h2>
+            <p>Só partilhamos dados com parceiros de confiança necessários à logística dos drops:</p>
+            <ul class="legal-list">
+              <li><strong>Stripe</strong> — processamento de pagamentos (certificado PCI-DSS).</li>
+              <li><strong>Transportadoras</strong> — para entregar a tua encomenda.</li>
+              <li><strong>Vercel</strong> — infraestrutura de alojamento.</li>
+              <li><strong>Plataforma de email</strong> — para os alertas de drops (apenas opt-in).</li>
+            </ul>
+            <p>Todos os parceiros estão contratualmente obrigados a processar os teus dados apenas para a tarefa que lhes atribuímos.</p>
+          </section>
+          <section class="legal-section" id="s5-pt">
+            <span class="legal-num">§ 05</span>
+            <h2>Os teus direitos</h2>
+            <p>Ao abrigo do RGPD, podes a qualquer momento: aceder aos teus dados, corrigi-los, apagá-los, exportá-los em formato portável, restringir a sua utilização ou retirar o consentimento. Para exercer estes direitos, envia email para <a href="mailto:privacy@yukia.studio">privacy@yukia.studio</a> e respondemos em 30 dias.</p>
+          </section>
+          <section class="legal-section" id="s6-pt">
+            <span class="legal-num">§ 06</span>
+            <h2>Retenção</h2>
+            <p>Os dados de encomenda são mantidos 10 anos como exige a legislação comercial francesa. Os dados de marketing até te dares como removido. Os logs técnicos no máximo 13 meses. Depois disso, tudo é apagado ou totalmente anonimizado.</p>
+          </section>
+          <section class="legal-section" id="s7-pt">
+            <span class="legal-num">§ 07</span>
+            <h2>Segurança</h2>
+            <p>Todo o tráfego é encriptado com TLS 1.3. Os pagamentos passam pela infraestrutura PCI-DSS da Stripe. O acesso aos dados dos clientes é restrito a um pequeno grupo autorizado. Em caso de incidente, notificamos os utilizadores afetados em 72 horas, como exige a lei.</p>
+          </section>
+          <div class="legal-contact">
+            <div>
+              <p class="mono">/ DÚVIDAS?</p>
+              <p>A nossa equipa lê todas as mensagens.</p>
+            </div>
+            <a href="mailto:privacy@yukia.studio" class="btn">CONTACTA-NOS ↗</a>
+          </div>
+        </div>
+
+        <!-- ================= NEDERLANDS ================= -->
+        <div data-legal-lang="nl">
+          <section class="legal-section" id="s1-nl">
+            <span class="legal-num">§ 01</span>
+            <h2>Wie we zijn</h2>
+            <p>YUKIA® is een streetwear-studio tussen Tokyo en Parijs, beheerd door <strong>YUKIA Studio SAS</strong>. Wanneer we "wij" of "YUKIA" zeggen in dit document, bedoelen we dat. Wanneer we "jij" zeggen, bedoelen we iedereen die <a href="https://yukia.vercel.app">yukia.vercel.app</a> bezoekt, een bestelling plaatst of lid wordt van de Inner Circle.</p>
+            <p>Dit beleid legt uit wat we met je persoonsgegevens doen, waarom we het doen, en welke rechten je hebt. Het is geschreven om gelezen te worden — geen dark patterns, geen juridische mist.</p>
+          </section>
+          <section class="legal-section" id="s2-nl">
+            <span class="legal-num">§ 02</span>
+            <h2>Verzamelde data</h2>
+            <p>We vragen alleen wat we echt nodig hebben. Afhankelijk van hoe je met ons omgaat, kan dat omvatten:</p>
+            <ul class="legal-list">
+              <li><strong>Identiteit & contact</strong> — naam, e-mail, bezorgadres, telefoon (alleen indien nodig voor bezorging).</li>
+              <li><strong>Bestelgegevens</strong> — gekochte artikelen, maat, prijs, geschiedenis.</li>
+              <li><strong>Betaalgegevens</strong> — direct afgehandeld door Stripe. We zien nooit je volledige kaartnummer.</li>
+              <li><strong>Technische gegevens</strong> — browsertype, apparaat, verwijzende URL, geanonimiseerde analytics.</li>
+              <li><strong>Marketingvoorkeuren</strong> — Inner Circle-status, opt-ins voor drop alerts.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-nl">
+            <span class="legal-num">§ 03</span>
+            <h2>Hoe we het gebruiken</h2>
+            <p>Je data wordt uitsluitend gebruikt om: je bestellingen uit te voeren, support te bieden, drop alerts te versturen waarvoor je je hebt aangemeld, en de YUKIA-ervaring te verbeteren. We verkopen het niet. We verhuren het niet. We geven het niet aan datahandelaars.</p>
+            <p>Juridische basis: uitvoering van het contract (bestellingen), gerechtvaardigd belang (beveiliging, fraudepreventie) en toestemming (marketing).</p>
+          </section>
+          <section class="legal-section" id="s4-nl">
+            <span class="legal-num">§ 04</span>
+            <h2>Delen & derden</h2>
+            <p>We delen alleen data met vertrouwde partners die nodig zijn voor de drops:</p>
+            <ul class="legal-list">
+              <li><strong>Stripe</strong> — betalingsverwerking (PCI-DSS-gecertificeerd).</li>
+              <li><strong>Vervoerders</strong> — om je bestelling te leveren.</li>
+              <li><strong>Vercel</strong> — hostinginfrastructuur.</li>
+              <li><strong>E-mailplatform</strong> — voor drop alerts (alleen opt-in).</li>
+            </ul>
+            <p>Alle partners zijn contractueel verplicht je data alleen te verwerken voor de specifieke taak die we hun toewijzen.</p>
+          </section>
+          <section class="legal-section" id="s5-nl">
+            <span class="legal-num">§ 05</span>
+            <h2>Jouw rechten</h2>
+            <p>Onder de AVG kun je op elk moment: je data inzien, corrigeren, laten verwijderen, in portabel formaat exporteren, het gebruik beperken of je toestemming intrekken. Om deze rechten uit te oefenen, mail naar <a href="mailto:privacy@yukia.studio">privacy@yukia.studio</a> en we reageren binnen 30 dagen.</p>
+          </section>
+          <section class="legal-section" id="s6-nl">
+            <span class="legal-num">§ 06</span>
+            <h2>Bewaartermijn</h2>
+            <p>Bestelgegevens worden 10 jaar bewaard, zoals vereist door de Franse handelswetgeving. Marketinggegevens tot je je afmeldt. Technische logs maximaal 13 maanden. Daarna wordt alles verwijderd of volledig geanonimiseerd.</p>
+          </section>
+          <section class="legal-section" id="s7-nl">
+            <span class="legal-num">§ 07</span>
+            <h2>Beveiliging</h2>
+            <p>Alle verkeer is versleuteld met TLS 1.3. Betalingen lopen via de PCI-DSS-infrastructuur van Stripe. Toegang tot klantgegevens is beperkt tot een klein aantal geautoriseerde medewerkers. Bij een onverhoopt incident stellen we betrokken gebruikers binnen 72 uur op de hoogte, zoals de wet vereist.</p>
+          </section>
+          <div class="legal-contact">
+            <div>
+              <p class="mono">/ VRAGEN?</p>
+              <p>Ons team leest elk bericht.</p>
+            </div>
+            <a href="mailto:privacy@yukia.studio" class="btn">NEEM CONTACT OP ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-mark">YUKIA<sup>®</sup></span>
+        <p data-i18n-html="footer.brandLine">Wear the future.<br/>No restock. No exceptions.</p>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.navigate">/ NAVIGATE</p>
+        <a href="index.html#manifesto" data-i18n="nav.manifesto">Manifesto</a>
+        <a href="index.html#drops" data-i18n="nav.drops">Drops</a>
+        <a href="index.html#lookbook" data-i18n="nav.lookbook">Lookbook</a>
+        <a href="index.html#kit" data-i18n="nav.press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.follow">/ FOLLOW</p>
+        <a href="#">Instagram ↗</a>
+        <a href="#">TikTok ↗</a>
+        <a href="#">Twitter / X ↗</a>
+        <a href="#">Discord ↗</a>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.legal">/ LEGAL</p>
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms</a>
+        <a href="returns.html" data-i18n="footer.returns">Returns</a>
+        <a href="cookies.html" data-i18n="footer.cookies">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <span>© MMXXVI YUKIA® STUDIO</span>
+      <span data-i18n="footer.rights">ALL RIGHTS RESERVED</span>
+      <span data-i18n="footer.built">BUILT IN TOKYO &amp; PARIS</span>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="legal.js"></script>
+</body>
+</html>

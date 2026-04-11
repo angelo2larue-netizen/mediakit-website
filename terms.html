@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — YUKIA®</title>
+  <meta name="description" content="The rules that govern your use of YUKIA® and every drop." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="legal-page loaded">
+  <div class="grain"></div>
+  <div class="cursor" id="cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="nav-row">
+      <a href="index.html" class="nav-mark" data-magnetic>
+        <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
+          <path d="M10 10 L50 55 L90 10 M50 55 L50 90" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="square"/>
+        </svg>
+        <span class="nav-wordmark">YUKIA<sup>®</sup></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="mono" data-i18n="legal.backHome">← BACK TO YUKIA</a>
+      </nav>
+      <div class="nav-cta">
+        <div class="lang-switch" id="langSwitch">
+          <button class="lang-btn mono" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="langCurrent">EN</span>
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="listbox">
+            <li><button type="button" data-lang="en" class="mono">EN <span class="lang-name">English</span></button></li>
+            <li><button type="button" data-lang="fr" class="mono">FR <span class="lang-name">Français</span></button></li>
+            <li><button type="button" data-lang="es" class="mono">ES <span class="lang-name">Español</span></button></li>
+            <li><button type="button" data-lang="pt" class="mono">PT <span class="lang-name">Português</span></button></li>
+            <li><button type="button" data-lang="nl" class="mono">NL <span class="lang-name">Nederlands</span></button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-hero">
+      <div class="legal-hero-meta">
+        <span class="mono">/ LEGAL</span>
+        <span class="legal-slash"></span>
+        <span class="mono">02</span>
+      </div>
+      <div data-legal-lang="en">
+        <h1>Terms of<br/>Service<span class="dot-accent">.</span></h1>
+        <p>The rules that govern every drop, every order, and every visit. Short, clear, and written like we'd want to read them ourselves.</p>
+        <span class="legal-updated">LAST UPDATED — APRIL 2026</span>
+      </div>
+      <div data-legal-lang="fr">
+        <h1>Conditions<br/>Générales<span class="dot-accent">.</span></h1>
+        <p>Les règles qui régissent chaque drop, chaque commande, et chaque visite. Courtes, claires, et écrites comme on aimerait les lire.</p>
+        <span class="legal-updated">DERNIÈRE MISE À JOUR — AVRIL 2026</span>
+      </div>
+      <div data-legal-lang="es">
+        <h1>Términos de<br/>Servicio<span class="dot-accent">.</span></h1>
+        <p>Las reglas que rigen cada drop, cada pedido y cada visita. Cortas, claras, y escritas como nos gustaría leerlas.</p>
+        <span class="legal-updated">ÚLTIMA ACTUALIZACIÓN — ABRIL 2026</span>
+      </div>
+      <div data-legal-lang="pt">
+        <h1>Termos de<br/>Serviço<span class="dot-accent">.</span></h1>
+        <p>As regras que regem cada drop, cada encomenda e cada visita. Curtas, claras e escritas como gostaríamos de as ler.</p>
+        <span class="legal-updated">ÚLTIMA ATUALIZAÇÃO — ABRIL 2026</span>
+      </div>
+      <div data-legal-lang="nl">
+        <h1>Algemene<br/>Voorwaarden<span class="dot-accent">.</span></h1>
+        <p>De regels die elke drop, elke bestelling en elk bezoek regelen. Kort, duidelijk en geschreven zoals wij ze zelf zouden willen lezen.</p>
+        <span class="legal-updated">LAATST BIJGEWERKT — APRIL 2026</span>
+      </div>
+    </section>
+
+    <div class="legal-shell">
+      <aside class="legal-toc">
+        <p class="mono" data-i18n="legal.contents">/ CONTENTS</p>
+        <ol>
+          <li><a href="#s1" class="legal-toc-link"><span data-legal-lang="en">Acceptance</span><span data-legal-lang="fr">Acceptation</span><span data-legal-lang="es">Aceptación</span><span data-legal-lang="pt">Aceitação</span><span data-legal-lang="nl">Aanvaarding</span></a></li>
+          <li><a href="#s2" class="legal-toc-link"><span data-legal-lang="en">Orders & pricing</span><span data-legal-lang="fr">Commandes & prix</span><span data-legal-lang="es">Pedidos y precios</span><span data-legal-lang="pt">Encomendas e preços</span><span data-legal-lang="nl">Bestellingen & prijzen</span></a></li>
+          <li><a href="#s3" class="legal-toc-link"><span data-legal-lang="en">Payment</span><span data-legal-lang="fr">Paiement</span><span data-legal-lang="es">Pago</span><span data-legal-lang="pt">Pagamento</span><span data-legal-lang="nl">Betaling</span></a></li>
+          <li><a href="#s4" class="legal-toc-link"><span data-legal-lang="en">Shipping & delivery</span><span data-legal-lang="fr">Expédition & livraison</span><span data-legal-lang="es">Envío y entrega</span><span data-legal-lang="pt">Envio e entrega</span><span data-legal-lang="nl">Verzending & levering</span></a></li>
+          <li><a href="#s5" class="legal-toc-link"><span data-legal-lang="en">Drops & availability</span><span data-legal-lang="fr">Drops & disponibilité</span><span data-legal-lang="es">Drops y disponibilidad</span><span data-legal-lang="pt">Drops e disponibilidade</span><span data-legal-lang="nl">Drops & beschikbaarheid</span></a></li>
+          <li><a href="#s6" class="legal-toc-link"><span data-legal-lang="en">Intellectual property</span><span data-legal-lang="fr">Propriété intellectuelle</span><span data-legal-lang="es">Propiedad intelectual</span><span data-legal-lang="pt">Propriedade intelectual</span><span data-legal-lang="nl">Intellectuele eigendom</span></a></li>
+          <li><a href="#s7" class="legal-toc-link"><span data-legal-lang="en">Liability</span><span data-legal-lang="fr">Responsabilité</span><span data-legal-lang="es">Responsabilidad</span><span data-legal-lang="pt">Responsabilidade</span><span data-legal-lang="nl">Aansprakelijkheid</span></a></li>
+          <li><a href="#s8" class="legal-toc-link"><span data-legal-lang="en">Law & jurisdiction</span><span data-legal-lang="fr">Droit & juridiction</span><span data-legal-lang="es">Ley y jurisdicción</span><span data-legal-lang="pt">Lei e jurisdição</span><span data-legal-lang="nl">Recht & rechtsbevoegdheid</span></a></li>
+        </ol>
+      </aside>
+
+      <div class="legal-body">
+        <!-- EN -->
+        <div data-legal-lang="en">
+          <section class="legal-section" id="s1">
+            <span class="legal-num">§ 01</span>
+            <h2>Acceptance</h2>
+            <p>By using <a href="https://yukia.vercel.app">yukia.vercel.app</a> or placing an order, you agree to these Terms of Service. If you don't agree, please don't use the site. These terms are governed by <strong>YUKIA Studio SAS</strong>, the operator of the YUKIA® brand.</p>
+            <p>We may update these terms from time to time. Material changes will be communicated via email or a notice on the site. Continued use after an update means you accept the revised terms.</p>
+          </section>
+          <section class="legal-section" id="s2">
+            <span class="legal-num">§ 02</span>
+            <h2>Orders & pricing</h2>
+            <p>All prices are displayed in Euros (€) and include VAT where applicable. Prices can change without notice, but your order is confirmed at the price shown when you check out.</p>
+            <p>We reserve the right to cancel any order we reasonably suspect is fraudulent, resold, or placed by bots. In such cases, you are fully refunded.</p>
+          </section>
+          <section class="legal-section" id="s3">
+            <span class="legal-num">§ 03</span>
+            <h2>Payment</h2>
+            <p>Payments are processed by Stripe. We accept all major cards and other methods displayed at checkout. Your card is charged only once the order is confirmed. All transactions are encrypted and PCI-DSS compliant.</p>
+          </section>
+          <section class="legal-section" id="s4">
+            <span class="legal-num">§ 04</span>
+            <h2>Shipping & delivery</h2>
+            <p>We ship worldwide, free of charge. Orders are processed within 3 business days and delivered by a premium carrier. Estimated delivery times:</p>
+            <ul class="legal-list">
+              <li><strong>France / EU</strong> — 3 to 5 business days.</li>
+              <li><strong>UK / Switzerland</strong> — 5 to 8 business days.</li>
+              <li><strong>Americas & Asia</strong> — 7 to 12 business days.</li>
+              <li><strong>Rest of world</strong> — 10 to 15 business days.</li>
+            </ul>
+            <p>Risk of loss passes to you once the carrier hands over the package. Customs duties outside the EU are the buyer's responsibility.</p>
+          </section>
+          <section class="legal-section" id="s5">
+            <span class="legal-num">§ 05</span>
+            <h2>Drops & availability</h2>
+            <p>Every YUKIA drop is limited to 200 pieces worldwide. There are no restocks. When a drop is sold out, it's sold out forever. We reserve the right to limit purchase quantities per customer to ensure fair access.</p>
+            <p>Launch dates and product availability are indicative and may be adjusted for production or logistics reasons.</p>
+          </section>
+          <section class="legal-section" id="s6">
+            <span class="legal-num">§ 06</span>
+            <h2>Intellectual property</h2>
+            <p>All content on this site — logos, designs, photography, typography, copy — is the exclusive property of YUKIA Studio SAS and protected by international copyright and trademark law. No reproduction, commercial use, or reselling without prior written consent.</p>
+          </section>
+          <section class="legal-section" id="s7">
+            <span class="legal-num">§ 07</span>
+            <h2>Liability</h2>
+            <p>We take care to describe our products accurately, but minor variations in color or texture may exist due to natural materials and screen calibration. YUKIA is not liable for indirect damages, loss of profit, or issues caused by third-party services (carriers, payment processors).</p>
+          </section>
+          <section class="legal-section" id="s8">
+            <span class="legal-num">§ 08</span>
+            <h2>Law & jurisdiction</h2>
+            <p>These terms are governed by French law. Any dispute will first be addressed by amicable negotiation. If no solution is found, the competent courts of Paris, France, will have exclusive jurisdiction — except for consumer disputes governed by mandatory local consumer law.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ QUESTIONS?</p><p>Our team reads every message.</p></div>
+            <a href="mailto:legal@yukia.studio" class="btn">CONTACT US ↗</a>
+          </div>
+        </div>
+
+        <!-- FR -->
+        <div data-legal-lang="fr">
+          <section class="legal-section" id="s1-fr">
+            <span class="legal-num">§ 01</span>
+            <h2>Acceptation</h2>
+            <p>En utilisant <a href="https://yukia.vercel.app">yukia.vercel.app</a> ou en passant commande, tu acceptes les présentes Conditions Générales. Si tu n'es pas d'accord, merci de ne pas utiliser le site. Ces conditions sont régies par <strong>YUKIA Studio SAS</strong>, opérateur de la marque YUKIA®.</p>
+            <p>On peut mettre à jour ces conditions de temps en temps. Les changements importants seront communiqués par email ou via une notification sur le site. Continuer à utiliser le site après une mise à jour vaut acceptation.</p>
+          </section>
+          <section class="legal-section" id="s2-fr">
+            <span class="legal-num">§ 02</span>
+            <h2>Commandes & prix</h2>
+            <p>Tous les prix sont affichés en Euros (€) et incluent la TVA applicable. Les prix peuvent changer sans préavis, mais ta commande est confirmée au prix affiché au moment de la validation.</p>
+            <p>On se réserve le droit d'annuler toute commande que l'on soupçonne raisonnablement d'être frauduleuse, destinée à la revente, ou passée par des bots. Dans ce cas, tu es intégralement remboursé.</p>
+          </section>
+          <section class="legal-section" id="s3-fr">
+            <span class="legal-num">§ 03</span>
+            <h2>Paiement</h2>
+            <p>Les paiements sont traités par Stripe. On accepte toutes les cartes majeures et les autres moyens affichés au checkout. Ta carte n'est débitée qu'une fois la commande confirmée. Toutes les transactions sont chiffrées et conformes PCI-DSS.</p>
+          </section>
+          <section class="legal-section" id="s4-fr">
+            <span class="legal-num">§ 04</span>
+            <h2>Expédition & livraison</h2>
+            <p>On livre dans le monde entier, gratuitement. Les commandes sont traitées sous 3 jours ouvrés et livrées par un transporteur premium. Délais estimés :</p>
+            <ul class="legal-list">
+              <li><strong>France / UE</strong> — 3 à 5 jours ouvrés.</li>
+              <li><strong>UK / Suisse</strong> — 5 à 8 jours ouvrés.</li>
+              <li><strong>Amériques & Asie</strong> — 7 à 12 jours ouvrés.</li>
+              <li><strong>Reste du monde</strong> — 10 à 15 jours ouvrés.</li>
+            </ul>
+            <p>Le risque de perte te est transféré dès que le transporteur prend en charge le colis. Les droits de douane hors UE sont à la charge de l'acheteur.</p>
+          </section>
+          <section class="legal-section" id="s5-fr">
+            <span class="legal-num">§ 05</span>
+            <h2>Drops & disponibilité</h2>
+            <p>Chaque drop YUKIA est limité à 200 pièces dans le monde. Aucun restock. Quand un drop est sold out, c'est pour toujours. On se réserve le droit de limiter les quantités par client pour garantir un accès équitable.</p>
+            <p>Les dates de lancement et la disponibilité sont indicatives et peuvent être ajustées pour des raisons de production ou de logistique.</p>
+          </section>
+          <section class="legal-section" id="s6-fr">
+            <span class="legal-num">§ 06</span>
+            <h2>Propriété intellectuelle</h2>
+            <p>Tout le contenu de ce site — logos, designs, photographies, typographies, textes — est la propriété exclusive de YUKIA Studio SAS et protégé par le droit d'auteur et le droit des marques. Aucune reproduction, usage commercial ou revente sans accord écrit préalable.</p>
+          </section>
+          <section class="legal-section" id="s7-fr">
+            <span class="legal-num">§ 07</span>
+            <h2>Responsabilité</h2>
+            <p>On décrit nos produits avec soin, mais de légères variations de couleur ou de texture peuvent exister à cause des matières naturelles et de la calibration d'écran. YUKIA n'est pas responsable des dommages indirects, pertes de profit, ou problèmes causés par des services tiers (transporteurs, processeurs de paiement).</p>
+          </section>
+          <section class="legal-section" id="s8-fr">
+            <span class="legal-num">§ 08</span>
+            <h2>Droit & juridiction</h2>
+            <p>Ces conditions sont régies par le droit français. Tout litige fera d'abord l'objet d'une tentative de résolution amiable. À défaut d'accord, les tribunaux compétents de Paris, France, ont compétence exclusive — sauf pour les litiges consommateurs régis par le droit local obligatoire.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ DES QUESTIONS ?</p><p>Notre équipe lit chaque message.</p></div>
+            <a href="mailto:legal@yukia.studio" class="btn">NOUS CONTACTER ↗</a>
+          </div>
+        </div>
+
+        <!-- ES -->
+        <div data-legal-lang="es">
+          <section class="legal-section" id="s1-es">
+            <span class="legal-num">§ 01</span>
+            <h2>Aceptación</h2>
+            <p>Al usar <a href="https://yukia.vercel.app">yukia.vercel.app</a> o realizar un pedido, aceptas estos Términos de Servicio. Si no estás de acuerdo, por favor no uses el sitio. Estos términos están regidos por <strong>YUKIA Studio SAS</strong>, operador de la marca YUKIA®.</p>
+            <p>Podemos actualizar estos términos de vez en cuando. Los cambios importantes se comunicarán por email o mediante aviso en el sitio. Continuar usando el sitio después de una actualización implica aceptación.</p>
+          </section>
+          <section class="legal-section" id="s2-es">
+            <span class="legal-num">§ 02</span>
+            <h2>Pedidos y precios</h2>
+            <p>Todos los precios se muestran en Euros (€) e incluyen el IVA aplicable. Los precios pueden cambiar sin previo aviso, pero tu pedido se confirma al precio mostrado en el momento del checkout.</p>
+            <p>Nos reservamos el derecho de cancelar cualquier pedido que sospechemos razonablemente que es fraudulento, destinado a reventa o realizado por bots. En ese caso, se te reembolsa íntegramente.</p>
+          </section>
+          <section class="legal-section" id="s3-es">
+            <span class="legal-num">§ 03</span>
+            <h2>Pago</h2>
+            <p>Los pagos son procesados por Stripe. Aceptamos todas las tarjetas principales y otros métodos mostrados en el checkout. Tu tarjeta solo se carga una vez confirmado el pedido. Todas las transacciones están cifradas y cumplen con PCI-DSS.</p>
+          </section>
+          <section class="legal-section" id="s4-es">
+            <span class="legal-num">§ 04</span>
+            <h2>Envío y entrega</h2>
+            <p>Enviamos a todo el mundo, gratis. Los pedidos se procesan en 3 días hábiles y se entregan mediante un transportista premium. Plazos estimados:</p>
+            <ul class="legal-list">
+              <li><strong>Francia / UE</strong> — 3 a 5 días hábiles.</li>
+              <li><strong>UK / Suiza</strong> — 5 a 8 días hábiles.</li>
+              <li><strong>Américas y Asia</strong> — 7 a 12 días hábiles.</li>
+              <li><strong>Resto del mundo</strong> — 10 a 15 días hábiles.</li>
+            </ul>
+            <p>El riesgo de pérdida se te transfiere en cuanto el transportista recoge el paquete. Los aranceles aduaneros fuera de la UE corren por cuenta del comprador.</p>
+          </section>
+          <section class="legal-section" id="s5-es">
+            <span class="legal-num">§ 05</span>
+            <h2>Drops y disponibilidad</h2>
+            <p>Cada drop YUKIA está limitado a 200 piezas en todo el mundo. Sin reposiciones. Cuando un drop se agota, se agota para siempre. Nos reservamos el derecho de limitar las cantidades por cliente para garantizar un acceso justo.</p>
+            <p>Las fechas de lanzamiento y la disponibilidad son orientativas y pueden ajustarse por razones de producción o logística.</p>
+          </section>
+          <section class="legal-section" id="s6-es">
+            <span class="legal-num">§ 06</span>
+            <h2>Propiedad intelectual</h2>
+            <p>Todo el contenido de este sitio — logos, diseños, fotografías, tipografías, textos — es propiedad exclusiva de YUKIA Studio SAS y está protegido por la legislación internacional de derechos de autor y marcas. Prohibida la reproducción, el uso comercial o la reventa sin consentimiento previo por escrito.</p>
+          </section>
+          <section class="legal-section" id="s7-es">
+            <span class="legal-num">§ 07</span>
+            <h2>Responsabilidad</h2>
+            <p>Describimos nuestros productos con cuidado, pero pueden existir ligeras variaciones de color o textura debido a los materiales naturales y a la calibración de las pantallas. YUKIA no es responsable de daños indirectos, pérdidas de beneficios o problemas causados por servicios de terceros (transportistas, procesadores de pago).</p>
+          </section>
+          <section class="legal-section" id="s8-es">
+            <span class="legal-num">§ 08</span>
+            <h2>Ley y jurisdicción</h2>
+            <p>Estos términos se rigen por la ley francesa. Cualquier disputa se abordará primero mediante negociación amistosa. A falta de acuerdo, los tribunales competentes de París, Francia, tendrán jurisdicción exclusiva — salvo para disputas de consumidores regidas por la ley local de consumidores obligatoria.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ ¿PREGUNTAS?</p><p>Nuestro equipo lee cada mensaje.</p></div>
+            <a href="mailto:legal@yukia.studio" class="btn">CONTÁCTANOS ↗</a>
+          </div>
+        </div>
+
+        <!-- PT -->
+        <div data-legal-lang="pt">
+          <section class="legal-section" id="s1-pt">
+            <span class="legal-num">§ 01</span>
+            <h2>Aceitação</h2>
+            <p>Ao usar <a href="https://yukia.vercel.app">yukia.vercel.app</a> ou fazer uma encomenda, aceitas estes Termos de Serviço. Se não concordas, por favor não uses o site. Estes termos são regidos pela <strong>YUKIA Studio SAS</strong>, operadora da marca YUKIA®.</p>
+            <p>Podemos atualizar estes termos de tempos a tempos. As alterações importantes serão comunicadas por email ou através de aviso no site. Continuar a usar o site após uma atualização implica aceitação.</p>
+          </section>
+          <section class="legal-section" id="s2-pt">
+            <span class="legal-num">§ 02</span>
+            <h2>Encomendas e preços</h2>
+            <p>Todos os preços são apresentados em Euros (€) e incluem o IVA aplicável. Os preços podem mudar sem aviso prévio, mas a tua encomenda é confirmada ao preço exibido no momento do checkout.</p>
+            <p>Reservamo-nos o direito de cancelar qualquer encomenda que suspeitemos razoavelmente ser fraudulenta, destinada a revenda ou feita por bots. Nesse caso, és totalmente reembolsado.</p>
+          </section>
+          <section class="legal-section" id="s3-pt">
+            <span class="legal-num">§ 03</span>
+            <h2>Pagamento</h2>
+            <p>Os pagamentos são processados pela Stripe. Aceitamos todos os cartões principais e outros métodos apresentados no checkout. O teu cartão só é debitado quando a encomenda é confirmada. Todas as transações são encriptadas e cumprem o PCI-DSS.</p>
+          </section>
+          <section class="legal-section" id="s4-pt">
+            <span class="legal-num">§ 04</span>
+            <h2>Envio e entrega</h2>
+            <p>Enviamos para todo o mundo, gratuitamente. As encomendas são processadas em 3 dias úteis e entregues por uma transportadora premium. Prazos estimados:</p>
+            <ul class="legal-list">
+              <li><strong>França / UE</strong> — 3 a 5 dias úteis.</li>
+              <li><strong>Reino Unido / Suíça</strong> — 5 a 8 dias úteis.</li>
+              <li><strong>Américas e Ásia</strong> — 7 a 12 dias úteis.</li>
+              <li><strong>Resto do mundo</strong> — 10 a 15 dias úteis.</li>
+            </ul>
+            <p>O risco de perda é-te transferido assim que a transportadora recebe a encomenda. Os direitos aduaneiros fora da UE são da responsabilidade do comprador.</p>
+          </section>
+          <section class="legal-section" id="s5-pt">
+            <span class="legal-num">§ 05</span>
+            <h2>Drops e disponibilidade</h2>
+            <p>Cada drop YUKIA é limitado a 200 peças em todo o mundo. Sem reposições. Quando um drop está esgotado, está esgotado para sempre. Reservamo-nos o direito de limitar as quantidades por cliente para garantir um acesso justo.</p>
+            <p>As datas de lançamento e a disponibilidade são indicativas e podem ser ajustadas por razões de produção ou logística.</p>
+          </section>
+          <section class="legal-section" id="s6-pt">
+            <span class="legal-num">§ 06</span>
+            <h2>Propriedade intelectual</h2>
+            <p>Todo o conteúdo deste site — logos, designs, fotografia, tipografia, textos — é propriedade exclusiva da YUKIA Studio SAS e está protegido pela legislação internacional de direitos de autor e marcas. Proibida a reprodução, o uso comercial ou a revenda sem consentimento prévio por escrito.</p>
+          </section>
+          <section class="legal-section" id="s7-pt">
+            <span class="legal-num">§ 07</span>
+            <h2>Responsabilidade</h2>
+            <p>Descrevemos os nossos produtos com cuidado, mas podem existir ligeiras variações de cor ou textura devido a materiais naturais e à calibração dos ecrãs. A YUKIA não é responsável por danos indiretos, perdas de lucro ou problemas causados por serviços terceiros (transportadoras, processadores de pagamento).</p>
+          </section>
+          <section class="legal-section" id="s8-pt">
+            <span class="legal-num">§ 08</span>
+            <h2>Lei e jurisdição</h2>
+            <p>Estes termos são regidos pela lei francesa. Qualquer disputa será primeiro abordada por negociação amigável. Na ausência de acordo, os tribunais competentes de Paris, França, têm jurisdição exclusiva — exceto para disputas de consumidores regidas pela lei local obrigatória do consumidor.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ DÚVIDAS?</p><p>A nossa equipa lê todas as mensagens.</p></div>
+            <a href="mailto:legal@yukia.studio" class="btn">CONTACTA-NOS ↗</a>
+          </div>
+        </div>
+
+        <!-- NL -->
+        <div data-legal-lang="nl">
+          <section class="legal-section" id="s1-nl">
+            <span class="legal-num">§ 01</span>
+            <h2>Aanvaarding</h2>
+            <p>Door <a href="https://yukia.vercel.app">yukia.vercel.app</a> te gebruiken of een bestelling te plaatsen, ga je akkoord met deze Algemene Voorwaarden. Als je niet akkoord gaat, gebruik de site dan niet. Deze voorwaarden worden beheerd door <strong>YUKIA Studio SAS</strong>, de exploitant van het merk YUKIA®.</p>
+            <p>We kunnen deze voorwaarden van tijd tot tijd bijwerken. Belangrijke wijzigingen worden per e-mail of via een melding op de site gecommuniceerd. Blijven gebruiken na een update betekent dat je de herziene voorwaarden accepteert.</p>
+          </section>
+          <section class="legal-section" id="s2-nl">
+            <span class="legal-num">§ 02</span>
+            <h2>Bestellingen & prijzen</h2>
+            <p>Alle prijzen worden weergegeven in Euro (€) en zijn inclusief btw waar van toepassing. Prijzen kunnen zonder voorafgaande kennisgeving worden gewijzigd, maar je bestelling wordt bevestigd tegen de prijs die bij het afrekenen wordt getoond.</p>
+            <p>We behouden het recht om elke bestelling te annuleren waarvan we redelijkerwijs vermoeden dat die frauduleus is, bedoeld voor doorverkoop of geplaatst door bots. In dat geval krijg je volledige terugbetaling.</p>
+          </section>
+          <section class="legal-section" id="s3-nl">
+            <span class="legal-num">§ 03</span>
+            <h2>Betaling</h2>
+            <p>Betalingen worden verwerkt door Stripe. We accepteren alle grote kaarten en andere methodes die bij het afrekenen worden getoond. Je kaart wordt pas belast zodra de bestelling is bevestigd. Alle transacties zijn versleuteld en voldoen aan PCI-DSS.</p>
+          </section>
+          <section class="legal-section" id="s4-nl">
+            <span class="legal-num">§ 04</span>
+            <h2>Verzending & levering</h2>
+            <p>We verzenden wereldwijd, gratis. Bestellingen worden binnen 3 werkdagen verwerkt en geleverd door een premium vervoerder. Geschatte levertijden:</p>
+            <ul class="legal-list">
+              <li><strong>Frankrijk / EU</strong> — 3 tot 5 werkdagen.</li>
+              <li><strong>VK / Zwitserland</strong> — 5 tot 8 werkdagen.</li>
+              <li><strong>Amerika & Azië</strong> — 7 tot 12 werkdagen.</li>
+              <li><strong>Rest van de wereld</strong> — 10 tot 15 werkdagen.</li>
+            </ul>
+            <p>Het risico op verlies gaat op jou over zodra de vervoerder het pakket heeft opgehaald. Douanekosten buiten de EU zijn voor rekening van de koper.</p>
+          </section>
+          <section class="legal-section" id="s5-nl">
+            <span class="legal-num">§ 05</span>
+            <h2>Drops & beschikbaarheid</h2>
+            <p>Elke YUKIA-drop is wereldwijd gelimiteerd tot 200 stuks. Geen restocks. Als een drop is uitverkocht, is dat voor altijd. We behouden het recht om aantallen per klant te beperken om eerlijke toegang te garanderen.</p>
+            <p>Lanceerdata en beschikbaarheid zijn indicatief en kunnen worden aangepast om productie- of logistieke redenen.</p>
+          </section>
+          <section class="legal-section" id="s6-nl">
+            <span class="legal-num">§ 06</span>
+            <h2>Intellectuele eigendom</h2>
+            <p>Alle content op deze site — logo's, ontwerpen, fotografie, typografie, tekst — is exclusief eigendom van YUKIA Studio SAS en wordt beschermd door internationale auteursrecht- en merkenwetgeving. Reproductie, commercieel gebruik of doorverkoop is niet toegestaan zonder voorafgaande schriftelijke toestemming.</p>
+          </section>
+          <section class="legal-section" id="s7-nl">
+            <span class="legal-num">§ 07</span>
+            <h2>Aansprakelijkheid</h2>
+            <p>We beschrijven onze producten met zorg, maar kleine variaties in kleur of textuur kunnen optreden door natuurlijke materialen en schermkalibratie. YUKIA is niet aansprakelijk voor indirecte schade, winstderving of problemen veroorzaakt door diensten van derden (vervoerders, betalingsverwerkers).</p>
+          </section>
+          <section class="legal-section" id="s8-nl">
+            <span class="legal-num">§ 08</span>
+            <h2>Recht & rechtsbevoegdheid</h2>
+            <p>Deze voorwaarden worden beheerst door het Franse recht. Elk geschil wordt eerst via minnelijke onderhandeling behandeld. Bij gebrek aan overeenstemming hebben de bevoegde rechtbanken van Parijs, Frankrijk, de exclusieve bevoegdheid — behalve voor consumentengeschillen die onder de dwingende lokale consumentenwet vallen.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ VRAGEN?</p><p>Ons team leest elk bericht.</p></div>
+            <a href="mailto:legal@yukia.studio" class="btn">NEEM CONTACT OP ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-mark">YUKIA<sup>®</sup></span>
+        <p data-i18n-html="footer.brandLine">Wear the future.<br/>No restock. No exceptions.</p>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.navigate">/ NAVIGATE</p>
+        <a href="index.html#manifesto" data-i18n="nav.manifesto">Manifesto</a>
+        <a href="index.html#drops" data-i18n="nav.drops">Drops</a>
+        <a href="index.html#lookbook" data-i18n="nav.lookbook">Lookbook</a>
+        <a href="index.html#kit" data-i18n="nav.press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.follow">/ FOLLOW</p>
+        <a href="#">Instagram ↗</a>
+        <a href="#">TikTok ↗</a>
+        <a href="#">Twitter / X ↗</a>
+        <a href="#">Discord ↗</a>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.legal">/ LEGAL</p>
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms</a>
+        <a href="returns.html" data-i18n="footer.returns">Returns</a>
+        <a href="cookies.html" data-i18n="footer.cookies">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <span>© MMXXVI YUKIA® STUDIO</span>
+      <span data-i18n="footer.rights">ALL RIGHTS RESERVED</span>
+      <span data-i18n="footer.built">BUILT IN TOKYO &amp; PARIS</span>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="legal.js"></script>
+</body>
+</html>

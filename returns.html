@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Returns & Refunds — YUKIA®</title>
+  <meta name="description" content="How returns, exchanges, and refunds work at YUKIA®." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="legal-page loaded">
+  <div class="grain"></div>
+  <div class="cursor" id="cursor"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
+
+  <header class="nav" id="nav">
+    <div class="nav-row">
+      <a href="index.html" class="nav-mark" data-magnetic>
+        <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true">
+          <path d="M10 10 L50 55 L90 10 M50 55 L50 90" stroke="currentColor" stroke-width="10" fill="none" stroke-linecap="square"/>
+        </svg>
+        <span class="nav-wordmark">YUKIA<sup>®</sup></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="mono" data-i18n="legal.backHome">← BACK TO YUKIA</a>
+      </nav>
+      <div class="nav-cta">
+        <div class="lang-switch" id="langSwitch">
+          <button class="lang-btn mono" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="langCurrent">EN</span>
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="listbox">
+            <li><button type="button" data-lang="en" class="mono">EN <span class="lang-name">English</span></button></li>
+            <li><button type="button" data-lang="fr" class="mono">FR <span class="lang-name">Français</span></button></li>
+            <li><button type="button" data-lang="es" class="mono">ES <span class="lang-name">Español</span></button></li>
+            <li><button type="button" data-lang="pt" class="mono">PT <span class="lang-name">Português</span></button></li>
+            <li><button type="button" data-lang="nl" class="mono">NL <span class="lang-name">Nederlands</span></button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-hero">
+      <div class="legal-hero-meta">
+        <span class="mono">/ LEGAL</span>
+        <span class="legal-slash"></span>
+        <span class="mono">03</span>
+      </div>
+      <div data-legal-lang="en">
+        <h1>Returns &<br/>Refunds<span class="dot-accent">.</span></h1>
+        <p>Your piece should feel like it was made for you. If it doesn't, we make it right — no drama, no fine print.</p>
+        <span class="legal-updated">LAST UPDATED — APRIL 2026</span>
+      </div>
+      <div data-legal-lang="fr">
+        <h1>Retours &<br/>Remboursements<span class="dot-accent">.</span></h1>
+        <p>Ta pièce doit te donner l'impression qu'elle a été faite pour toi. Si ce n'est pas le cas, on arrange ça — sans drame, sans petits caractères.</p>
+        <span class="legal-updated">DERNIÈRE MISE À JOUR — AVRIL 2026</span>
+      </div>
+      <div data-legal-lang="es">
+        <h1>Devoluciones &<br/>Reembolsos<span class="dot-accent">.</span></h1>
+        <p>Tu pieza debe sentirse como si hubiera sido hecha para ti. Si no es así, lo arreglamos — sin drama, sin letra pequeña.</p>
+        <span class="legal-updated">ÚLTIMA ACTUALIZACIÓN — ABRIL 2026</span>
+      </div>
+      <div data-legal-lang="pt">
+        <h1>Devoluções &<br/>Reembolsos<span class="dot-accent">.</span></h1>
+        <p>A tua peça deve parecer feita para ti. Se não parecer, resolvemos — sem dramas, sem letras pequenas.</p>
+        <span class="legal-updated">ÚLTIMA ATUALIZAÇÃO — ABRIL 2026</span>
+      </div>
+      <div data-legal-lang="nl">
+        <h1>Retouren &<br/>Terugbetaling<span class="dot-accent">.</span></h1>
+        <p>Je stuk moet voelen alsof het voor jou is gemaakt. Zo niet, lossen we het op — zonder drama, zonder kleine lettertjes.</p>
+        <span class="legal-updated">LAATST BIJGEWERKT — APRIL 2026</span>
+      </div>
+    </section>
+
+    <div class="legal-shell">
+      <aside class="legal-toc">
+        <p class="mono" data-i18n="legal.contents">/ CONTENTS</p>
+        <ol>
+          <li><a href="#s1" class="legal-toc-link"><span data-legal-lang="en">Right of withdrawal</span><span data-legal-lang="fr">Droit de rétractation</span><span data-legal-lang="es">Derecho de desistimiento</span><span data-legal-lang="pt">Direito de retratação</span><span data-legal-lang="nl">Herroepingsrecht</span></a></li>
+          <li><a href="#s2" class="legal-toc-link"><span data-legal-lang="en">How to return</span><span data-legal-lang="fr">Comment retourner</span><span data-legal-lang="es">Cómo devolver</span><span data-legal-lang="pt">Como devolver</span><span data-legal-lang="nl">Hoe te retourneren</span></a></li>
+          <li><a href="#s3" class="legal-toc-link"><span data-legal-lang="en">Condition of items</span><span data-legal-lang="fr">État des articles</span><span data-legal-lang="es">Estado de los artículos</span><span data-legal-lang="pt">Estado dos artigos</span><span data-legal-lang="nl">Staat van artikelen</span></a></li>
+          <li><a href="#s4" class="legal-toc-link"><span data-legal-lang="en">Refund processing</span><span data-legal-lang="fr">Traitement du remboursement</span><span data-legal-lang="es">Procesamiento del reembolso</span><span data-legal-lang="pt">Processamento do reembolso</span><span data-legal-lang="nl">Terugbetalingsverwerking</span></a></li>
+          <li><a href="#s5" class="legal-toc-link"><span data-legal-lang="en">Defective items</span><span data-legal-lang="fr">Produits défectueux</span><span data-legal-lang="es">Artículos defectuosos</span><span data-legal-lang="pt">Artigos defeituosos</span><span data-legal-lang="nl">Defecte artikelen</span></a></li>
+          <li><a href="#s6" class="legal-toc-link"><span data-legal-lang="en">Exchanges</span><span data-legal-lang="fr">Échanges</span><span data-legal-lang="es">Cambios</span><span data-legal-lang="pt">Trocas</span><span data-legal-lang="nl">Ruilen</span></a></li>
+        </ol>
+      </aside>
+
+      <div class="legal-body">
+        <!-- EN -->
+        <div data-legal-lang="en">
+          <section class="legal-section" id="s1">
+            <span class="legal-num">§ 01</span>
+            <h2>Right of withdrawal</h2>
+            <p>You have <strong>14 days</strong> from the day you receive your order to withdraw from the purchase, without having to give a reason. This is your legal right as a consumer under the EU Consumer Rights Directive.</p>
+            <p>To exercise this right, simply notify us at <a href="mailto:returns@yukia.studio">returns@yukia.studio</a> within that window. No explanation needed.</p>
+          </section>
+          <section class="legal-section" id="s2">
+            <span class="legal-num">§ 02</span>
+            <h2>How to return</h2>
+            <p>Once you've notified us, we'll send you a prepaid return label by email within 24 hours. Here's the flow:</p>
+            <ul class="legal-list">
+              <li><strong>Step 1</strong> — Email us with your order number.</li>
+              <li><strong>Step 2</strong> — Pack the item in its original condition and packaging.</li>
+              <li><strong>Step 3</strong> — Stick the prepaid label on the parcel and drop it at any pickup point.</li>
+              <li><strong>Step 4</strong> — Once we receive it, we process your refund within 5 business days.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3">
+            <span class="legal-num">§ 03</span>
+            <h2>Condition of items</h2>
+            <p>Items must be returned <strong>unworn, unwashed, and with all tags attached</strong>. Please include the original packaging when possible. Items that show signs of wear, damage, or odor may be refused or refunded partially.</p>
+          </section>
+          <section class="legal-section" id="s4">
+            <span class="legal-num">§ 04</span>
+            <h2>Refund processing</h2>
+            <p>Refunds are issued to the original payment method within 5 business days of receiving the return. Depending on your bank, it may take an additional 3 to 5 days to appear on your statement.</p>
+            <p>We refund the full purchase price. Return shipping is free when you use our prepaid label.</p>
+          </section>
+          <section class="legal-section" id="s5">
+            <span class="legal-num">§ 05</span>
+            <h2>Defective items</h2>
+            <p>If you receive an item that's defective, damaged in transit, or not what you ordered — we're sorry. Email us immediately with photos at <a href="mailto:support@yukia.studio">support@yukia.studio</a> and we'll replace it or fully refund you at our expense, with priority handling.</p>
+          </section>
+          <section class="legal-section" id="s6">
+            <span class="legal-num">§ 06</span>
+            <h2>Exchanges</h2>
+            <p>Because every drop is strictly limited to 200 pieces, we generally can't offer direct exchanges for a different size or color. The fastest way is to return the item for a refund, then place a new order while stock lasts. If it's already sold out, we'll work with you case by case.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ NEED HELP?</p><p>Our team reads every message.</p></div>
+            <a href="mailto:returns@yukia.studio" class="btn">CONTACT US ↗</a>
+          </div>
+        </div>
+
+        <!-- FR -->
+        <div data-legal-lang="fr">
+          <section class="legal-section" id="s1-fr">
+            <span class="legal-num">§ 01</span>
+            <h2>Droit de rétractation</h2>
+            <p>Tu disposes de <strong>14 jours</strong> à compter de la réception de ta commande pour te rétracter, sans avoir à te justifier. C'est ton droit légal en tant que consommateur selon la directive européenne.</p>
+            <p>Pour exercer ce droit, il suffit de nous prévenir à <a href="mailto:returns@yukia.studio">returns@yukia.studio</a> dans ce délai. Aucune explication requise.</p>
+          </section>
+          <section class="legal-section" id="s2-fr">
+            <span class="legal-num">§ 02</span>
+            <h2>Comment retourner</h2>
+            <p>Une fois que tu nous as prévenus, on t'envoie une étiquette de retour prépayée par email sous 24h. Voici le process :</p>
+            <ul class="legal-list">
+              <li><strong>Étape 1</strong> — Envoie-nous un email avec ton numéro de commande.</li>
+              <li><strong>Étape 2</strong> — Emballe l'article dans son état et son emballage d'origine.</li>
+              <li><strong>Étape 3</strong> — Colle l'étiquette prépayée sur le colis et dépose-le en point relais.</li>
+              <li><strong>Étape 4</strong> — Dès qu'on le reçoit, on traite ton remboursement sous 5 jours ouvrés.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-fr">
+            <span class="legal-num">§ 03</span>
+            <h2>État des articles</h2>
+            <p>Les articles doivent être retournés <strong>non portés, non lavés, avec toutes les étiquettes attachées</strong>. Merci d'inclure l'emballage d'origine si possible. Les articles présentant des signes d'usure, de dommage ou d'odeur peuvent être refusés ou partiellement remboursés.</p>
+          </section>
+          <section class="legal-section" id="s4-fr">
+            <span class="legal-num">§ 04</span>
+            <h2>Traitement du remboursement</h2>
+            <p>Les remboursements sont effectués sur le moyen de paiement d'origine dans les 5 jours ouvrés suivant la réception du retour. Selon ta banque, 3 à 5 jours supplémentaires peuvent être nécessaires pour l'apparition sur ton relevé.</p>
+            <p>On rembourse l'intégralité du prix d'achat. Les frais de retour sont gratuits si tu utilises notre étiquette prépayée.</p>
+          </section>
+          <section class="legal-section" id="s5-fr">
+            <span class="legal-num">§ 05</span>
+            <h2>Produits défectueux</h2>
+            <p>Si tu reçois un article défectueux, endommagé pendant le transport, ou qui ne correspond pas à ta commande — on est désolés. Envoie-nous un email immédiatement avec des photos à <a href="mailto:support@yukia.studio">support@yukia.studio</a> et on te remplace l'article ou on te rembourse intégralement à nos frais, en traitement prioritaire.</p>
+          </section>
+          <section class="legal-section" id="s6-fr">
+            <span class="legal-num">§ 06</span>
+            <h2>Échanges</h2>
+            <p>Comme chaque drop est strictement limité à 200 pièces, on ne peut généralement pas proposer d'échange direct pour une autre taille ou couleur. Le plus rapide est de retourner l'article pour un remboursement, puis de passer une nouvelle commande tant qu'il y a du stock. Si c'est déjà sold out, on te trouve une solution au cas par cas.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ BESOIN D'AIDE ?</p><p>Notre équipe lit chaque message.</p></div>
+            <a href="mailto:returns@yukia.studio" class="btn">NOUS CONTACTER ↗</a>
+          </div>
+        </div>
+
+        <!-- ES -->
+        <div data-legal-lang="es">
+          <section class="legal-section" id="s1-es">
+            <span class="legal-num">§ 01</span>
+            <h2>Derecho de desistimiento</h2>
+            <p>Tienes <strong>14 días</strong> desde la recepción de tu pedido para desistir de la compra, sin necesidad de dar explicaciones. Es tu derecho legal como consumidor bajo la directiva europea.</p>
+            <p>Para ejercer este derecho, solo tienes que avisarnos en <a href="mailto:returns@yukia.studio">returns@yukia.studio</a> dentro de ese plazo. Sin explicaciones necesarias.</p>
+          </section>
+          <section class="legal-section" id="s2-es">
+            <span class="legal-num">§ 02</span>
+            <h2>Cómo devolver</h2>
+            <p>Una vez nos avises, te enviamos una etiqueta de devolución prepagada por email en 24 horas. Así funciona:</p>
+            <ul class="legal-list">
+              <li><strong>Paso 1</strong> — Envíanos un email con tu número de pedido.</li>
+              <li><strong>Paso 2</strong> — Empaqueta el artículo en su estado y embalaje original.</li>
+              <li><strong>Paso 3</strong> — Pega la etiqueta prepagada en el paquete y déjalo en cualquier punto de recogida.</li>
+              <li><strong>Paso 4</strong> — En cuanto lo recibamos, procesamos tu reembolso en 5 días hábiles.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-es">
+            <span class="legal-num">§ 03</span>
+            <h2>Estado de los artículos</h2>
+            <p>Los artículos deben devolverse <strong>sin usar, sin lavar y con todas las etiquetas</strong>. Por favor, incluye el embalaje original si es posible. Los artículos con signos de uso, daño u olor pueden ser rechazados o reembolsados parcialmente.</p>
+          </section>
+          <section class="legal-section" id="s4-es">
+            <span class="legal-num">§ 04</span>
+            <h2>Procesamiento del reembolso</h2>
+            <p>Los reembolsos se emiten al método de pago original dentro de los 5 días hábiles posteriores a la recepción de la devolución. Según tu banco, pueden ser necesarios 3 a 5 días adicionales para que aparezca en tu estado de cuenta.</p>
+            <p>Reembolsamos el precio total de compra. El envío de devolución es gratis cuando usas nuestra etiqueta prepagada.</p>
+          </section>
+          <section class="legal-section" id="s5-es">
+            <span class="legal-num">§ 05</span>
+            <h2>Artículos defectuosos</h2>
+            <p>Si recibes un artículo defectuoso, dañado en el transporte o que no corresponde a tu pedido — lo sentimos. Envíanos un email inmediatamente con fotos a <a href="mailto:support@yukia.studio">support@yukia.studio</a> y lo reemplazamos o te reembolsamos íntegramente a nuestro cargo, con tratamiento prioritario.</p>
+          </section>
+          <section class="legal-section" id="s6-es">
+            <span class="legal-num">§ 06</span>
+            <h2>Cambios</h2>
+            <p>Como cada drop está estrictamente limitado a 200 piezas, generalmente no podemos ofrecer cambios directos por otra talla o color. Lo más rápido es devolver el artículo para un reembolso, y luego hacer un nuevo pedido mientras haya stock. Si ya está agotado, estudiamos tu caso de forma individual.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ ¿NECESITAS AYUDA?</p><p>Nuestro equipo lee cada mensaje.</p></div>
+            <a href="mailto:returns@yukia.studio" class="btn">CONTÁCTANOS ↗</a>
+          </div>
+        </div>
+
+        <!-- PT -->
+        <div data-legal-lang="pt">
+          <section class="legal-section" id="s1-pt">
+            <span class="legal-num">§ 01</span>
+            <h2>Direito de retratação</h2>
+            <p>Tens <strong>14 dias</strong> a partir da receção da tua encomenda para te retratares da compra, sem teres de dar uma razão. É o teu direito legal como consumidor ao abrigo da diretiva europeia.</p>
+            <p>Para exercer este direito, basta avisares-nos em <a href="mailto:returns@yukia.studio">returns@yukia.studio</a> dentro desse prazo. Sem explicações necessárias.</p>
+          </section>
+          <section class="legal-section" id="s2-pt">
+            <span class="legal-num">§ 02</span>
+            <h2>Como devolver</h2>
+            <p>Assim que nos avisares, enviamos-te uma etiqueta de devolução pré-paga por email em 24 horas. Eis o processo:</p>
+            <ul class="legal-list">
+              <li><strong>Passo 1</strong> — Envia-nos um email com o teu número de encomenda.</li>
+              <li><strong>Passo 2</strong> — Embala o artigo no estado e embalagem originais.</li>
+              <li><strong>Passo 3</strong> — Cola a etiqueta pré-paga na encomenda e deixa-a em qualquer ponto de recolha.</li>
+              <li><strong>Passo 4</strong> — Assim que a recebermos, processamos o teu reembolso em 5 dias úteis.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-pt">
+            <span class="legal-num">§ 03</span>
+            <h2>Estado dos artigos</h2>
+            <p>Os artigos devem ser devolvidos <strong>não usados, não lavados e com todas as etiquetas</strong>. Inclui a embalagem original sempre que possível. Artigos com sinais de uso, danos ou odor podem ser recusados ou parcialmente reembolsados.</p>
+          </section>
+          <section class="legal-section" id="s4-pt">
+            <span class="legal-num">§ 04</span>
+            <h2>Processamento do reembolso</h2>
+            <p>Os reembolsos são emitidos para o método de pagamento original dentro de 5 dias úteis após a receção da devolução. Dependendo do teu banco, podem ser necessários 3 a 5 dias adicionais para aparecer no teu extrato.</p>
+            <p>Reembolsamos o valor total da compra. O envio de devolução é grátis quando usas a nossa etiqueta pré-paga.</p>
+          </section>
+          <section class="legal-section" id="s5-pt">
+            <span class="legal-num">§ 05</span>
+            <h2>Artigos defeituosos</h2>
+            <p>Se receberes um artigo defeituoso, danificado no transporte ou que não corresponde à tua encomenda — lamentamos. Envia-nos um email imediatamente com fotografias para <a href="mailto:support@yukia.studio">support@yukia.studio</a> e substituímos o artigo ou reembolsamos-te integralmente, a nosso custo, com tratamento prioritário.</p>
+          </section>
+          <section class="legal-section" id="s6-pt">
+            <span class="legal-num">§ 06</span>
+            <h2>Trocas</h2>
+            <p>Como cada drop é estritamente limitado a 200 peças, geralmente não podemos oferecer trocas diretas por outro tamanho ou cor. O mais rápido é devolver o artigo para reembolso e depois fazer uma nova encomenda enquanto houver stock. Se já estiver esgotado, analisamos contigo caso a caso.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ PRECISAS DE AJUDA?</p><p>A nossa equipa lê todas as mensagens.</p></div>
+            <a href="mailto:returns@yukia.studio" class="btn">CONTACTA-NOS ↗</a>
+          </div>
+        </div>
+
+        <!-- NL -->
+        <div data-legal-lang="nl">
+          <section class="legal-section" id="s1-nl">
+            <span class="legal-num">§ 01</span>
+            <h2>Herroepingsrecht</h2>
+            <p>Je hebt <strong>14 dagen</strong> vanaf de ontvangst van je bestelling om de aankoop te herroepen, zonder opgaaf van reden. Dit is je wettelijk recht als consument onder de EU-consumentenrichtlijn.</p>
+            <p>Om dit recht uit te oefenen, meld het ons binnen die termijn via <a href="mailto:returns@yukia.studio">returns@yukia.studio</a>. Geen uitleg nodig.</p>
+          </section>
+          <section class="legal-section" id="s2-nl">
+            <span class="legal-num">§ 02</span>
+            <h2>Hoe te retourneren</h2>
+            <p>Zodra je ons hebt geïnformeerd, sturen we binnen 24 uur een voorgefrankeerd retourlabel per e-mail. Zo werkt het:</p>
+            <ul class="legal-list">
+              <li><strong>Stap 1</strong> — Mail ons met je bestelnummer.</li>
+              <li><strong>Stap 2</strong> — Pak het artikel in originele staat en verpakking in.</li>
+              <li><strong>Stap 3</strong> — Plak het voorgefrankeerde label op het pakket en lever het in bij een afhaalpunt.</li>
+              <li><strong>Stap 4</strong> — Zodra we het ontvangen, verwerken we je terugbetaling binnen 5 werkdagen.</li>
+            </ul>
+          </section>
+          <section class="legal-section" id="s3-nl">
+            <span class="legal-num">§ 03</span>
+            <h2>Staat van artikelen</h2>
+            <p>Artikelen moeten <strong>ongedragen, ongewassen en met alle labels</strong> worden teruggestuurd. Voeg indien mogelijk de originele verpakking toe. Artikelen met sporen van slijtage, schade of geur kunnen worden geweigerd of gedeeltelijk terugbetaald.</p>
+          </section>
+          <section class="legal-section" id="s4-nl">
+            <span class="legal-num">§ 04</span>
+            <h2>Terugbetalingsverwerking</h2>
+            <p>Terugbetalingen worden binnen 5 werkdagen na ontvangst van de retour teruggestort op de oorspronkelijke betaalmethode. Afhankelijk van je bank kan het nog 3 tot 5 dagen duren voordat het op je afschrift verschijnt.</p>
+            <p>We betalen de volledige aankoopprijs terug. Retourzending is gratis als je ons voorgefrankeerde label gebruikt.</p>
+          </section>
+          <section class="legal-section" id="s5-nl">
+            <span class="legal-num">§ 05</span>
+            <h2>Defecte artikelen</h2>
+            <p>Als je een artikel ontvangt dat defect is, beschadigd tijdens transport of niet overeenkomt met je bestelling — onze excuses. Mail ons direct met foto's naar <a href="mailto:support@yukia.studio">support@yukia.studio</a> en we vervangen het of betalen je volledig terug op onze kosten, met voorrang.</p>
+          </section>
+          <section class="legal-section" id="s6-nl">
+            <span class="legal-num">§ 06</span>
+            <h2>Ruilen</h2>
+            <p>Omdat elke drop strikt gelimiteerd is tot 200 stuks, kunnen we meestal geen directe ruil voor een andere maat of kleur aanbieden. De snelste manier is het artikel retourneren voor terugbetaling en dan opnieuw bestellen zolang de voorraad strekt. Als het al is uitverkocht, bekijken we je geval afzonderlijk.</p>
+          </section>
+          <div class="legal-contact">
+            <div><p class="mono">/ HULP NODIG?</p><p>Ons team leest elk bericht.</p></div>
+            <a href="mailto:returns@yukia.studio" class="btn">NEEM CONTACT OP ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-mark">YUKIA<sup>®</sup></span>
+        <p data-i18n-html="footer.brandLine">Wear the future.<br/>No restock. No exceptions.</p>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.navigate">/ NAVIGATE</p>
+        <a href="index.html#manifesto" data-i18n="nav.manifesto">Manifesto</a>
+        <a href="index.html#drops" data-i18n="nav.drops">Drops</a>
+        <a href="index.html#lookbook" data-i18n="nav.lookbook">Lookbook</a>
+        <a href="index.html#kit" data-i18n="nav.press">Press Kit</a>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.follow">/ FOLLOW</p>
+        <a href="#">Instagram ↗</a>
+        <a href="#">TikTok ↗</a>
+        <a href="#">Twitter / X ↗</a>
+        <a href="#">Discord ↗</a>
+      </div>
+      <div class="footer-col">
+        <p class="mono small-label" data-i18n="footer.legal">/ LEGAL</p>
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms</a>
+        <a href="returns.html" data-i18n="footer.returns">Returns</a>
+        <a href="cookies.html" data-i18n="footer.cookies">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom mono">
+      <span>© MMXXVI YUKIA® STUDIO</span>
+      <span data-i18n="footer.rights">ALL RIGHTS RESERVED</span>
+      <span data-i18n="footer.built">BUILT IN TOKYO &amp; PARIS</span>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="legal.js"></script>
+</body>
+</html>
