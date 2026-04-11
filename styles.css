@@ -68,6 +68,31 @@ ul { list-style: none; }
 .small-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); }
 
 ::selection { background: var(--lime); color: var(--bg); }
+::-moz-selection { background: var(--lime); color: var(--bg); }
+
+/* ============================================================
+   APPLE-GRADE POLISH — refined focus, motion, and rhythm
+   ============================================================ */
+:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 3px;
+  border-radius: 2px;
+  transition: outline-offset 0.25s var(--ease);
+}
+button:focus:not(:focus-visible) { outline: none; }
+
+/* Subtler default link/button motion */
+a, button { -webkit-tap-highlight-color: transparent; }
+
+/* Honor reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 /* Color helpers */
 .lime { color: var(--lime) !important; }
@@ -328,12 +353,137 @@ ul { list-style: none; }
 }
 .cart-count.visible { transform: scale(1); }
 
+/* LANGUAGE SWITCHER — Apple-grade glass dropdown */
+.lang-switch {
+  position: relative;
+  display: inline-flex;
+  margin-right: 0.4rem;
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  height: 32px;
+  padding: 0 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  color: var(--cream);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition:
+    border-color 0.45s var(--ease),
+    background 0.45s var(--ease),
+    color 0.45s var(--ease),
+    transform 0.45s var(--ease);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(140%);
+}
+.lang-btn svg {
+  transition: transform 0.5s var(--ease);
+  opacity: 0.7;
+}
+.lang-btn:hover {
+  border-color: var(--lime);
+  color: var(--lime);
+  background: rgba(200, 255, 0, 0.05);
+}
+.lang-switch.is-open .lang-btn {
+  border-color: var(--lime);
+  color: var(--lime);
+  background: rgba(200, 255, 0, 0.08);
+}
+.lang-switch.is-open .lang-btn svg {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 0.55rem);
+  right: 0;
+  min-width: 184px;
+  margin: 0;
+  padding: 0.4rem;
+  list-style: none;
+  background: rgba(14, 13, 11, 0.82);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow:
+    0 24px 60px -20px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  backdrop-filter: blur(22px) saturate(160%);
+  opacity: 0;
+  transform: translateY(-6px) scale(0.97);
+  transform-origin: top right;
+  pointer-events: none;
+  transition:
+    opacity 0.42s var(--ease),
+    transform 0.55s var(--ease-power, cubic-bezier(0.22, 1, 0.36, 1));
+  z-index: 110;
+}
+.lang-switch.is-open .lang-menu {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.lang-menu li { margin: 0; padding: 0; }
+.lang-menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.9rem;
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  color: var(--cream-dim);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.35s var(--ease),
+    color 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+.lang-menu button .lang-name {
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--cream);
+  opacity: 0.65;
+  transition: opacity 0.35s var(--ease), color 0.35s var(--ease);
+}
+.lang-menu button:hover {
+  background: rgba(200, 255, 0, 0.07);
+  color: var(--lime);
+  transform: translateX(2px);
+}
+.lang-menu button:hover .lang-name {
+  opacity: 1;
+  color: var(--cream);
+}
+.lang-menu button.is-active {
+  background: rgba(200, 255, 0, 0.10);
+  color: var(--lime);
+}
+.lang-menu button.is-active .lang-name {
+  opacity: 1;
+  color: var(--cream);
+}
+
 @media (max-width: 1024px) {
   .nav-links { display: none; }
   .nav-cta .mono { display: none; }
   .nav-cta .status-dot { display: none; }
   .nav-burger { display: flex; }
   .nav-row { grid-template-columns: 1fr auto auto; }
+  .lang-switch { margin-right: 0.2rem; }
+  .lang-btn { height: 30px; padding: 0 0.6rem; }
 }
 
 /* MOBILE MENU */

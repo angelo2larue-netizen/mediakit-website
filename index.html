@@ -45,14 +45,27 @@
         <span class="nav-wordmark">YUKIA<sup>®</sup></span>
       </a>
       <nav class="nav-links">
-        <a href="#manifesto" data-text="Manifesto">Manifesto</a>
-        <a href="#drops" data-text="Drops">Drops</a>
-        <a href="#lookbook" data-text="Lookbook">Lookbook</a>
-        <a href="#kit" data-text="Press">Press Kit</a>
+        <a href="#manifesto" data-i18n="nav.manifesto" data-text="Manifesto">Manifesto</a>
+        <a href="#drops" data-i18n="nav.drops" data-text="Drops">Drops</a>
+        <a href="#lookbook" data-i18n="nav.lookbook" data-text="Lookbook">Lookbook</a>
+        <a href="#kit" data-i18n="nav.press" data-text="Press">Press Kit</a>
       </nav>
       <div class="nav-cta">
+        <div class="lang-switch" id="langSwitch">
+          <button class="lang-btn mono" id="langBtn" aria-haspopup="listbox" aria-expanded="false">
+            <span id="langCurrent">EN</span>
+            <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <ul class="lang-menu" id="langMenu" role="listbox">
+            <li><button type="button" data-lang="en" class="mono">EN <span class="lang-name">English</span></button></li>
+            <li><button type="button" data-lang="fr" class="mono">FR <span class="lang-name">Français</span></button></li>
+            <li><button type="button" data-lang="es" class="mono">ES <span class="lang-name">Español</span></button></li>
+            <li><button type="button" data-lang="pt" class="mono">PT <span class="lang-name">Português</span></button></li>
+            <li><button type="button" data-lang="nl" class="mono">NL <span class="lang-name">Nederlands</span></button></li>
+          </ul>
+        </div>
         <span class="status-dot"></span>
-        <span class="mono">DROP 04 LIVE IN <em id="nav-cd">--D --H</em></span>
+        <span class="mono"><span data-i18n="nav.dropLive">DROP 04 LIVE IN</span> <em id="nav-cd">--D --H</em></span>
         <button class="nav-cart-btn" id="cartBtn" aria-label="Cart" data-magnetic>
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6">
             <path d="M3 3h2l2.5 12.5a2 2 0 002 1.5h8a2 2 0 002-1.5L21 7H6"/>
@@ -71,12 +84,12 @@
   <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="#manifesto">01 — Manifesto</a></li>
-      <li><a href="#drops">02 — Drops</a></li>
-      <li><a href="#lookbook">03 — Lookbook</a></li>
-      <li><a href="#community">04 — Community</a></li>
-      <li><a href="#collab">05 — Collab</a></li>
-      <li><a href="#kit">06 — Press Kit</a></li>
+      <li><a href="#manifesto" data-i18n="mobile.manifesto">01 — Manifesto</a></li>
+      <li><a href="#drops" data-i18n="mobile.drops">02 — Drops</a></li>
+      <li><a href="#lookbook" data-i18n="mobile.lookbook">03 — Lookbook</a></li>
+      <li><a href="#community" data-i18n="mobile.community">04 — Community</a></li>
+      <li><a href="#collab" data-i18n="mobile.collab">05 — Collab</a></li>
+      <li><a href="#kit" data-i18n="mobile.press">06 — Press Kit</a></li>
     </ul>
     <div class="mobile-foot mono">YUKIA® / SS26 / NO RESTOCK</div>
   </div>
@@ -98,20 +111,20 @@
       </div>
       <div class="hero-meta hero-meta-tr mono">
         <span>N° 04 / SS26</span><br/>
-        <span>LIMITED&mdash;200 PCS</span>
+        <span data-i18n="hero.limited">LIMITED&mdash;200 PCS</span>
       </div>
       <div class="hero-meta hero-meta-bl mono">
         <span>LATITUDE 35.6762° N</span><br/>
         <span>LONGITUDE 139.6503° E</span>
       </div>
       <div class="hero-meta hero-meta-br mono">
-        <span>SCROLL ↓</span>
+        <span data-i18n="hero.scroll">SCROLL ↓</span>
       </div>
 
       <div class="hero-center">
         <div class="hero-tagline mono">
           <span class="line"></span>
-          <span>PREMIUM STREETWEAR / NO RESTOCK</span>
+          <span data-i18n="hero.tagline">PREMIUM STREETWEAR / NO RESTOCK</span>
           <span class="line"></span>
         </div>
         <h1 class="hero-title">
@@ -120,18 +133,18 @@
           </span>
         </h1>
         <p class="hero-sub">
-          <span class="reveal-line"><span>Wear the future. Live the drop.</span></span>
-          <span class="reveal-line"><span>Built for the ones who move different.</span></span>
+          <span class="reveal-line"><span data-i18n="hero.sub1">Wear the future. Live the drop.</span></span>
+          <span class="reveal-line"><span data-i18n="hero.sub2">Built for the ones who move different.</span></span>
         </p>
       </div>
 
       <div class="hero-foot">
         <a href="#drops" class="btn btn-fill" data-magnetic>
-          <span>VIEW DROP 04</span>
+          <span data-i18n="hero.viewDrop">VIEW DROP 04</span>
           <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
         </a>
         <a href="#manifesto" class="btn btn-line" data-magnetic>
-          <span>READ MANIFESTO</span>
+          <span data-i18n="hero.readManifesto">READ MANIFESTO</span>
         </a>
       </div>
     </div>
@@ -143,15 +156,15 @@
   <!-- TICKER -->
   <div class="ticker">
     <div class="ticker-track">
-      <span>NO RESTOCK</span><span class="dot lime">●</span>
-      <span>LIMITED 200 PCS</span><span class="dot pink">●</span>
-      <span>SHIPPED WORLDWIDE</span><span class="dot lime">●</span>
-      <span>SOLD OUT IS FOREVER</span><span class="dot pink">●</span>
+      <span data-i18n="ticker.noRestock">NO RESTOCK</span><span class="dot lime">●</span>
+      <span data-i18n="ticker.limited">LIMITED 200 PCS</span><span class="dot pink">●</span>
+      <span data-i18n="ticker.shipped">SHIPPED WORLDWIDE</span><span class="dot lime">●</span>
+      <span data-i18n="ticker.soldOut">SOLD OUT IS FOREVER</span><span class="dot pink">●</span>
       <span>YUKIA® SS26</span><span class="dot lime">●</span>
-      <span>NO RESTOCK</span><span class="dot pink">●</span>
-      <span>LIMITED 200 PCS</span><span class="dot lime">●</span>
-      <span>SHIPPED WORLDWIDE</span><span class="dot pink">●</span>
-      <span>SOLD OUT IS FOREVER</span><span class="dot lime">●</span>
+      <span data-i18n="ticker.noRestock">NO RESTOCK</span><span class="dot pink">●</span>
+      <span data-i18n="ticker.limited">LIMITED 200 PCS</span><span class="dot lime">●</span>
+      <span data-i18n="ticker.shipped">SHIPPED WORLDWIDE</span><span class="dot pink">●</span>
+      <span data-i18n="ticker.soldOut">SOLD OUT IS FOREVER</span><span class="dot lime">●</span>
       <span>YUKIA® SS26</span><span class="dot pink">●</span>
     </div>
   </div>
@@ -159,7 +172,7 @@
   <!-- MANIFESTO -->
   <section id="manifesto" class="section section-manifesto">
     <div class="section-head">
-      <span class="section-num mono">01 — MANIFESTO</span>
+      <span class="section-num mono" data-i18n="manifesto.num">01 — MANIFESTO</span>
       <span class="section-meta mono">/ EST. 2024</span>
     </div>
     <div class="manifesto-grid">
@@ -167,22 +180,22 @@
         <div class="aside-visual">
           <div class="aside-img" style="background-image:linear-gradient(180deg,rgba(10,9,8,0.55)0%,transparent 35%,rgba(10,9,8,0.85)100%),url('assets/images/manifesto.jpg');"></div>
           <div class="aside-tag mono">
-            <span class="dot pink">●</span> SHOT IN TOKYO
+            <span class="dot pink">●</span> <span data-i18n="manifesto.shot">SHOT IN TOKYO</span>
           </div>
         </div>
-        <p class="manifesto-quote">
+        <p class="manifesto-quote" data-i18n-html="manifesto.quote">
           &ldquo;Yukia isn't a brand.<br/>It's a refusal.&rdquo;
         </p>
       </div>
       <div class="manifesto-main">
         <p class="manifesto-lead">
-          <span class="reveal-text">We make clothes for people who don't dress for approval.</span>
+          <span class="reveal-text" data-i18n="manifesto.lead">We make clothes for people who don't dress for approval.</span>
         </p>
         <p class="manifesto-body">
-          <span class="reveal-text">Every Yukia piece is born from late nights, blank pages, and the kind of obsession that doesn't sleep. We don't follow trends &mdash; we fossilize them. Every drop is limited. Every silhouette is intentional. When it's gone, it's gone forever.</span>
+          <span class="reveal-text" data-i18n="manifesto.body1">Every Yukia piece is born from late nights, blank pages, and the kind of obsession that doesn't sleep. We don't follow trends &mdash; we fossilize them. Every drop is limited. Every silhouette is intentional. When it's gone, it's gone forever.</span>
         </p>
         <p class="manifesto-body">
-          <span class="reveal-text">We pull from the raw energy of Y2K subculture, the precision of Japanese tailoring, and the unfiltered attitude of street royalty. The result is a uniform for the ones who refuse to blend in.</span>
+          <span class="reveal-text" data-i18n="manifesto.body2">We pull from the raw energy of Y2K subculture, the precision of Japanese tailoring, and the unfiltered attitude of street royalty. The result is a uniform for the ones who refuse to blend in.</span>
         </p>
         <p class="manifesto-body manifesto-sign">
           <span class="reveal-text">— YUKIA® / SS26 / NO RESTOCK</span>
@@ -196,18 +209,18 @@
     <div class="pillars">
       <div class="pillar pillar-lime">
         <span class="pillar-num mono">/01</span>
-        <h3>LIMITED<br/>BY DESIGN</h3>
-        <p>200 pieces per drop. No restocks. No exceptions. When the timer hits zero, it's history.</p>
+        <h3 data-i18n-html="pillars.p1.title">LIMITED<br/>BY DESIGN</h3>
+        <p data-i18n="pillars.p1.body">200 pieces per drop. No restocks. No exceptions. When the timer hits zero, it's history.</p>
       </div>
       <div class="pillar pillar-pink">
         <span class="pillar-num mono">/02</span>
-        <h3>BUILT TO<br/>OUTLIVE TRENDS</h3>
-        <p>Heavyweight cotton. Reinforced seams. Made in workshops we know by name.</p>
+        <h3 data-i18n-html="pillars.p2.title">BUILT TO<br/>OUTLIVE TRENDS</h3>
+        <p data-i18n="pillars.p2.body">Heavyweight cotton. Reinforced seams. Made in workshops we know by name.</p>
       </div>
       <div class="pillar pillar-cyan">
         <span class="pillar-num mono">/03</span>
-        <h3>STREET, NOT<br/>SUBURBAN</h3>
-        <p>Forged in Tokyo basements and Parisian backstreets. Tested by the people who actually live it.</p>
+        <h3 data-i18n-html="pillars.p3.title">STREET, NOT<br/>SUBURBAN</h3>
+        <p data-i18n="pillars.p3.body">Forged in Tokyo basements and Parisian backstreets. Tested by the people who actually live it.</p>
       </div>
     </div>
   </section>
@@ -215,8 +228,8 @@
   <!-- DROPS -->
   <section id="drops" class="section section-drops">
     <div class="section-head">
-      <span class="section-num mono">02 — DROPS</span>
-      <span class="section-meta mono">/ N° 04 INCOMING</span>
+      <span class="section-num mono" data-i18n="drops.num">02 — DROPS</span>
+      <span class="section-meta mono" data-i18n="drops.incoming">/ N° 04 INCOMING</span>
     </div>
 
     <div class="drops-headline">
@@ -225,50 +238,50 @@
         <span class="outline">PHANTOM<span class="dot-accent">.</span></span>
       </h2>
       <div class="drops-headline-meta">
-        <p class="mono">/ RELEASE</p>
+        <p class="mono" data-i18n="drops.release">/ RELEASE</p>
         <p class="release-date" id="release-date">--/--/----</p>
-        <p class="mono">/ EDITION</p>
-        <p class="edition-num">200 / WORLD</p>
+        <p class="mono" data-i18n="drops.edition">/ EDITION</p>
+        <p class="edition-num" data-i18n="drops.editionNum">200 / WORLD</p>
       </div>
     </div>
 
     <div class="countdown-wrap">
       <div class="cd-block">
         <span class="cd-num" id="cd-d">00</span>
-        <span class="cd-lbl mono">DAYS</span>
+        <span class="cd-lbl mono" data-i18n="cd.days">DAYS</span>
       </div>
       <div class="cd-sep">/</div>
       <div class="cd-block">
         <span class="cd-num" id="cd-h">00</span>
-        <span class="cd-lbl mono">HOURS</span>
+        <span class="cd-lbl mono" data-i18n="cd.hours">HOURS</span>
       </div>
       <div class="cd-sep">/</div>
       <div class="cd-block">
         <span class="cd-num" id="cd-m">00</span>
-        <span class="cd-lbl mono">MINUTES</span>
+        <span class="cd-lbl mono" data-i18n="cd.minutes">MINUTES</span>
       </div>
       <div class="cd-sep">/</div>
       <div class="cd-block">
         <span class="cd-num" id="cd-s">00</span>
-        <span class="cd-lbl mono">SECONDS</span>
+        <span class="cd-lbl mono" data-i18n="cd.seconds">SECONDS</span>
       </div>
     </div>
 
     <div class="drop-rail" id="dropRail">
-      <div class="drop-loading mono">LOADING DROPS<span class="dot dot-blink">.</span><span class="dot dot-blink">.</span><span class="dot dot-blink">.</span></div>
+      <div class="drop-loading mono"><span data-i18n="drops.loading">LOADING DROPS</span><span class="dot dot-blink">.</span><span class="dot dot-blink">.</span><span class="dot dot-blink">.</span></div>
     </div>
   </section>
 
   <!-- LOOKBOOK -->
   <section id="lookbook" class="section section-lookbook">
     <div class="section-head">
-      <span class="section-num mono">03 — LOOKBOOK</span>
-      <span class="section-meta mono">/ EDITORIAL N° 04</span>
+      <span class="section-num mono" data-i18n="lookbook.num">03 — LOOKBOOK</span>
+      <span class="section-meta mono" data-i18n="lookbook.editorial">/ EDITORIAL N° 04</span>
     </div>
 
     <h2 class="huge-title lookbook-title">
-      <span>VISUAL</span><br/>
-      <span class="outline">WORLD<span class="dot-accent">.</span></span>
+      <span data-i18n="lookbook.titleA">VISUAL</span><br/>
+      <span class="outline" data-i18n-html="lookbook.titleB">WORLD<span class="dot-accent">.</span></span>
     </h2>
 
     <div class="lookbook">
@@ -302,13 +315,13 @@
   <!-- QUOTE STRIP -->
   <section class="quote-strip">
     <div class="quote-track">
-      <span>&ldquo;A NEW ATTITUDE WRAPPED IN COTTON&rdquo;</span>
+      <span data-i18n="quote.q1">&ldquo;A NEW ATTITUDE WRAPPED IN COTTON&rdquo;</span>
       <span class="quote-cite">— DAZED</span>
-      <span>&ldquo;THE BRAND DEFINING THE NEXT WAVE&rdquo;</span>
+      <span data-i18n="quote.q2">&ldquo;THE BRAND DEFINING THE NEXT WAVE&rdquo;</span>
       <span class="quote-cite">— HIGHSNOBIETY</span>
-      <span>&ldquo;A NEW ATTITUDE WRAPPED IN COTTON&rdquo;</span>
+      <span data-i18n="quote.q1">&ldquo;A NEW ATTITUDE WRAPPED IN COTTON&rdquo;</span>
       <span class="quote-cite">— DAZED</span>
-      <span>&ldquo;THE BRAND DEFINING THE NEXT WAVE&rdquo;</span>
+      <span data-i18n="quote.q2">&ldquo;THE BRAND DEFINING THE NEXT WAVE&rdquo;</span>
       <span class="quote-cite">— HIGHSNOBIETY</span>
     </div>
   </section>
@@ -316,45 +329,45 @@
   <!-- COMMUNITY -->
   <section id="community" class="section section-community">
     <div class="section-head">
-      <span class="section-num mono">04 — COMMUNITY</span>
-      <span class="section-meta mono">/ 47K STRONG</span>
+      <span class="section-num mono" data-i18n="community.num">04 — COMMUNITY</span>
+      <span class="section-meta mono" data-i18n="community.strong">/ 47K STRONG</span>
     </div>
 
     <div class="community-grid">
       <div class="community-text">
         <h2 class="huge-title">
-          <span>JOIN THE</span><br/>
-          <span class="outline">CIRCLE<span class="dot-accent">.</span></span>
+          <span data-i18n="community.titleA">JOIN THE</span><br/>
+          <span class="outline" data-i18n-html="community.titleB">CIRCLE<span class="dot-accent">.</span></span>
         </h2>
-        <p class="community-body">
+        <p class="community-body" data-i18n="community.body">
           Early access to every drop. Members-only product. Behind-the-scenes from the studio.
           No noise. No spam. Just heat.
         </p>
         <div class="community-tags">
-          <span class="tag tag-lime">EARLY ACCESS</span>
-          <span class="tag tag-pink">MEMBERS DROPS</span>
-          <span class="tag tag-cyan">BTS CONTENT</span>
+          <span class="tag tag-lime" data-i18n="community.tagEarly">EARLY ACCESS</span>
+          <span class="tag tag-pink" data-i18n="community.tagMembers">MEMBERS DROPS</span>
+          <span class="tag tag-cyan" data-i18n="community.tagBts">BTS CONTENT</span>
         </div>
       </div>
 
       <form class="signup" id="newsletterForm">
         <div class="signup-row">
           <div class="signup-input">
-            <label class="mono">/ EMAIL</label>
-            <input type="email" placeholder="you@yourname.com" required />
+            <label class="mono" data-i18n="community.emailLabel">/ EMAIL</label>
+            <input type="email" data-i18n-ph="community.emailPh" placeholder="you@yourname.com" required />
           </div>
           <button type="submit" class="btn btn-fill" data-magnetic>
-            <span>JOIN INNER CIRCLE</span>
+            <span data-i18n="community.joinBtn">JOIN INNER CIRCLE</span>
             <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
           </button>
         </div>
-        <p class="mono signup-note">BY JOINING YOU AGREE TO RECEIVE DROP ALERTS. NO SPAM. UNSUBSCRIBE ANYTIME.</p>
+        <p class="mono signup-note" data-i18n="community.note">BY JOINING YOU AGREE TO RECEIVE DROP ALERTS. NO SPAM. UNSUBSCRIBE ANYTIME.</p>
       </form>
 
       <div class="signup-success" id="signupSuccess">
-        <p class="mono">/ STATUS</p>
-        <h3>YOU'RE IN.</h3>
-        <p>Check your inbox. Drop 04 access incoming.</p>
+        <p class="mono" data-i18n="community.successLbl">/ STATUS</p>
+        <h3 data-i18n="community.successTitle">YOU'RE IN.</h3>
+        <p data-i18n="community.successBody">Check your inbox. Drop 04 access incoming.</p>
       </div>
     </div>
   </section>
@@ -362,49 +375,49 @@
   <!-- COLLAB BENTO -->
   <section id="collab" class="section section-collab">
     <div class="section-head">
-      <span class="section-num mono">05 — COLLAB</span>
-      <span class="section-meta mono">/ INQUIRIES</span>
+      <span class="section-num mono" data-i18n="collab.num">05 — COLLAB</span>
+      <span class="section-meta mono" data-i18n="collab.inquiries">/ INQUIRIES</span>
     </div>
 
     <h2 class="huge-title collab-title">
-      <span>LET'S BUILD</span><br/>
-      <span class="outline">TOGETHER<span class="dot-accent">.</span></span>
+      <span data-i18n="collab.titleA">LET'S BUILD</span><br/>
+      <span class="outline" data-i18n-html="collab.titleB">TOGETHER<span class="dot-accent">.</span></span>
     </h2>
 
     <div class="bento">
       <div class="bento-card bento-1 bento-lime">
         <span class="bento-num mono">/01</span>
-        <h3>INFLUENCERS &<br/>CREATORS</h3>
-        <p>Wear it before the world does. Exclusive seeding for hand-picked creators.</p>
+        <h3 data-i18n-html="collab.c1.title">INFLUENCERS &<br/>CREATORS</h3>
+        <p data-i18n="collab.c1.body">Wear it before the world does. Exclusive seeding for hand-picked creators.</p>
         <span class="bento-arrow">→</span>
       </div>
       <div class="bento-card bento-2 bento-pink">
         <span class="bento-num mono">/02</span>
-        <h3>BRAND<br/>COLLABS</h3>
-        <p>Capsules, pop-ups, co-drops. If the vision aligns, we build.</p>
+        <h3 data-i18n-html="collab.c2.title">BRAND<br/>COLLABS</h3>
+        <p data-i18n="collab.c2.body">Capsules, pop-ups, co-drops. If the vision aligns, we build.</p>
         <span class="bento-arrow">→</span>
       </div>
       <div class="bento-card bento-3 bento-cyan">
         <span class="bento-num mono">/03</span>
-        <h3>EDITORIAL<br/>& PRESS</h3>
-        <p>Features, interviews, coverage. Press kit available below.</p>
+        <h3 data-i18n-html="collab.c3.title">EDITORIAL<br/>& PRESS</h3>
+        <p data-i18n="collab.c3.body">Features, interviews, coverage. Press kit available below.</p>
         <span class="bento-arrow">→</span>
       </div>
       <div class="bento-card bento-4 bento-orange">
         <span class="bento-num mono">/04</span>
-        <h3>WHOLESALE &<br/>STOCKISTS</h3>
-        <p>Carefully selected partners worldwide. No mass distribution.</p>
+        <h3 data-i18n-html="collab.c4.title">WHOLESALE &<br/>STOCKISTS</h3>
+        <p data-i18n="collab.c4.body">Carefully selected partners worldwide. No mass distribution.</p>
         <span class="bento-arrow">→</span>
       </div>
     </div>
 
     <div class="contact-bar">
       <div>
-        <p class="mono small-label">/ DIRECT</p>
+        <p class="mono small-label" data-i18n="collab.direct">/ DIRECT</p>
         <a href="mailto:hello@yukia.studio" class="contact-mega" data-text="HELLO@YUKIA.STUDIO">HELLO@YUKIA.STUDIO</a>
       </div>
       <div class="contact-meta mono">
-        <span>RESPONSE TIME</span>
+        <span data-i18n="collab.response">RESPONSE TIME</span>
         <span>&lt; 24H</span>
       </div>
     </div>
@@ -413,15 +426,15 @@
   <!-- PRESS KIT -->
   <section id="kit" class="section section-kit">
     <div class="section-head">
-      <span class="section-num mono">06 — PRESS KIT</span>
-      <span class="section-meta mono">/ MEDIA RESOURCES</span>
+      <span class="section-num mono" data-i18n="kit.num">06 — PRESS KIT</span>
+      <span class="section-meta mono" data-i18n="kit.resources">/ MEDIA RESOURCES</span>
     </div>
 
     <h2 class="huge-title">
-      <span>MEDIA</span><br/>
-      <span class="outline">KIT<span class="dot-accent">.</span></span>
+      <span data-i18n="kit.titleA">MEDIA</span><br/>
+      <span class="outline" data-i18n-html="kit.titleB">KIT<span class="dot-accent">.</span></span>
     </h2>
-    <p class="kit-intro">Everything you need to feature YUKIA®. Logos, photography, brand guidelines and press releases. Last updated SS26.</p>
+    <p class="kit-intro" data-i18n="kit.intro">Everything you need to feature YUKIA®. Logos, photography, brand guidelines and press releases. Last updated SS26.</p>
 
     <div class="kit-grid">
       <a href="#" class="kit-card" data-magnetic>
@@ -432,8 +445,8 @@
         </div>
         <div class="kit-card-text">
           <p class="mono">/01 — PDF / 12MB</p>
-          <h3>BRAND GUIDELINES</h3>
-          <p>Logo, typography, tone of voice, colour system.</p>
+          <h3 data-i18n="kit.k1.title">BRAND GUIDELINES</h3>
+          <p data-i18n="kit.k1.body">Logo, typography, tone of voice, colour system.</p>
         </div>
         <span class="kit-arrow">↗</span>
       </a>
@@ -446,8 +459,8 @@
         </div>
         <div class="kit-card-text">
           <p class="mono">/02 — ZIP / 240MB</p>
-          <h3>PRESS PHOTOS</h3>
-          <p>High-res campaign and product imagery.</p>
+          <h3 data-i18n="kit.k2.title">PRESS PHOTOS</h3>
+          <p data-i18n="kit.k2.body">High-res campaign and product imagery.</p>
         </div>
         <span class="kit-arrow">↗</span>
       </a>
@@ -460,8 +473,8 @@
         </div>
         <div class="kit-card-text">
           <p class="mono">/03 — ZIP / 18MB</p>
-          <h3>LOGO PACK</h3>
-          <p>SVG, PNG and EPS in all variants.</p>
+          <h3 data-i18n="kit.k3.title">LOGO PACK</h3>
+          <p data-i18n="kit.k3.body">SVG, PNG and EPS in all variants.</p>
         </div>
         <span class="kit-arrow">↗</span>
       </a>
@@ -474,8 +487,8 @@
         </div>
         <div class="kit-card-text">
           <p class="mono">/04 — PDF / 4MB</p>
-          <h3>PRESS RELEASE</h3>
-          <p>Drop 04 / Phantom — official statement.</p>
+          <h3 data-i18n="kit.k4.title">PRESS RELEASE</h3>
+          <p data-i18n="kit.k4.body">Drop 04 / Phantom — official statement.</p>
         </div>
         <span class="kit-arrow">↗</span>
       </a>
@@ -484,19 +497,19 @@
     <div class="kit-stats">
       <div class="kit-stat">
         <span class="kit-stat-num" data-count="47">0</span><span class="kit-stat-suf lime">K+</span>
-        <span class="mono">COMMUNITY</span>
+        <span class="mono" data-i18n="kit.stat1">COMMUNITY</span>
       </div>
       <div class="kit-stat">
         <span class="kit-stat-num" data-count="12">0</span>
-        <span class="mono">DROPS LAUNCHED</span>
+        <span class="mono" data-i18n="kit.stat2">DROPS LAUNCHED</span>
       </div>
       <div class="kit-stat">
         <span class="kit-stat-num" data-count="100">0</span><span class="kit-stat-suf pink">%</span>
-        <span class="mono">SELL-THROUGH</span>
+        <span class="mono" data-i18n="kit.stat3">SELL-THROUGH</span>
       </div>
       <div class="kit-stat">
         <span class="kit-stat-num" data-count="32">0</span>
-        <span class="mono">COUNTRIES</span>
+        <span class="mono" data-i18n="kit.stat4">COUNTRIES</span>
       </div>
     </div>
   </section>
@@ -520,34 +533,34 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="footer-mark">YUKIA<sup>®</sup></span>
-        <p>Wear the future.<br/>No restock. No exceptions.</p>
+        <p data-i18n-html="footer.brandLine">Wear the future.<br/>No restock. No exceptions.</p>
       </div>
       <div class="footer-col">
-        <p class="mono small-label">/ NAVIGATE</p>
-        <a href="#manifesto">Manifesto</a>
-        <a href="#drops">Drops</a>
-        <a href="#lookbook">Lookbook</a>
-        <a href="#kit">Press Kit</a>
+        <p class="mono small-label" data-i18n="footer.navigate">/ NAVIGATE</p>
+        <a href="#manifesto" data-i18n="nav.manifesto">Manifesto</a>
+        <a href="#drops" data-i18n="nav.drops">Drops</a>
+        <a href="#lookbook" data-i18n="nav.lookbook">Lookbook</a>
+        <a href="#kit" data-i18n="nav.press">Press Kit</a>
       </div>
       <div class="footer-col">
-        <p class="mono small-label">/ FOLLOW</p>
+        <p class="mono small-label" data-i18n="footer.follow">/ FOLLOW</p>
         <a href="#">Instagram ↗</a>
         <a href="#">TikTok ↗</a>
         <a href="#">Twitter / X ↗</a>
         <a href="#">Discord ↗</a>
       </div>
       <div class="footer-col">
-        <p class="mono small-label">/ LEGAL</p>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Returns</a>
-        <a href="#">Cookies</a>
+        <p class="mono small-label" data-i18n="footer.legal">/ LEGAL</p>
+        <a href="#" data-i18n="footer.privacy">Privacy</a>
+        <a href="#" data-i18n="footer.terms">Terms</a>
+        <a href="#" data-i18n="footer.returns">Returns</a>
+        <a href="#" data-i18n="footer.cookies">Cookies</a>
       </div>
     </div>
     <div class="footer-bottom mono">
       <span>© MMXXVI YUKIA® STUDIO</span>
-      <span>ALL RIGHTS RESERVED</span>
-      <span>BUILT IN TOKYO &amp; PARIS</span>
+      <span data-i18n="footer.rights">ALL RIGHTS RESERVED</span>
+      <span data-i18n="footer.built">BUILT IN TOKYO &amp; PARIS</span>
     </div>
   </footer>
 
@@ -556,8 +569,8 @@
   <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart">
     <div class="cart-head">
       <div>
-        <p class="mono small-label">/ YOUR BAG</p>
-        <h2>CART<span class="cart-count-big" id="cartCountBig">(0)</span></h2>
+        <p class="mono small-label" data-i18n="cart.yourBag">/ YOUR BAG</p>
+        <h2><span data-i18n="cart.cart">CART</span><span class="cart-count-big" id="cartCountBig">(0)</span></h2>
       </div>
       <button class="cart-close" id="cartClose" aria-label="Close cart">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -573,10 +586,10 @@
           <circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/>
         </svg>
       </div>
-      <h3>YOUR BAG IS EMPTY</h3>
-      <p>Add a piece from Drop 04 to begin.</p>
+      <h3 data-i18n="cart.empty.title">YOUR BAG IS EMPTY</h3>
+      <p data-i18n="cart.empty.body">Add a piece from Drop 04 to begin.</p>
       <button class="btn btn-fill" id="emptyShopBtn">
-        <span>VIEW DROP 04</span>
+        <span data-i18n="cart.empty.cta">VIEW DROP 04</span>
       </button>
     </div>
 
@@ -584,23 +597,23 @@
 
     <div class="cart-foot" id="cartFoot">
       <div class="cart-line">
-        <span class="mono">/ SUBTOTAL</span>
+        <span class="mono" data-i18n="cart.subtotal">/ SUBTOTAL</span>
         <span class="cart-subtotal" id="cartSubtotal">€0</span>
       </div>
       <div class="cart-line cart-line-dim">
-        <span class="mono">/ SHIPPING</span>
-        <span>FREE WORLDWIDE</span>
+        <span class="mono" data-i18n="cart.shipping">/ SHIPPING</span>
+        <span data-i18n="cart.shippingValue">FREE WORLDWIDE</span>
       </div>
       <div class="cart-line cart-line-total">
-        <span class="mono">/ TOTAL</span>
+        <span class="mono" data-i18n="cart.total">/ TOTAL</span>
         <span class="cart-total" id="cartTotal">€0</span>
       </div>
       <button class="btn btn-fill cart-checkout" id="cartCheckout">
-        <span>CHECKOUT</span>
+        <span data-i18n="cart.checkout">CHECKOUT</span>
         <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
       </button>
       <p class="cart-secure mono">
-        <span class="dot lime">●</span> SECURE CHECKOUT / SSL ENCRYPTED
+        <span class="dot lime">●</span> <span data-i18n="cart.secure">SECURE CHECKOUT / SSL ENCRYPTED</span>
       </p>
     </div>
   </aside>
@@ -613,59 +626,59 @@
           <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
-      <p class="mono small-label">/ SECURE CHECKOUT</p>
-      <h2 class="checkout-title">COMPLETE<br/><span class="outline">YOUR ORDER<span class="dot-accent">.</span></span></h2>
+      <p class="mono small-label" data-i18n="checkout.secure">/ SECURE CHECKOUT</p>
+      <h2 class="checkout-title"><span data-i18n="checkout.titleA">COMPLETE</span><br/><span class="outline" data-i18n-html="checkout.titleB">YOUR ORDER<span class="dot-accent">.</span></span></h2>
 
       <div id="checkoutSummary" class="checkout-summary"></div>
 
       <form id="checkoutForm" class="checkout-form">
         <div class="cf-row">
           <label class="cf-field">
-            <span class="mono">EMAIL</span>
-            <input type="email" name="email" required placeholder="you@email.com" autocomplete="email"/>
+            <span class="mono" data-i18n="checkout.email">EMAIL</span>
+            <input type="email" name="email" required data-i18n-ph="checkout.emailPh" placeholder="you@email.com" autocomplete="email"/>
           </label>
         </div>
         <div class="cf-row">
           <label class="cf-field">
-            <span class="mono">FULL NAME</span>
+            <span class="mono" data-i18n="checkout.name">FULL NAME</span>
             <input type="text" name="name" required placeholder="Angelo Dupont" autocomplete="name"/>
           </label>
         </div>
         <div class="cf-row">
           <label class="cf-field">
-            <span class="mono">ADDRESS</span>
+            <span class="mono" data-i18n="checkout.address">ADDRESS</span>
             <input type="text" name="address" required placeholder="12 Rue de Paris" autocomplete="street-address"/>
           </label>
         </div>
         <div class="cf-row cf-row-2">
           <label class="cf-field">
-            <span class="mono">CITY</span>
+            <span class="mono" data-i18n="checkout.city">CITY</span>
             <input type="text" name="city" required placeholder="Paris" autocomplete="address-level2"/>
           </label>
           <label class="cf-field">
-            <span class="mono">ZIP</span>
+            <span class="mono" data-i18n="checkout.zip">ZIP</span>
             <input type="text" name="zip" required placeholder="75001" autocomplete="postal-code"/>
           </label>
         </div>
         <div class="cf-row">
           <label class="cf-field">
-            <span class="mono">CARD DETAILS</span>
+            <span class="mono" data-i18n="checkout.card">CARD DETAILS</span>
             <div id="stripeCardEl" class="stripe-card-el"></div>
           </label>
         </div>
         <p id="cardError" class="cf-error mono"></p>
         <button type="submit" id="payBtn" class="btn btn-fill cf-pay">
-          <span id="payBtnText">PAY <span id="payBtnAmount">€0</span></span>
+          <span id="payBtnText"><span data-i18n="checkout.pay">PAY</span> <span id="payBtnAmount">€0</span></span>
           <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
         </button>
-        <p class="checkout-note mono">SECURE PAYMENT BY STRIPE — SSL ENCRYPTED</p>
+        <p class="checkout-note mono" data-i18n="checkout.note">SECURE PAYMENT BY STRIPE — SSL ENCRYPTED</p>
       </form>
 
       <div id="checkoutSuccess" class="checkout-success hidden">
-        <p class="mono small-label lime">/ PAYMENT CONFIRMED</p>
-        <h3>THANK YOU<span class="dot-accent">.</span></h3>
-        <p>Your order has been placed. A confirmation will be sent to your email shortly.</p>
-        <button type="button" id="successClose" class="btn btn-fill"><span>CONTINUE</span></button>
+        <p class="mono small-label lime" data-i18n="checkout.successLbl">/ PAYMENT CONFIRMED</p>
+        <h3><span data-i18n="checkout.successTitle">THANK YOU</span><span class="dot-accent">.</span></h3>
+        <p data-i18n="checkout.successBody">Your order has been placed. A confirmation will be sent to your email shortly.</p>
+        <button type="button" id="successClose" class="btn btn-fill"><span data-i18n="checkout.continue">CONTINUE</span></button>
       </div>
     </div>
   </div>
@@ -696,7 +709,7 @@
         <div class="pm-price" id="pmPrice">€0</div>
         <p class="pm-description" id="pmDescription"></p>
         <button class="btn btn-fill pm-add" id="pmAdd">
-          <span>+ ADD TO BAG</span>
+          <span data-i18n="pm.add">+ ADD TO BAG</span>
           <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>
         </button>
       </div>
@@ -706,10 +719,11 @@
   <!-- TOAST -->
   <div class="toast" id="toast">
     <span class="dot lime">●</span>
-    <span id="toastMsg">ADDED TO BAG</span>
+    <span id="toastMsg" data-i18n="toast.added">ADDED TO BAG</span>
   </div>
 
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

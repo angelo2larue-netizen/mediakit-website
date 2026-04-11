@@ -4,6 +4,15 @@
 
 (() => {
 
+  /* -------- i18n helper (delegates to window.YUKIA_I18N) -------- */
+  const i18n = (key, fallback) => {
+    if (window.YUKIA_I18N && typeof window.YUKIA_I18N.t === 'function') {
+      const v = window.YUKIA_I18N.t(key);
+      if (v != null && v !== key) return v;
+    }
+    return fallback != null ? fallback : key;
+  };
+
   /* -------- LOADER -------- */
   const loader = document.getElementById('loader');
   const loaderFill = document.getElementById('loader-fill');
@@ -288,7 +297,7 @@
     }
     saveCart();
     renderCart();
-    showToast(`+ ${data.name} ADDED`);
+    showToast(`+ ${data.name} ${i18n('dyn.addedSuffix', 'ADDED')}`);
     bumpCartIcon();
   }
 
@@ -386,7 +395,7 @@
   function renderDrops() {
     if (!dropRail) return;
     if (CATALOG.length === 0) {
-      dropRail.innerHTML = `<div class="drop-loading mono">NO DROPS AVAILABLE — CHECK BACK SOON</div>`;
+      dropRail.innerHTML = `<div class="drop-loading mono">${escapeHtml(i18n('dyn.noDrops', 'NO DROPS AVAILABLE — CHECK BACK SOON'))}</div>`;
       return;
     }
     dropRail.innerHTML = CATALOG.map((p, idx) => {
@@ -395,12 +404,15 @@
       const priceStr = fmtPrice(p.price / 100);
       const letter = (p.name || '?').charAt(0).toUpperCase();
       const imgStyle = p.image ? `style="background-image:url('${escapeHtml(p.image)}');"` : '';
+      const soldOutTxt = escapeHtml(i18n('dyn.soldOut', 'SOLD OUT'));
+      const availableTxt = escapeHtml(i18n('dyn.available', 'AVAILABLE'));
+      const addTxt = escapeHtml(i18n('dyn.add', '+ ADD'));
       const statusBadge = p.soldOut
-        ? `<span class="drop-card-status sold">SOLD OUT</span>`
-        : `<span class="drop-card-status live">AVAILABLE</span>`;
+        ? `<span class="drop-card-status sold">${soldOutTxt}</span>`
+        : `<span class="drop-card-status live">${availableTxt}</span>`;
       const button = p.soldOut
-        ? `<button class="add-cart-btn" data-add="${escapeHtml(p.id)}" disabled>SOLD OUT</button>`
-        : `<button class="add-cart-btn" data-add="${escapeHtml(p.id)}">+ ADD</button>`;
+        ? `<button class="add-cart-btn" data-add="${escapeHtml(p.id)}" disabled>${soldOutTxt}</button>`
+        : `<button class="add-cart-btn" data-add="${escapeHtml(p.id)}">${addTxt}</button>`;
       return `
         <article class="drop-card ${colorClass}" data-id="${escapeHtml(p.id)}">
           <div class="drop-card-img" ${imgStyle}>
@@ -470,7 +482,7 @@
     } catch (err) {
       console.error('[YUKIA] Catalog load failed:', err);
       if (dropRail) {
-        dropRail.innerHTML = `<div class="drop-loading mono">COULD NOT LOAD DROPS — ${escapeHtml(err.message)}</div>`;
+        dropRail.innerHTML = `<div class="drop-loading mono">${escapeHtml(i18n('dyn.loadFail', 'COULD NOT LOAD DROPS'))} — ${escapeHtml(err.message)}</div>`;
       }
     }
   }
@@ -538,10 +550,10 @@
 
     if (p.soldOut) {
       pmAdd.disabled = true;
-      pmAdd.querySelector('span').textContent = 'SOLD OUT';
+      pmAdd.querySelector('span').textContent = i18n('pm.soldOut', 'SOLD OUT');
     } else {
       pmAdd.disabled = false;
-      pmAdd.querySelector('span').textContent = '+ ADD TO BAG';
+      pmAdd.querySelector('span').textContent = i18n('pm.add', '+ ADD TO BAG');
       pmAdd.onclick = () => {
         addToCart(p.id);
         closeProductModal();
@@ -644,7 +656,7 @@
         `).join('')}
       </div>
       <div class="cs-total">
-        <span class="mono">TOTAL</span>
+        <span class="mono">${escapeHtml(i18n('dyn.total', 'TOTAL'))}</span>
         <span>${fmtPrice(subtotal)}</span>
       </div>
     `;
@@ -752,6 +764,26 @@
   });
 
   renderCart();
+
+  /* -------- LIVE LANGUAGE SWAPPING -------- */
+  document.addEventListener('yukia:langchange', () => {
+    // Re-render dynamic surfaces so newly-translated strings appear immediately
+    renderCart();
+    if (CATALOG.length > 0) renderDrops();
+    // If product modal is open, refresh its action label
+    if (productModal.classList.contains('open')) {
+      const span = pmAdd.querySelector('span');
+      if (span) {
+        span.textContent = pmAdd.disabled
+          ? i18n('pm.soldOut', 'SOLD OUT')
+          : i18n('pm.add', '+ ADD TO BAG');
+      }
+    }
+    // If checkout summary is visible, refresh its TOTAL row
+    if (checkoutModal.classList.contains('open') && !checkoutForm.classList.contains('hidden')) {
+      renderCheckoutSummary();
+    }
+  });
 
   /* -------- DROP RAIL HORIZONTAL SCROLL WITH WHEEL -------- */
   const rail = document.querySelector('.drop-rail');
