@@ -286,21 +286,26 @@
     };
   }
 
-  function addToCart(id, color) {
+  function addToCart(id, color, size) {
     const data = getProductData(id);
     if (!data) return;
-    // Unique cart key when color variant present
-    const cartKey = color ? `${id}__${color}` : id;
+    // Build a unique cart key that encodes color + size variants
+    let cartKey = id;
+    if (color) cartKey += `__${color}`;
+    if (size && size !== 'ONE SIZE') cartKey += `__${size}`;
     const existing = cart.find(i => i.cartKey === cartKey);
     if (existing) {
       existing.qty += 1;
     } else {
-      cart.push({ ...data, cartKey, color: color || null, qty: 1 });
+      cart.push({ ...data, cartKey, color: color || null, size: size || null, qty: 1 });
     }
     saveCart();
     renderCart();
-    const label = color ? `${data.name} — ${color}` : data.name;
-    showToast(`+ ${label} ${i18n('dyn.addedSuffix', 'ADDED')}`);
+    // Toast label
+    const parts = [data.name];
+    if (color) parts.push(color);
+    if (size && size !== 'ONE SIZE') parts.push(size);
+    showToast(`+ ${parts.join(' — ')} ${i18n('dyn.addedSuffix', 'ADDED')}`);
     bumpCartIcon();
   }
 
@@ -353,13 +358,16 @@
       const colorTag = i.color
         ? `<span class="cart-item-color mono"><span class="cart-color-dot" data-color="${i.color.toLowerCase()}"></span>${i.color}</span>`
         : '';
+      const sizeTag = i.size && i.size !== 'ONE SIZE'
+        ? `<span class="cart-item-size mono">/ ${i.size}</span>`
+        : '';
       return `
       <div class="cart-item" data-key="${key}">
         <div class="cart-item-img" style="background-image:url('${i.img}');">${i.letter}</div>
         <div class="cart-item-info">
           <h4>${i.name}</h4>
           <span class="mono">DROP 04</span>
-          ${colorTag}
+          <div class="cart-item-variants">${colorTag}${sizeTag}</div>
           <span class="cart-item-price">${fmtPrice(i.price)}</span>
           <div class="cart-item-qty">
             <button class="qty-btn" data-act="dec" data-key="${key}" aria-label="Decrease">−</button>
@@ -517,10 +525,16 @@
   const pmColorSwatches = document.getElementById('pmColorSwatches');
   const pmColorSelected = document.getElementById('pmColorSelected');
   const pmColorError = document.getElementById('pmColorError');
+  const pmSizePicker = document.getElementById('pmSizePicker');
+  const pmSizeBtns = document.getElementById('pmSizeBtns');
+  const pmSizeSelected = document.getElementById('pmSizeSelected');
+  const pmSizeError = document.getElementById('pmSizeError');
+  const pmOneSize = document.getElementById('pmOneSize');
 
   let pmGalleryImages = [];
   let pmGalleryIndex = 0;
   let pmSelectedColor = null;
+  let pmSelectedSize = null;
 
   // Products that have color variants — matched by name substring (case-insensitive)
   const COLOR_VARIANT_PRODUCTS = {
@@ -529,6 +543,73 @@
   };
   // map display label → swatch data-color
   const COLOR_MAP = { 'BLACK': 'black', 'GREY': 'grey' };
+
+  // Size definitions: products with S/M/L/XL — oos:true = rupture de stock
+  const SIZE_VARIANT_PRODUCTS = {
+    'dragon zip hoodie':     [
+      { label: 'S',  oos: false },
+      { label: 'M',  oos: false },
+      { label: 'L',  oos: true  },
+      { label: 'XL', oos: false },
+    ],
+    'obsidian baggy jogger': [
+      { label: 'S',  oos: false },
+      { label: 'M',  oos: false },
+      { label: 'L',  oos: true  },
+      { label: 'XL', oos: false },
+    ],
+  };
+
+  function getSizes(productName) {
+    const lc = (productName || '').toLowerCase();
+    for (const [key, sizes] of Object.entries(SIZE_VARIANT_PRODUCTS)) {
+      const words = key.split(' ');
+      if (lc.includes(words[0]) && lc.includes(words[words.length - 1])) {
+        return sizes;
+      }
+    }
+    return null; // null = taille unique
+  }
+
+  function renderSizePicker(sizes) {
+    pmSelectedSize = null;
+    pmSizeSelected.textContent = '';
+    pmSizeError.classList.add('hidden');
+
+    if (sizes === null) {
+      // Taille unique — hide size picker, show one-size tag, auto-select
+      pmSizePicker.classList.add('hidden');
+      pmOneSize.classList.remove('hidden');
+      // Apply i18n to the tag right away
+      const tag = pmOneSize.querySelector('[data-i18n="pm.oneSize"]');
+      if (tag) tag.textContent = i18n('pm.oneSize', 'TAILLE UNIQUE');
+      pmSelectedSize = 'ONE SIZE';
+      return;
+    }
+
+    pmOneSize.classList.add('hidden');
+    pmSizePicker.classList.remove('hidden');
+    pmSizeBtns.innerHTML = sizes.map(s => {
+      const oosLabel = i18n('pm.outOfStock', 'OOS');
+      return `<button
+        class="pm-size-btn mono${s.oos ? ' is-oos' : ''}"
+        data-size="${s.label}"
+        ${s.oos ? 'disabled aria-disabled="true"' : ''}
+        title="${s.oos ? oosLabel : s.label}"
+        aria-label="${s.label}${s.oos ? ' — ' + oosLabel : ''}"
+      >${s.label}${s.oos ? `<span class="pm-size-oos-badge">${oosLabel}</span>` : ''}</button>`;
+    }).join('');
+
+    pmSizeBtns.querySelectorAll('.pm-size-btn:not(.is-oos)').forEach(btn => {
+      btn.addEventListener('click', () => {
+        pmSizeBtns.querySelectorAll('.pm-size-btn').forEach(b => b.classList.remove('is-selected'));
+        btn.classList.add('is-selected');
+        pmSelectedSize = btn.dataset.size;
+        pmSizeSelected.textContent = pmSelectedSize;
+        pmSizeError.classList.add('hidden');
+      });
+    });
+  }
 
   function getVariants(productName) {
     const lc = (productName || '').toLowerCase();
@@ -593,6 +674,10 @@
     const variants = getVariants(p.name);
     renderColorPicker(variants);
 
+    // Size variants
+    const sizes = getSizes(p.name);
+    renderSizePicker(sizes);
+
     // Gallery
     pmGalleryImages = Array.isArray(p.images) && p.images.length > 0
       ? p.images
@@ -615,16 +700,21 @@
       pmAdd.disabled = false;
       pmAdd.querySelector('span').textContent = i18n('pm.add', '+ ADD TO BAG');
       pmAdd.onclick = () => {
-        // If this product has variants, require color selection
+        // Require color if this product has color variants
         if (getVariants(p.name) && !pmSelectedColor) {
-          pmColorError.classList.remove('hidden');
-          pmColorPicker.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          // re-trigger shake animation
           pmColorError.classList.add('hidden');
           requestAnimationFrame(() => pmColorError.classList.remove('hidden'));
+          pmColorPicker.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           return;
         }
-        addToCart(p.id, pmSelectedColor);
+        // Require size if this product has size variants (getSizes !== null means real sizes, not one-size)
+        if (getSizes(p.name) !== null && !pmSelectedSize) {
+          pmSizeError.classList.add('hidden');
+          requestAnimationFrame(() => pmSizeError.classList.remove('hidden'));
+          pmSizePicker.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return;
+        }
+        addToCart(p.id, pmSelectedColor, pmSelectedSize);
         closeProductModal();
         openCart();
       };

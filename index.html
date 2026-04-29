@@ -790,7 +790,18 @@
         <div class="pm-color-picker hidden" id="pmColorPicker">
           <p class="mono small-label pm-color-label">/ <span data-i18n="pm.colorLabel">COLOR</span> — <span id="pmColorSelected"></span></p>
           <div class="pm-color-swatches" id="pmColorSwatches"></div>
-          <p class="pm-color-error hidden mono" id="pmColorError" data-i18n="pm.colorRequired">Please select a color first.</p>
+          <p class="pm-color-error hidden mono" id="pmColorError" data-i18n="pm.colorRequired">Sélectionne une couleur.</p>
+        </div>
+
+        <!-- SIZE PICKER (S/M/L/XL with OOS, or Taille Unique) -->
+        <div class="pm-size-picker hidden" id="pmSizePicker">
+          <p class="mono small-label pm-size-label">/ <span data-i18n="pm.sizeLabel">TAILLE</span> — <span id="pmSizeSelected"></span></p>
+          <div class="pm-size-btns" id="pmSizeBtns"></div>
+          <p class="pm-size-error hidden mono" id="pmSizeError" data-i18n="pm.sizeRequired">Sélectionne une taille.</p>
+        </div>
+        <div class="pm-one-size hidden" id="pmOneSize">
+          <p class="mono small-label">/ <span data-i18n="pm.sizeLabel">TAILLE</span></p>
+          <span class="pm-size-tag mono" data-i18n="pm.oneSize">TAILLE UNIQUE</span>
         </div>
 
         <button class="btn btn-fill pm-add" id="pmAdd">
