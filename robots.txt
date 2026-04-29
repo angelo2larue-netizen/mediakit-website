@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yukia.vercel.app/sitemap.xml
+
+# Disallow API routes (not for indexing)
+Disallow: /api/

@@ -78,4 +78,30 @@
 
   // First paint
   setTimeout(updateActive, 100);
+
+  /* -------- SCROLL-REVEAL for collab pages -------- */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  if (revealEls.length > 0) {
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach((el) => revealObs.observe(el));
+  }
+
+  /* -------- BENTO CARD mouse glow (collab pages) -------- */
+  document.querySelectorAll('.feature-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
 })();

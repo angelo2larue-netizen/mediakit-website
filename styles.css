@@ -2647,6 +2647,74 @@ a, button { -webkit-tap-highlight-color: transparent; }
   margin: 0 0 2rem;
   white-space: pre-line;
 }
+/* COLOR VARIANT PICKER */
+.pm-color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--line);
+}
+.pm-color-picker.hidden { display: none !important; }
+.pm-color-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  color: var(--grey);
+  margin: 0;
+}
+.pm-color-label span#pmColorSelected {
+  color: var(--cream);
+  font-style: normal;
+  transition: color 0.3s var(--ease);
+}
+.pm-color-swatches {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.pm-swatch {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    border-color 0.3s var(--ease),
+    transform 0.3s var(--ease-bounce);
+}
+.pm-swatch:hover { transform: scale(1.12); }
+.pm-swatch.is-selected {
+  border-color: var(--lime);
+  transform: scale(1.08);
+  box-shadow: 0 0 0 3px rgba(200, 255, 0, 0.25);
+}
+.pm-swatch[data-color="black"] { background: #0e0d0b; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15); }
+.pm-swatch[data-color="grey"]  { background: #888; }
+.pm-swatch::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.3s var(--ease);
+}
+.pm-swatch.is-selected::after { border-color: rgba(200, 255, 0, 0.4); }
+.pm-color-error {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--pink);
+  margin: 0;
+  animation: shakeErr 0.4s var(--ease);
+}
+.pm-color-error.hidden { display: none !important; }
+@keyframes shakeErr {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  60%       { transform: translateX(6px); }
+  80%       { transform: translateX(-3px); }
+}
+
 .pm-add {
   align-self: flex-start;
 }
@@ -3386,4 +3454,299 @@ body.collab-page main { padding-top: 120px; }
   .process-steps { grid-template-columns: repeat(2, 1fr); }
   .collab-cta { padding: 0 1.5rem 5rem; }
   .collab-cta-inner { flex-direction: column; padding: 2.5rem 2rem; text-align: center; }
+  .collab-cta [data-legal-lang] { padding: 2.5rem 2rem; text-align: center; }
+}
+
+/* ============================================================
+   COLLAB PAGES — HTML class aliases + micro-animations
+   Matches the actual class names generated in the collab HTML
+   ============================================================ */
+
+/* ---- Page-specific accent color ---- */
+body.page-influencers { --page-accent: var(--lime);   --page-accent-rgb: 200,255,0;   }
+body.page-collabs     { --page-accent: var(--pink);   --page-accent-rgb: 255,45,135;  }
+body.page-editorial   { --page-accent: var(--cyan);   --page-accent-rgb: 0,229,255;   }
+body.page-wholesale   { --page-accent: var(--orange); --page-accent-rgb: 255,91,31;   }
+
+/* ---- Hero ambient glow using CSS pseudo-element ---- */
+.collab-hero {
+  position: relative;
+}
+.collab-hero::before {
+  content: '';
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  top: -220px;
+  right: -180px;
+  background: radial-gradient(circle, var(--page-accent, var(--lime)) 0%, transparent 68%);
+  filter: blur(130px);
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+}
+/* Second glow blob bottom-left */
+.collab-hero::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  bottom: -100px;
+  left: -80px;
+  background: radial-gradient(circle, var(--page-accent, var(--lime)) 0%, transparent 70%);
+  filter: blur(100px);
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- collab-lead (same as .hero-lead) ---- */
+.collab-lead {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--cream-dim);
+  max-width: 640px;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
+}
+
+/* ---- collab-stat + collab-stat-num ---- */
+.collab-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.collab-stat-num {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  transition: text-shadow 0.45s var(--ease);
+}
+.collab-stat:hover .collab-stat-num {
+  text-shadow: 0 0 24px rgba(var(--page-accent-rgb, 200,255,0), 0.7);
+}
+.collab-stat .small-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: var(--grey);
+}
+
+/* ---- features-head (same as .collab-features-head) ---- */
+.features-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+.features-head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.collab-subtitle {
+  max-width: 380px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--cream-dim);
+  font-weight: 300;
+  text-align: right;
+}
+
+/* ---- feature-num (same as .fc-num) ---- */
+.feature-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--page-accent, var(--lime));
+  display: block;
+}
+
+/* ---- Feature card inner glow on hover ---- */
+.feature-card {
+  position: relative;
+  overflow: hidden;
+}
+.feature-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(ellipse at 30% 20%, rgba(var(--page-accent-rgb, 200,255,0), 0.12), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+  pointer-events: none;
+}
+.feature-card:hover::after {
+  opacity: 1;
+}
+.feature-card:hover {
+  border-color: rgba(var(--page-accent-rgb, 200,255,0), 0.25);
+}
+
+/* ---- process-num (same as .step-num) ---- */
+.process-num {
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--line-strong);
+  transition: color 0.5s var(--ease);
+  display: block;
+}
+.process-step:hover .process-num {
+  color: var(--page-accent, var(--lime));
+}
+
+/* Process step accent bar */
+.process-step {
+  position: relative;
+  padding-top: 1.5rem;
+}
+.process-step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--line-strong);
+  transition: width 0.45s var(--ease), background 0.45s var(--ease);
+}
+.process-step:hover::before {
+  width: 56px;
+  background: var(--page-accent, var(--lime));
+}
+
+/* ---- CTA section ---- */
+/* The HTML doesn't use .collab-cta-inner — lang divs are direct children */
+.collab-cta [data-legal-lang] {
+  padding: 4rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(135deg,
+    rgba(var(--page-accent-rgb, 200,255,0), 0.05),
+    rgba(255,255,255,0.01));
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  transition: border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+.collab-cta [data-legal-lang]:hover {
+  border-color: rgba(var(--page-accent-rgb, 200,255,0), 0.2);
+  box-shadow: 0 0 60px rgba(var(--page-accent-rgb, 200,255,0), 0.05);
+}
+.collab-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+.collab-cta p {
+  font-size: 1rem;
+  color: var(--cream-dim);
+  font-weight: 300;
+  max-width: 52ch;
+}
+/* CTA .btn inside collab-cta gets lime treatment by default */
+.collab-cta .btn {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1rem 2rem;
+  background: var(--page-accent, var(--lime));
+  color: var(--bg) !important;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  transition:
+    background 0.4s var(--ease),
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+.collab-cta .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(var(--page-accent-rgb, 200,255,0), 0.3);
+  filter: brightness(1.1);
+}
+
+/* ---- dot-accent color override per page ---- */
+body.page-collabs   .dot-accent { color: var(--pink);   text-shadow: 0 0 4px rgba(255,45,135,0.5),  0 0 18px rgba(255,45,135,0.3); }
+body.page-editorial .dot-accent { color: var(--cyan);   text-shadow: 0 0 4px rgba(0,229,255,0.5),   0 0 18px rgba(0,229,255,0.3); }
+body.page-wholesale .dot-accent { color: var(--orange); text-shadow: 0 0 4px rgba(255,91,31,0.5),   0 0 18px rgba(255,91,31,0.3); }
+
+/* ---- Blinking live dot for collab pages ---- */
+.collab-blink {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.4rem;
+  background: var(--page-accent, var(--lime));
+  box-shadow: 0 0 6px var(--page-accent, var(--lime));
+  animation: collabBlink 1.8s ease-in-out infinite;
+}
+@keyframes collabBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.2; transform: scale(0.65); }
+}
+
+/* ---- Scroll-reveal animation ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s var(--ease), transform 0.75s var(--ease);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal][data-delay="1"] { transition-delay: 0.08s; }
+[data-reveal][data-delay="2"] { transition-delay: 0.16s; }
+[data-reveal][data-delay="3"] { transition-delay: 0.24s; }
+[data-reveal][data-delay="4"] { transition-delay: 0.32s; }
+[data-reveal][data-delay="5"] { transition-delay: 0.40s; }
+
+/* ---- Hero meta pulse ---- */
+.collab-hero-meta .legal-slash {
+  position: relative;
+  overflow: hidden;
+}
+.collab-hero-meta .legal-slash::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--page-accent, var(--lime));
+  animation: slashSweep 3s ease-in-out infinite 1.2s;
+  opacity: 0.6;
+}
+@keyframes slashSweep {
+  0%   { left: -100%; }
+  40%  { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* ---- Mobile tweaks ---- */
+@media (max-width: 768px) {
+  .features-head { flex-direction: column; align-items: flex-start; }
+  .collab-subtitle { text-align: left; }
+  .collab-cta [data-legal-lang] { padding: 2.5rem 2rem; }
+  .collab-cta .btn { align-self: center; }
 }

@@ -3,8 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>YUKIA® — Wear The Future / Drop 04 Loading</title>
-  <meta name="description" content="YUKIA® — Premium streetwear for the next generation. Limited drops. No restock. Ever." />
+
+  <!-- Primary SEO -->
+  <title>YUKIA® — Streetwear Premium | Drop 04 PHANTOM Live Now</title>
+  <meta name="description" content="YUKIA® est une marque de streetwear premium en édition limitée. 200 pièces par drop, aucun restock. Drop 04 PHANTOM disponible maintenant. Tokyo × Paris." />
+  <meta name="keywords" content="YUKIA, yukia streetwear, yukia brand, yukia drop, streetwear premium, limited edition streetwear, drop 04, phantom hoodie, streetwear Paris, streetwear Tokyo" />
+  <meta name="author" content="YUKIA Studio" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://yukia.vercel.app/" />
+
+  <!-- Open Graph (réseaux sociaux + Google Rich Preview) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="YUKIA®" />
+  <meta property="og:title" content="YUKIA® — Streetwear Premium | Drop 04 PHANTOM" />
+  <meta property="og:description" content="200 pièces. Aucun restock. Le drop 04 PHANTOM est live maintenant. YUKIA® — streetwear premium né à Tokyo, conçu à Paris." />
+  <meta property="og:url" content="https://yukia.vercel.app/" />
+  <meta property="og:image" content="https://yukia.vercel.app/assets/images/manifesto.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:locale:alternate" content="en_GB" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="YUKIA® — Streetwear Premium | Drop 04 PHANTOM" />
+  <meta name="twitter:description" content="200 pièces. Aucun restock. Le drop 04 est live. YUKIA® streetwear premium." />
+  <meta name="twitter:image" content="https://yukia.vercel.app/assets/images/manifesto.jpg" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "YUKIA®",
+    "alternateName": "YUKIA",
+    "url": "https://yukia.vercel.app",
+    "description": "Marque de streetwear premium en édition limitée. 200 pièces par drop, aucun restock. Né à Tokyo, conçu à Paris.",
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Tokyo, Japan"
+    },
+    "areaServed": "Worldwide",
+    "brand": {
+      "@type": "Brand",
+      "name": "YUKIA",
+      "logo": "https://yukia.vercel.app/assets/images/logo.png"
+    },
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@yukia.studio",
+      "contactType": "customer support",
+      "availableLanguage": ["English", "French", "Spanish", "Portuguese", "Dutch"]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Drop 04 — PHANTOM",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Dragon Zip Hoodie",
+          "description": "Hoodie zippé premium édition limitée YUKIA® Drop 04",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "EUR",
+          "seller": { "@type": "Organization", "name": "YUKIA Studio" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Obsidian Baggy Jogger",
+          "description": "Jogger baggy premium édition limitée YUKIA® Drop 04",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "EUR",
+          "seller": { "@type": "Organization", "name": "YUKIA Studio" }
+        }
+      ]
+    }
+  }
+  </script>
+
   <meta name="theme-color" content="#0a0908" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -709,6 +785,14 @@
         <p class="pm-subtitle mono" id="pmSubtitle">DROP 04</p>
         <div class="pm-price" id="pmPrice">€0</div>
         <p class="pm-description" id="pmDescription"></p>
+
+        <!-- COLOR VARIANT PICKER (shown only for products with variants) -->
+        <div class="pm-color-picker hidden" id="pmColorPicker">
+          <p class="mono small-label pm-color-label">/ <span data-i18n="pm.colorLabel">COLOR</span> — <span id="pmColorSelected"></span></p>
+          <div class="pm-color-swatches" id="pmColorSwatches"></div>
+          <p class="pm-color-error hidden mono" id="pmColorError" data-i18n="pm.colorRequired">Please select a color first.</p>
+        </div>
+
         <button class="btn btn-fill pm-add" id="pmAdd">
           <span data-i18n="pm.add">+ ADD TO BAG</span>
           <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="square"/></svg>

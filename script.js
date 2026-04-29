@@ -286,33 +286,36 @@
     };
   }
 
-  function addToCart(id) {
+  function addToCart(id, color) {
     const data = getProductData(id);
     if (!data) return;
-    const existing = cart.find(i => i.id === id);
+    // Unique cart key when color variant present
+    const cartKey = color ? `${id}__${color}` : id;
+    const existing = cart.find(i => i.cartKey === cartKey);
     if (existing) {
       existing.qty += 1;
     } else {
-      cart.push({ ...data, qty: 1 });
+      cart.push({ ...data, cartKey, color: color || null, qty: 1 });
     }
     saveCart();
     renderCart();
-    showToast(`+ ${data.name} ${i18n('dyn.addedSuffix', 'ADDED')}`);
+    const label = color ? `${data.name} — ${color}` : data.name;
+    showToast(`+ ${label} ${i18n('dyn.addedSuffix', 'ADDED')}`);
     bumpCartIcon();
   }
 
-  function removeFromCart(id) {
-    cart = cart.filter(i => i.id !== id);
+  function removeFromCart(cartKey) {
+    cart = cart.filter(i => (i.cartKey || i.id) !== cartKey);
     saveCart();
     renderCart();
   }
 
-  function updateQty(id, delta) {
-    const item = cart.find(i => i.id === id);
+  function updateQty(cartKey, delta) {
+    const item = cart.find(i => (i.cartKey || i.id) === cartKey);
     if (!item) return;
     item.qty += delta;
     if (item.qty <= 0) {
-      removeFromCart(id);
+      removeFromCart(cartKey);
       return;
     }
     saveCart();
@@ -345,34 +348,40 @@
     }
 
     // Items
-    cartItemsEl.innerHTML = cart.map(i => `
-      <div class="cart-item" data-id="${i.id}">
+    cartItemsEl.innerHTML = cart.map(i => {
+      const key = i.cartKey || i.id;
+      const colorTag = i.color
+        ? `<span class="cart-item-color mono"><span class="cart-color-dot" data-color="${i.color.toLowerCase()}"></span>${i.color}</span>`
+        : '';
+      return `
+      <div class="cart-item" data-key="${key}">
         <div class="cart-item-img" style="background-image:url('${i.img}');">${i.letter}</div>
         <div class="cart-item-info">
           <h4>${i.name}</h4>
           <span class="mono">DROP 04</span>
+          ${colorTag}
           <span class="cart-item-price">${fmtPrice(i.price)}</span>
           <div class="cart-item-qty">
-            <button class="qty-btn" data-act="dec" data-id="${i.id}" aria-label="Decrease">−</button>
+            <button class="qty-btn" data-act="dec" data-key="${key}" aria-label="Decrease">−</button>
             <span class="qty-val">${i.qty}</span>
-            <button class="qty-btn" data-act="inc" data-id="${i.id}" aria-label="Increase">+</button>
+            <button class="qty-btn" data-act="inc" data-key="${key}" aria-label="Increase">+</button>
           </div>
         </div>
         <div class="cart-item-side">
-          <button class="cart-item-remove" data-act="rm" data-id="${i.id}" aria-label="Remove">×</button>
+          <button class="cart-item-remove" data-act="rm" data-key="${key}" aria-label="Remove">×</button>
           <span class="cart-item-price">${fmtPrice(i.price * i.qty)}</span>
         </div>
       </div>
-    `).join('');
+    `}).join('');
 
     // Bind item buttons
     cartItemsEl.querySelectorAll('[data-act]').forEach(btn => {
       btn.addEventListener('click', () => {
-        const id = btn.dataset.id;
+        const key = btn.dataset.key;
         const act = btn.dataset.act;
-        if (act === 'inc') updateQty(id, 1);
-        else if (act === 'dec') updateQty(id, -1);
-        else if (act === 'rm') removeFromCart(id);
+        if (act === 'inc') updateQty(key, 1);
+        else if (act === 'dec') updateQty(key, -1);
+        else if (act === 'rm') removeFromCart(key);
       });
     });
 
@@ -504,9 +513,56 @@
   const pmPrev = document.getElementById('pmPrev');
   const pmNext = document.getElementById('pmNext');
   const pmThumbs = document.getElementById('pmThumbs');
+  const pmColorPicker = document.getElementById('pmColorPicker');
+  const pmColorSwatches = document.getElementById('pmColorSwatches');
+  const pmColorSelected = document.getElementById('pmColorSelected');
+  const pmColorError = document.getElementById('pmColorError');
 
   let pmGalleryImages = [];
   let pmGalleryIndex = 0;
+  let pmSelectedColor = null;
+
+  // Products that have color variants — matched by name substring (case-insensitive)
+  const COLOR_VARIANT_PRODUCTS = {
+    'dragon zip hoodie':   ['BLACK', 'GREY'],
+    'obsidian baggy jogger': ['BLACK', 'GREY'],
+  };
+  // map display label → swatch data-color
+  const COLOR_MAP = { 'BLACK': 'black', 'GREY': 'grey' };
+
+  function getVariants(productName) {
+    const lc = (productName || '').toLowerCase();
+    for (const [key, colors] of Object.entries(COLOR_VARIANT_PRODUCTS)) {
+      if (lc.includes(key.split(' ')[0]) && lc.includes(key.split(' ')[key.split(' ').length - 1])) {
+        return colors;
+      }
+    }
+    return null;
+  }
+
+  function renderColorPicker(variants) {
+    pmSelectedColor = null;
+    pmColorSelected.textContent = '';
+    pmColorError.classList.add('hidden');
+    if (!variants || variants.length === 0) {
+      pmColorPicker.classList.add('hidden');
+      pmColorSwatches.innerHTML = '';
+      return;
+    }
+    pmColorPicker.classList.remove('hidden');
+    pmColorSwatches.innerHTML = variants.map(v =>
+      `<button class="pm-swatch" data-color="${COLOR_MAP[v]}" data-label="${v}" title="${v}" aria-label="${v}"></button>`
+    ).join('');
+    pmColorSwatches.querySelectorAll('.pm-swatch').forEach(sw => {
+      sw.addEventListener('click', () => {
+        pmColorSwatches.querySelectorAll('.pm-swatch').forEach(s => s.classList.remove('is-selected'));
+        sw.classList.add('is-selected');
+        pmSelectedColor = sw.dataset.label;
+        pmColorSelected.textContent = pmSelectedColor;
+        pmColorError.classList.add('hidden');
+      });
+    });
+  }
 
   function pmShowImage(idx) {
     if (pmGalleryImages.length === 0) {
@@ -533,6 +589,10 @@
     pmDescription.textContent = p.description || '';
     pmDescription.style.display = p.description ? '' : 'none';
 
+    // Color variants
+    const variants = getVariants(p.name);
+    renderColorPicker(variants);
+
     // Gallery
     pmGalleryImages = Array.isArray(p.images) && p.images.length > 0
       ? p.images
@@ -555,7 +615,16 @@
       pmAdd.disabled = false;
       pmAdd.querySelector('span').textContent = i18n('pm.add', '+ ADD TO BAG');
       pmAdd.onclick = () => {
-        addToCart(p.id);
+        // If this product has variants, require color selection
+        if (getVariants(p.name) && !pmSelectedColor) {
+          pmColorError.classList.remove('hidden');
+          pmColorPicker.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          // re-trigger shake animation
+          pmColorError.classList.add('hidden');
+          requestAnimationFrame(() => pmColorError.classList.remove('hidden'));
+          return;
+        }
+        addToCart(p.id, pmSelectedColor);
         closeProductModal();
         openCart();
       };
@@ -791,14 +860,19 @@
     rail.addEventListener('wheel', (e) => {
       if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
         const rect = rail.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        if (inView) {
-          // only hijack if rail is fully visible
-          const fullyVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-          if (fullyVisible) {
+        const fullyVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+        if (fullyVisible) {
+          const maxScroll = rail.scrollWidth - rail.clientWidth;
+          const scrollingRight = e.deltaY > 0;
+          const scrollingLeft  = e.deltaY < 0;
+          // Only intercept if there is still horizontal content to scroll through
+          const canScrollRight = scrollingRight && rail.scrollLeft < maxScroll - 1;
+          const canScrollLeft  = scrollingLeft  && rail.scrollLeft > 1;
+          if (canScrollRight || canScrollLeft) {
             e.preventDefault();
             rail.scrollLeft += e.deltaY;
           }
+          // Otherwise fall through → browser scrolls the page naturally
         }
       }
     }, { passive: false });
